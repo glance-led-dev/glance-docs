@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 210" font-family="Montserrat, Segoe UI, sans-serif">
+<rect width="720" height="210" rx="14" fill="#0b0f0e"/>
+<rect x="1" y="1" width="718" height="208" rx="13" fill="none" stroke="#1c2420"/>
+<text x="40" y="38" fill="#e6e9e7" font-size="17" font-weight="800"><tspan fill="#7dd3fc">c.bitmap</tspan>(HEART, x, y, color=<tspan fill="#a6e3a1">"green"</tspan>)</text>
+<rect x="40" y="70" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="54" y="89" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="68" y="70" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="82" y="89" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="96" y="70" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="110" y="89" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="124" y="70" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="138" y="89" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="152" y="70" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="166" y="89" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="40" y="98" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="54" y="117" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="68" y="98" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="82" y="117" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="96" y="98" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="110" y="117" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="124" y="98" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="138" y="117" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="152" y="98" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="166" y="117" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="40" y="126" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="54" y="145" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="68" y="126" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="82" y="145" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="96" y="126" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="110" y="145" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="124" y="126" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="138" y="145" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="152" y="126" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="166" y="145" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="40" y="154" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="54" y="173" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="68" y="154" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="82" y="173" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="96" y="154" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="110" y="173" fill="#2bff6e" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">1</text>
+<rect x="124" y="154" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="138" y="173" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<rect x="152" y="154" width="28" height="28" fill="#0f1512" stroke="#243029"/>
+<text x="166" y="173" fill="#4a5350" font-size="14" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">0</text>
+<text x="110" y="204" fill="#8b90a0" font-size="12" text-anchor="middle">your grid: 0 = off, 1 = on</text>
+<path d="M196 126 H390" stroke="#2bff6e" stroke-width="3" fill="none"/>
+<path d="M386 120 l10 6 l-10 6 z" fill="#2bff6e"/>
+<rect x="410" y="70" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="438" y="70" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="442" y="74" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="466" y="70" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="494" y="70" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="498" y="74" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="522" y="70" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="410" y="98" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="414" y="102" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="438" y="98" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="442" y="102" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="466" y="98" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="470" y="102" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="494" y="98" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="498" y="102" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="522" y="98" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="526" y="102" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="410" y="126" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="438" y="126" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="442" y="130" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="466" y="126" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="470" y="130" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="494" y="126" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="498" y="130" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="522" y="126" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="410" y="154" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="438" y="154" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="466" y="154" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="470" y="158" width="20" height="20" rx="3" fill="#00ff00"/>
+<rect x="494" y="154" width="28" height="28" fill="#000" stroke="#10140f"/>
+<rect x="522" y="154" width="28" height="28" fill="#000" stroke="#10140f"/>
+<text x="480" y="204" fill="#8b90a0" font-size="12" text-anchor="middle">the pixels it lights</text>
+</svg>

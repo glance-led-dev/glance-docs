@@ -1,0 +1,166 @@
+---
+sidebar_position: 8
+title: 'API Example: Bitcoin price'
+sidebar_label: 'API Example: Bitcoin'
+---
+
+# API Example: Bitcoin price
+
+A step past a static sign: a live Bitcoin price with a 24-hour trend, fetched
+from the free CoinGecko API with one `http.get` call. Along the way you'll import a
+logo, make an HTTP request, and parse a JSON response, the three things every
+live-data app does.
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/btc.png" alt="Bitcoin price panel: logo, live price, sparkline, and 24h change" width="380" />
+  <figcaption>Rendered from a live fetch (128×32, shown enlarged). Your price will differ.</figcaption>
+</figure>
+
+## How live data reaches a GDN app
+
+Your `app.star` runs in a sandbox, so it can't open a socket itself. Instead it
+calls **`http.get(url)`** and the **GDN host** performs the real request on its
+behalf, with a hard 10-second timeout and built-in caching, then hands the response
+back as plain data. From your code's point of view it's one function call:
+
+1. You declare an API key input. The user pastes their CoinGecko key once, in
+   the Glance app, and it reaches your code as `ctx.inputs["api_key"]`.
+2. Your app calls `http.get(...)`, passing the key in a header.
+3. Your app parses the JSON in the response and draws it.
+
+The full details are on the [HTTP requests](/docs/reference/http) reference page.
+
+## The data
+
+CoinGecko's simple price endpoint:
+
+```
+https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true
+```
+
+It returns a small JSON object:
+
+```json
+{ "bitcoin": { "usd": 63039, "usd_24h_change": 1.32 } }
+```
+
+## 1. The manifest
+
+Declare the key input and the logo asset:
+
+```yaml
+gdn: 1
+id: btc
+name: Bitcoin Price
+width: 128
+height: 32
+refresh: 300            # re-check the price every 5 minutes
+pages: [main]
+assets:
+  - btc.png             # the logo we draw
+inputs:
+  - key: api_key
+    app_input_type: free-text
+    type: string
+    label: API key
+    help: Your CoinGecko API key. Optional for this endpoint; raises rate limits.
+```
+
+## 2. The logo
+
+Save this as `btc.png` next to `app.star`:
+
+<figure className="figure">
+  <div className="led" style={{maxWidth: 90, margin: '0 auto'}}><img src="/img/examples/btc-logo.png" alt="Bitcoin logo asset" /></div>
+  <figcaption>A 24×24 PNG with a transparent background. Any small transparent PNG works, see <a href="/docs/guides/working-with-images">Working with images</a>.</figcaption>
+</figure>
+
+## 3. Fetch, parse, draw
+
+This is the complete `app.star`:
+
+```python
+URL = "https://api.coingecko.com/api/v3/simple/price"
+
+def main(c, ctx):
+    c.clear()
+    c.image("btc.png", 1, 4)
+
+    # An API key is optional here; if the user pasted one, send it along.
+    key = ctx.inputs.get("api_key", "")
+    headers = {"x-cg-demo-api-key": key} if key else {}
+
+    resp = http.get(URL, params = {
+        "ids": "bitcoin",
+        "vs_currencies": "usd",
+        "include_24hr_change": "true",
+    }, headers = headers, ttl_seconds = 300)
+
+    data = resp["json"]
+    if resp["status_code"] != 200 or data == None:
+        c.text("BTC: NO DATA", 76, 9, font = "5x7", color = "red", align = "center")
+        c.text("HTTP " + str(resp["status_code"]), 76, 19, font = "4x5",
+               color = "gray", align = "center")
+        return
+
+    price = int(data["bitcoin"]["usd"])
+    change = data["bitcoin"]["usd_24h_change"]   # percent, e.g. 2.4 or -1.3
+    up = change >= 0
+    col = "green" if up else "red"
+
+    c.text("BTC/USD", 28, 3, font = "4x5", color = "amber")
+    c.text_fit("$" + fmt.commas(price), 28, 10, ["8x12", "6x8"],
+               color = "white", maxw = 62)
+
+    # This endpoint returns no history, so sketch the 24h move as a ramp from
+    # yesterday's derived price to now. Direction and size are real.
+    prev = price / (1.0 + change / 100.0)
+    spark = [prev + (price - prev) * i / 11.0 for i in range(12)]
+    c.sparkline(spark, 92, 3, 34, 13, color = col, fill = color.dim(col, 30))
+
+    pct = ("+" if up else "") + str(int(change * 10) / 10.0) + "%"
+    c.trend_arrow(92, 22, change, color = col)
+    c.text(pct, 126, 22, font = "4x5", color = col, align = "right")
+```
+
+The pieces:
+
+- **`http.get(URL, params=..., headers=..., ttl_seconds=300)`** does the fetch. The
+  query parameters are appended to the URL for you, and the response is cached for
+  5 minutes so repeated renders don't refetch. See
+  [HTTP requests](/docs/reference/http).
+- **Check before you draw.** `resp["status_code"] != 200 or data == None` catches a
+  down API, a timeout (`status_code` is `0`), and a non-JSON body, and draws a
+  clear fallback instead of crashing.
+- **`resp["json"]`** is the response already decoded; `data["bitcoin"]["usd"]`
+  reads a field, exactly like the JSON shape above.
+- **`fmt.commas(price)`** groups the thousands (`63039` becomes `63,039`), and
+  **`c.text_fit`** picks the biggest font that fits, so a six-figure price
+  gracefully drops to a smaller font.
+- **`c.image`**, **`c.sparkline`**, and **`c.trend_arrow`** draw the logo, the mini
+  chart, and the up/down arrow. See [Helper functions](/docs/reference/helper-functions).
+
+## 4. Render it
+
+```bash
+gdn preview examples/btc
+```
+
+Or render a page straight to a PNG, exactly what produced the image at the top of
+this page:
+
+```bash
+python -m gdn render examples/btc --page 1 --out btc.png
+```
+
+Run it twice: the second render is instant because the response is served from the
+cache for `ttl_seconds`. Unplug the network and it still renders (from cache), and
+once the cache expires you get the "NO DATA" fallback instead of a crash.
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/reference/http"><h3>HTTP requests</h3><p>The full <code>http.get</code> contract: caching, timeouts, errors.</p></a>
+  <a className="card" href="/docs/reference/helper-functions"><h3>Helper functions</h3><p>Sparklines, badges, trend arrows, icons.</p></a>
+  <a className="card" href="/docs/guides/inputs-and-config"><h3>Inputs &amp; API keys</h3><p>How keys are stored and used.</p></a>
+</div>

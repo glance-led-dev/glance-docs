@@ -1,0 +1,121 @@
+---
+sidebar_position: 3
+title: CLI commands
+sidebar_label: CLI commands
+---
+
+# CLI commands
+
+These commands are the terminal equivalent of [Glance Dev Studio](/docs/studio), for
+people who prefer the command line. Each one points at an app folder and does a single
+job: scaffold it, preview it, check it, or render it. This page walks through the ones
+you'll reach for day to day, then lists every command and flag at the end.
+
+## `gdn new`
+
+Scaffold a new app folder, both `manifest.yaml` and `app.star`, from a working template,
+so you never start from a blank file.
+
+```bash
+gdn new apps/my-app
+```
+
+## `gdn studio`
+
+Open Glance Dev Studio: an editor and a live preview in one browser window, so you edit
+code on the left and watch the panel update on the right.
+
+```bash
+gdn studio apps/my-app
+```
+
+## `gdn preview`
+
+Open a browser preview that re-renders every time you save, with a form for your inputs.
+Use it next to your own editor when you don't want the full Studio.
+
+```bash
+gdn preview apps/my-app
+```
+
+## `gdn validate`
+
+Check that an app renders and passes the safety check, the same check publishing runs.
+Add `--all` to validate every app in the repo before you open a pull request.
+
+```bash
+gdn validate apps/my-app
+gdn validate --all
+```
+
+## `gdn build`
+
+Render every page to a PNG plus the panel's `.bin` file. Pass input values with
+`--input key=value`.
+
+```bash
+gdn build apps/local-aqi --input zip=10001
+```
+
+## `gdn render`
+
+Render a single page straight to a PNG, handy for a thumbnail or a quick spot check.
+
+```bash
+gdn render apps/world-clock --page 2 --input zip=90210 --out clock.png
+```
+
+## `gdn check`
+
+Run a quick one-shot check: validate the app and render its pages, so common mistakes
+(uppercase-only text, an unguarded `http.get`, a missing asset) surface in seconds.
+
+```bash
+gdn check apps/my-app
+```
+
+## Full command reference
+
+Every command in one place. Run `gdn <command> --help` for details on any of them.
+
+| Command | What it does |
+|---|---|
+| `gdn new <dir>` | Scaffold a new app folder (both files) from the template. |
+| `gdn preview [dir]` | Live browser preview of an app, with an inputs form. |
+| `gdn studio [dir]` | Editor and live preview in one window. |
+| `gdn build [dir] --input k=v` | Render every page to PNG plus the panel's `.bin`. |
+| `gdn render [dir] --page N --input k=v` | Render one page to a PNG. |
+| `gdn validate [dir] [--all]` | Check that an app (or every app) renders and passes the safety check. |
+| `gdn fonts` | List the 37 bundled bitmap fonts. |
+| `gdn version` | Print the version. |
+
+The `[dir]` is optional and defaults to the current folder. `gdn studio` on its own
+opens your apps with a picker, so from the project folder you never have to name one. Or
+just double-click the launcher for your system in the project folder: `studio.bat`
+(Windows), `studio.command` (macOS), or `studio.sh` (Linux).
+
+### Examples
+
+```bash
+# open Studio (opens your apps with a picker, no app name needed)
+gdn studio
+
+# start a new app and preview it
+gdn new apps/my-app
+gdn preview apps/my-app
+
+# build with specific input values
+gdn build apps/local-aqi --input zip=10001
+
+# render just page 2 to a file
+gdn render apps/world-clock --page 2 --input zip=90210 --out clock.png
+
+# validate everything before a PR
+gdn validate --all
+```
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/studio"><h3>Glance Dev Studio</h3><p>The same workflow in a GUI.</p></a>
+</div>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="960" height="540" rx="14" fill="#0e1211"/>
+  <!-- title bar -->
+  <rect width="960" height="46" rx="14" fill="#0a0d0c"/>
+  <rect y="30" width="960" height="16" fill="#0a0d0c"/>
+  <circle cx="24" cy="23" r="6" fill="#ef4444"/><circle cx="44" cy="23" r="6" fill="#f7990f"/><circle cx="64" cy="23" r="6" fill="#22c55e"/>
+  <text x="480" y="28" text-anchor="middle" fill="#a7b0ab" font-size="13" font-weight="600">GDN — app generator</text>
+
+  <!-- header -->
+  <text x="28" y="82" fill="#e6e9e7" font-size="20" font-weight="800">Create a GDN app</text>
+  <text x="28" y="104" fill="#8b90a0" font-size="12.5">The grey text in each box is an example. Fill it in and click Generate.</text>
+
+  <!-- LEFT: form -->
+  <g transform="translate(28 120)">
+    <rect width="470" height="140" rx="10" fill="#131917" stroke="#243029"/>
+    <text x="16" y="26" fill="#e6e9e7" font-size="13" font-weight="700">About the app</text>
+    <!-- fields -->
+    <g font-size="11.5">
+      <text x="16" y="52" fill="#a7b0ab">App id</text>
+      <rect x="120" y="40" width="330" height="20" rx="5" fill="#0c100e" stroke="#2a352e"/>
+      <text x="128" y="54" fill="#e6e9e7">local-aqi</text>
+      <text x="16" y="80" fill="#a7b0ab">Name</text>
+      <rect x="120" y="68" width="330" height="20" rx="5" fill="#0c100e" stroke="#2a352e"/>
+      <text x="128" y="82" fill="#e6e9e7">Local AQI</text>
+      <text x="16" y="108" fill="#a7b0ab">Pages</text>
+      <rect x="120" y="96" width="330" height="20" rx="5" fill="#0c100e" stroke="#2a352e"/>
+      <text x="128" y="110" fill="#e6e9e7">now, health</text>
+    </g>
+
+    <!-- input row card -->
+    <rect y="156" width="470" height="118" rx="10" fill="#131917" stroke="#243029"/>
+    <text x="16" y="182" fill="#e6e9e7" font-size="13" font-weight="700">Settings the user fills in</text>
+    <g font-size="10.5" fill="#8b90a0">
+      <text x="16" y="204">key</text><text x="150" y="204">widget</text><text x="330" y="204">default</text>
+    </g>
+    <rect x="16" y="210" width="120" height="20" rx="5" fill="#0c100e" stroke="#2a352e"/>
+    <text x="24" y="224" fill="#e6e9e7" font-size="11.5">zip</text>
+    <rect x="150" y="210" width="160" height="20" rx="5" fill="#0c100e" stroke="#2bff6e"/>
+    <text x="158" y="224" fill="#2bff6e" font-size="11.5">free-text</text>
+    <text x="296" y="224" fill="#2bff6e" font-size="12">▾</text>
+    <rect x="330" y="210" width="120" height="20" rx="5" fill="#0c100e" stroke="#2a352e"/>
+    <text x="338" y="224" fill="#e6e9e7" font-size="11.5">90210</text>
+    <rect x="16" y="242" width="120" height="22" rx="6" fill="none" stroke="#2bff6e"/>
+    <text x="76" y="257" text-anchor="middle" fill="#2bff6e" font-size="11" font-weight="600">+ Add setting</text>
+  </g>
+
+  <!-- RIGHT: live YAML -->
+  <g transform="translate(520 120)">
+    <text x="0" y="12" fill="#8b90a0" font-size="12">This becomes apps/&lt;id&gt;/manifest.yaml</text>
+    <rect y="22" width="412" height="290" rx="10" fill="#0a0d0c" stroke="#243029"/>
+    <g font-family="JetBrains Mono, monospace" font-size="12">
+      <text x="16" y="48"><tspan fill="#7dd3fc">gdn</tspan><tspan fill="#e6e9e7">: 1</tspan></text>
+      <text x="16" y="70"><tspan fill="#7dd3fc">id</tspan><tspan fill="#e6e9e7">: local-aqi</tspan></text>
+      <text x="16" y="92"><tspan fill="#7dd3fc">name</tspan><tspan fill="#e6e9e7">: Local AQI</tspan></text>
+      <text x="16" y="114"><tspan fill="#7dd3fc">width</tspan><tspan fill="#e6e9e7">: 128  </tspan><tspan fill="#7dd3fc">height</tspan><tspan fill="#e6e9e7">: 32</tspan></text>
+      <text x="16" y="136"><tspan fill="#7dd3fc">pages</tspan><tspan fill="#e6e9e7">: [now, health]</tspan></text>
+      <text x="16" y="158" fill="#7dd3fc">inputs:</text>
+      <text x="30" y="180"><tspan fill="#e6e9e7">- </tspan><tspan fill="#7dd3fc">key</tspan><tspan fill="#e6e9e7">: zip</tspan></text>
+      <text x="44" y="202"><tspan fill="#7dd3fc">app_input_type</tspan><tspan fill="#e6e9e7">: </tspan><tspan fill="#c4b5fd">free-text</tspan></text>
+      <text x="44" y="224"><tspan fill="#7dd3fc">label</tspan><tspan fill="#e6e9e7">: Zip code</tspan></text>
+      <text x="44" y="246"><tspan fill="#7dd3fc">default</tspan><tspan fill="#e6e9e7">: </tspan><tspan fill="#a6e3a1">"90210"</tspan></text>
+    </g>
+    <text x="0" y="336" fill="#8b90a0" font-size="12">Generates:  apps/local-aqi/</text>
+    <rect x="266" y="322" width="146" height="30" rx="8" fill="#00ff00"/>
+    <text x="339" y="342" text-anchor="middle" fill="#00120a" font-size="12.5" font-weight="800">Generate app →</text>
+  </g>
+</svg>

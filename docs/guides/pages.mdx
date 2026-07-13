@@ -1,0 +1,89 @@
+---
+sidebar_position: 5
+title: Pages
+---
+
+# Pages
+
+An app can show more than one screen. Each **page** is a function in `app.star`,
+and the panel rotates through them in order, first one screen, then the next,
+then back around.
+
+## Declare pages
+
+List them in the manifest, the order is the rotation order:
+
+```yaml
+pages: [now, health]
+```
+
+Then define one function per name in `app.star` (the names must match exactly):
+
+```python
+def now(c, ctx):
+    c.fill("black")
+    c.text("AQI 42", 4, 12, font="7x12", color="green")
+
+def health(c, ctx):
+    c.fill("black")
+    c.text("GOOD", 4, 12, font="7x12", color="green")
+```
+
+A two-page app, Local AQI's rotation:
+
+<figure className="figure">
+  <div className="sideBySide">
+    <div className="center">
+      <img className="led led--glow" src="/img/apps/local-aqi/now.png" alt="Page 1" width="100%" />
+      <div className="caption">page 1: <b>now</b></div>
+    </div>
+    <div className="center">
+      <img className="led led--glow" src="/img/apps/local-aqi/health.png" alt="Page 2" width="100%" />
+      <div className="caption">page 2: <b>health</b></div>
+    </div>
+  </div>
+</figure>
+
+If you declare a page but forget its function, validation tells you exactly what
+to add: *"manifest lists page 'health' but app.star has no function for it.
+Add: def health(c, ctx):"*.
+
+:::note[All pages are the same size]
+Every page in an app renders at the same `width` × `height`, set once in the app's
+`manifest.yaml`. You can't mix a 128×32 page and a 64×32 page in the same app.
+:::
+
+## Refresh
+
+`refresh` (seconds) controls how often the panel re-renders your pages with fresh
+data, it does **not** control the rotation speed:
+
+```yaml
+refresh: 300    # re-render every 5 minutes
+```
+
+Use the slowest refresh that still feels live: `60`-`300` for scores and prices,
+`3600` for weather or a daily quote.
+
+:::note[Frames are still images]
+Each render is one static picture. There's no animation, no scrolling text, a
+"page" changes when it's re-rendered (new data) or when the panel rotates to the
+next page.
+:::
+
+## Under the hood: `?page=N`
+
+You normally never touch this, but it explains what `gdn render --page` does: the
+render endpoint takes a **1-based** page number that indexes into your list. For
+`pages: [now, health]`:
+
+```
+/render/local-aqi?page=1&zip=90210   # the "now" screen
+/render/local-aqi?page=2&zip=90210   # the "health" screen
+```
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/guides/inputs-and-config"><h3>Inputs &amp; configuration</h3><p>Give users knobs, text, dropdowns, dates, color.</p></a>
+</div>

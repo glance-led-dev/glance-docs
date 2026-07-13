@@ -1,0 +1,83 @@
+---
+sidebar_position: 1
+title: Introduction
+slug: /overview/introduction
+---
+
+# What is the Glance Developer Network?
+
+The Glance Developer Network (GDN) lets you build custom apps that run on the
+Glance LED and Scroll Engines: a world clock, a stock ticker, an
+air-quality readout, a wildfire alert, a countdown. Write your own apps, preview
+them in the Glance Dev Studio environment, then push them to our community repo to
+display on your panel and share with the community.
+
+<figure className="figure">
+  <div className="panelRowStatic">
+    <img className="led led--glow" src="/img/apps/world-clock/clock.png" alt="World clock app" width="330" />
+    <img className="led led--glow" src="/img/apps/stocks/price.png" alt="Stock ticker app" width="230" />
+    <img className="led led--glow" src="/img/apps/local-aqi/now.png" alt="Air quality app" width="230" />
+  </div>
+  <figcaption>Real GDN apps, rendered at their true pixel size and scaled up.</figcaption>
+</figure>
+
+## What it takes to make a Glance app
+
+An app is a folder with exactly two files that matter, illustrated in the diagram
+below:
+
+- **`manifest.yaml`, the settings.** Its name, panel size, how often it refreshes,
+  its pages, and the inputs a user fills in (like a zip code).
+- **`app.star`, the picture.** Code (in [Starlark](https://github.com/bazelbuild/starlark),
+  a safe, Python-like language) that describes what to draw. It never touches
+  pixels directly. It calls `c.text(...)`, `c.rect(...)`, etc., and GDN's
+  renderer turns that into a PNG.
+
+<div className="diagram">
+  <img src="/img/diagrams/anatomy.svg" alt="Anatomy of a GDN app: manifest.yaml plus app.star" />
+</div>
+
+:::tip[You never start from a blank file]
+`gdn new` scaffolds a complete working example app, and
+[Glance Dev Studio](/docs/studio) lets you edit both files with a live preview. Either
+way, you start from something that already renders.
+:::
+
+## Limits and what to expect
+
+Your app runs in a sandbox, so a few things simply aren't available. Plan around them
+up front:
+
+- **No filesystem or OS access.** Your code can't open files, read environment
+  variables, or reach secrets.
+- **No direct network.** The only way out is [`http.get(...)`](/docs/reference/http),
+  which the host runs for you. It's `GET` only, with a hard 10-second timeout, a 1 MB
+  response cap, and at most 8 uncached requests per render.
+- **A pixel canvas.** Each Glance panel is 64×32 pixels, and panels daisy-chain up to
+  384×32. For best performance, keep images to 192×32 or smaller and split content
+  across multiple pages. Height is always 32, and the bitmap fonts are uppercase only.
+
+Because everything runs through the same renderer, the preview you see locally is
+identical to what ships to the panel.
+
+## What you can build
+
+<div className="appGrid">
+  <div className="appTile"><img src="/img/apps/world-clock/clock.png" alt="" /><div className="name">World Clock</div></div>
+  <div className="appTile"><img src="/img/apps/stocks/price.png" alt="" /><div className="name">Stock Ticker</div></div>
+  <div className="appTile"><img src="/img/apps/local-aqi/now.png" alt="" /><div className="name">Local AQI</div></div>
+  <div className="appTile"><img src="/img/apps/local-fires/status.png" alt="" /><div className="name">Local Fires</div></div>
+  <div className="appTile"><img src="/img/apps/sports/score.png" alt="" /><div className="name">Live Score</div></div>
+  <div className="appTile"><img src="/img/apps/countdown/days.png" alt="" /><div className="name">Countdown</div></div>
+  <div className="appTile"><img src="/img/apps/message/sign.png" alt="" /><div className="name">Message Sign</div></div>
+  <div className="appTile"><img src="/img/apps/ported-weather/main.png" alt="" /><div className="name">Weather</div></div>
+</div>
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/getting-started/quickstart"><h3>Getting started</h3><p>Zero to a working app in five minutes.</p></a>
+  <a className="card" href="/docs/overview/fundamentals"><h3>How the panel works</h3><p>The mental model: pixels, pages, refresh.</p></a>
+  <a className="card" href="/docs/guides/your-first-app"><h3>Your first app</h3><p>The Game Night sign, built step by step.</p></a>
+  <a className="card" href="/docs/build-with-ai"><h3>Build with AI</h3><p>Have an AI write your app from a prompt.</p></a>
+</div>

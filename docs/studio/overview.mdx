@@ -1,0 +1,104 @@
+---
+sidebar_position: 0
+sidebar_label: Overview
+title: Glance Dev Studio
+slug: /studio
+---
+
+# Glance Dev Studio
+
+<figure className="figure">
+  <img src="/img/studio/glance-dev-studio.png" alt="Glance Dev Studio" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '0 auto', borderRadius: '10px'}} />
+</figure>
+
+Glance Dev Studio is a single place to build a Glance app. It runs on your own
+computer, opens in your web browser, and puts everything in one place: make a new app,
+edit it, watch the LED panel update live, fill in the settings, and check that it's
+ready, all on one screen. After you launch it, you never have to touch the terminal
+again.
+
+## Opening Glance Dev Studio
+
+Studio opens in your web browser at `http://localhost:8766`. There are two ways to
+start it. Pick whichever is easier for you.
+
+### Shortcut To Opening the Glance Dev Studio
+
+In the project folder (the one you cloned, the one with an `apps/` folder in it) there's
+a launcher for your system. Double-click it and your browser opens Studio, no terminal
+and no commands to remember:
+
+- **Windows:** `studio.bat`
+- **macOS:** `studio.command`
+- **Linux:** `studio.sh` (or run `./studio.sh` in a terminal, since some Linux file
+  managers won't run a script on a double-click)
+
+A small window opens and your browser loads Studio. When you're done, close that window
+to stop Studio.
+
+:::note[First time on macOS]
+The first time, macOS may block the file because it came from the internet. Right-click
+`studio.command`, choose **Open**, then **Open** again. After that a normal double-click
+works.
+:::
+
+### Opening Glance Dev Studio from the Terminal
+
+From the project folder, run:
+
+```bash
+gdn studio
+```
+
+Your browser opens to the editor and a live preview, with a menu at the top to pick any
+of your apps. You don't need to name an app. To jump straight to one, add its folder:
+
+```bash
+gdn studio apps/world-clock
+```
+
+:::tip[Run it from the project folder]
+Open your terminal in the folder you cloned, the one that contains `apps/`, not inside
+the `gdn` folder. If you ever see an error mentioning an "attempted relative import", it
+just means an old `python studio.py` was typed by hand. Use `gdn studio` or the
+double-click launcher instead and it will work.
+:::
+
+Don't have an app yet? Either way still opens Studio, just click **Create New App**
+(next page) to start a fresh one.
+
+## The whole screen, labeled
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/overview.png" alt="The Glance Dev Studio window with eleven numbered callouts" />
+</figure>
+
+1. **Switch apps.** Pick any app in your `apps/` folder from this menu.
+2. **Create New App.** Start a brand-new app from a working example.
+3. **Status.** Says *Ready*, or turns green/red when you check your app.
+4. **Validate.** Checks that your app works and is ready to share.
+5. **Validate & Submit.** Checks it, then opens a pull request to publish it (see [Check & publish](/docs/studio/check-and-publish)).
+6. **The two files.** Tabs for `app.star` (the drawing) and `manifest.yaml` (the settings).
+7. **Save & Render.** Save your changes and update the preview (or press Ctrl/Cmd+S).
+8. **Time travel.** Set any date and time to test how your app looks then.
+9. **Pointer position.** Hover the panel to read the exact pixel your mouse is on.
+10. **Your app's settings.** The inputs people fill in; the preview updates as you type.
+11. **Live panel.** Exactly what your LED sign will show, every page, pixel for pixel.
+
+## The pages in this guide
+
+- **[Create a new app](/docs/studio/create-app)**: the New App button, and what to do
+  if a file is missing.
+- **[Write your code](/docs/studio/write-code)**: the two files, and Save & Render.
+- **[Toolbox](/docs/studio/toolbox)**: browse fonts and drawing helpers with live
+  previews, click to drop the code in.
+- **[See it live](/docs/studio/see-it-live)**: the panel, the settings, and time travel.
+- **[Check it and publish](/docs/studio/check-and-publish)**: Validate, the message
+  console, and Validate & Submit.
+
+:::tip[Building with an AI]
+
+Studio works well with an assistant. See [Build with AI](/docs/build-with-ai): have
+the AI write the app, then open it here to see it live and tweak it.
+
+:::

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="Montserrat, Segoe UI, sans-serif">
+  <defs>
+    <style>
+      .card{fill:#12161c;stroke:#2a3038;stroke-width:1.5;rx:10}
+      .lbl{fill:#e6e6e6;font-size:15px;font-weight:600}
+      .mut{fill:#8a929c;font-size:12px}
+      .code{fill:#9fe6a0;font-size:11px;font-family:Consolas,monospace}
+      .badge{fill:#00FF00}
+      .bnum{fill:#0b0f14;font-size:14px;font-weight:700}
+      .arrow{stroke:#00FF00;stroke-width:2.5;fill:none;marker-end:url(#ah)}
+    </style>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00FF00"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="380" fill="#0b0f14"/>
+
+  <!-- Step 1: AI chat -->
+  <rect class="card" x="24" y="60" width="250" height="260" rx="10"/>
+  <text class="lbl" x="44" y="92">AI chat (browser)</text>
+  <text class="mut" x="44" y="112">It prints two code blocks</text>
+  <rect x="44" y="126" width="210" height="76" rx="6" fill="#0b0f14" stroke="#2a3038"/>
+  <text class="mut" x="54" y="143" font-size="10">manifest.yaml</text>
+  <text class="code" x="54" y="162">id: moon-phase</text>
+  <text class="code" x="54" y="178">name: Moon Phase</text>
+  <text class="code" x="54" y="194">refresh: 300</text>
+  <rect x="44" y="212" width="210" height="86" rx="6" fill="#0b0f14" stroke="#2a3038"/>
+  <text class="mut" x="54" y="229" font-size="10">app.star</text>
+  <text class="code" x="54" y="248">def main(c, ctx):</text>
+  <text class="code" x="54" y="264">  c.clear()</text>
+  <text class="code" x="54" y="280">  c.icon("moon", 8, 8)</text>
+  <circle class="badge" cx="36" cy="60" r="14"/>
+  <text class="bnum" x="36" y="65" text-anchor="middle">1</text>
+
+  <!-- Step 2: apps folder -->
+  <rect class="card" x="330" y="60" width="240" height="260" rx="10"/>
+  <text class="lbl" x="350" y="92">apps/moon-phase/</text>
+  <text class="mut" x="350" y="112">A new folder in your project</text>
+  <!-- file rows -->
+  <rect x="350" y="130" width="200" height="34" rx="6" fill="#0b0f14" stroke="#2a3038"/>
+  <text class="code" x="366" y="151" font-size="12">manifest.yaml</text>
+  <rect x="350" y="172" width="200" height="34" rx="6" fill="#0b0f14" stroke="#2a3038"/>
+  <text class="code" x="366" y="193" font-size="12">app.star</text>
+  <rect x="350" y="214" width="200" height="34" rx="6" fill="#0b0f14" stroke="#2a3038" stroke-dasharray="4 3"/>
+  <text class="mut" x="366" y="235" font-size="12">logo.png (optional)</text>
+  <text class="mut" x="350" y="286" font-size="11">Paste each block into its file</text>
+  <circle class="badge" cx="342" cy="60" r="14"/>
+  <text class="bnum" x="342" y="65" text-anchor="middle">2</text>
+
+  <!-- Step 3: Studio -->
+  <rect class="card" x="626" y="60" width="250" height="260" rx="10"/>
+  <text class="lbl" x="646" y="92">gdn studio</text>
+  <text class="mut" x="646" y="112">See it live, then validate</text>
+  <!-- mini panel -->
+  <rect x="646" y="132" width="210" height="60" rx="4" fill="#000" stroke="#2a3038"/>
+  <circle cx="676" cy="162" r="16" fill="none" stroke="#cfd6df" stroke-width="3"/>
+  <path d="M676 146 a16 16 0 0 0 0 32 z" fill="#cfd6df"/>
+  <text x="704" y="158" fill="#00FF00" font-size="13" font-weight="700">WAXING</text>
+  <text x="704" y="176" fill="#cfd6df" font-size="12">GIBBOUS</text>
+  <rect x="646" y="206" width="210" height="92" rx="6" fill="#0b0f14" stroke="#2a3038"/>
+  <text class="mut" x="660" y="228" font-size="11">Inputs · Console · Validate</text>
+  <rect x="660" y="240" width="90" height="24" rx="4" fill="#173a17" stroke="#00FF00"/>
+  <text x="705" y="256" fill="#00FF00" font-size="11" font-weight="600" text-anchor="middle">Validate</text>
+  <rect x="758" y="240" width="84" height="24" rx="4" fill="#0b0f14" stroke="#2a3038"/>
+  <text x="800" y="256" fill="#cfd6df" font-size="11" text-anchor="middle">Merge</text>
+  <circle class="badge" cx="638" cy="60" r="14"/>
+  <text class="bnum" x="638" y="65" text-anchor="middle">3</text>
+
+  <!-- arrows -->
+  <path class="arrow" d="M280 190 L326 190"/>
+  <path class="arrow" d="M576 190 L622 190"/>
+
+  <text class="mut" x="24" y="352" font-size="12">Copy the AI's two code blocks  →  drop them in a folder under apps/  →  open it in Studio.</text>
+</svg>

@@ -1,0 +1,183 @@
+---
+sidebar_position: 2
+title: Your first app
+---
+
+# Your first app
+
+You'll build a "Game Night" sign end to end, a pawn image plus two words, entirely in
+Glance Dev Studio: create the app, edit its code, drag the image into place, and check
+that it works. No terminal required (there's a command-line version at the bottom if you
+prefer it).
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/game-night.png" alt="Game Night sign" width="360" />
+  <figcaption>What you're building. This is the real GDN render, a 128×32 pixel panel shown enlarged.</figcaption>
+</figure>
+
+## 1. Create the app
+
+Open [Glance Dev Studio](/docs/studio) and click **+ Create New App**. Give it the name
+**Game Night**, set the panel width to **128 x 32**, pick a category, and add one setting, a
+**Game time** text box (you'll use it in a moment). Click **Create app**:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/create-new-app.png" alt="The Create New App dialog: name, panel width, category, and starter settings" />
+</figure>
+
+Studio makes the folder `apps/game-night/` with two working starter files, so you never
+stare at a blank page. It opens the new app right away, ready to edit.
+
+## 2. Draw the text
+
+The left side is `app.star`, the code that draws the screen. It comes with a small
+starter. Select all of it and replace it with the two words. Leave the left side empty for
+now, that's where the pawn will go:
+
+```python
+def sign(c, ctx):
+    c.fill("black")
+    c.text("GAME", 30, 4, font="7x12", color="green")
+    c.text("NIGHT", 30, 18, font="7x12", color="white")
+```
+
+Press **Save & Render** (or Ctrl+S) and the live preview on the right updates instantly:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/gamenight-studio.png" alt="Glance Dev Studio: the Game Night code on the left, the rendered text on the right" />
+  <figcaption>Edit on the left, watch the Glance LED update on the right.</figcaption>
+</figure>
+
+The `manifest.yaml` tab says `pages: [sign]`, so `app.star` defines `def sign(c, ctx)`.
+That one function is the whole app.
+
+## 3. Add the pawn image
+
+An app can only draw images it declares. Save this PNG as `pawn.png` inside the
+`apps/game-night/` folder, then open the **manifest.yaml** tab and list it under
+`assets:`.
+
+<figure className="figure">
+  <div className="led" style={{maxWidth: 120, margin: '0 auto'}}><img src="/img/examples/pawn.png" alt="pawn.png asset" /></div>
+  <figcaption><code>pawn.png</code>, a plain PNG with a transparent background. No conversion, no encoding (more in <a href="/docs/guides/working-with-images">Working with images</a>).</figcaption>
+</figure>
+
+```yaml
+assets:
+  - pawn.png     # every image you draw must be listed here
+```
+
+Now the pawn is available to the app. You'll put it on the panel in the next step.
+
+## 4. Place the pawn by dragging
+
+You don't have to write the `c.image(...)` line or guess coordinates. Let Studio do it:
+
+1. Click **Edit images** next to the panel size (it lights up green).
+2. Click **+ Add an image** and pick `pawn.png`. It drops onto the panel.
+3. Drag it to the left of the text. Studio writes the `c.image("pawn.png", x, y)` line into
+   your code as you move it.
+4. Fine-tune with the arrow keys (one pixel at a time), or drag the green corner to resize.
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/gamenight-place.png" alt="Dragging the pawn on the live panel in Studio with the Edit images tool" />
+</figure>
+
+See [Working with images](/docs/guides/working-with-images) for the whole tool.
+
+## 5. Where did everything land?
+
+The numbers in those calls are pixel coordinates, and they all follow one rule:
+
+![The coordinate system](/img/diagrams/coordinates.svg)
+
+- The origin `(0, 0)` is the top-left pixel. `x` grows right, `y` grows down.
+- For images and text, `(x, y)` is the top-left corner of what you draw.
+  `c.image("pawn.png", 4, 3)` puts the pawn's top-left corner 4 pixels from the left and
+  3 pixels down.
+- `c.text("GAME", 30, 4...)` starts at x=30, to the right of the pawn, and `"NIGHT"` at
+  y=18 sits below it (bigger y = lower).
+
+One detail: the text is UPPERCASE on purpose. The bitmap fonts only contain capital
+letters, so lowercase characters are silently skipped.
+
+## 6. Show the game time with a badge
+
+Now use that **Game time** setting. Open the **manifest.yaml** tab and make sure the input is
+a text box named `time` with a default:
+
+```yaml
+inputs:
+  - key: time
+    type: string
+    app_input_type: free-text
+    label: Game time
+    default: "FRI 7PM"
+```
+
+Then put it on the sign. You don't have to remember the code, use the **Toolbox**. Click
+**Toolbox** (or press **Ctrl + B**), find **c.badge** under *Widgets*, and click it:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/toolbox-badge.png" alt="The Toolbox open to the c.badge tile, showing a filled-pill preview" />
+</figure>
+
+Studio drops a `c.badge(...)` line into your code with a comment explaining each part. Change
+it to read the setting and sit to the right of the text, so your `app.star` reads:
+
+```python
+def sign(c, ctx):
+    c.fill("black")
+    c.image("pawn.png", 4, 3)
+    c.text("GAME", 30, 4, font="7x12", color="green")
+    c.text("NIGHT", 30, 18, font="7x12", color="white")
+    c.badge(ctx.inputs.get("time", "FRI 7PM"), 78, 11, color="black", bg="green")
+```
+
+`ctx.inputs.get("time", "FRI 7PM")` reads the **Game time** setting, using "FRI 7PM" if it's
+blank. Save & Render:
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/game-night-2.png" alt="Game Night sign with a FRI 7PM badge" width="360" />
+  <figcaption>The badge shows whatever the Game time setting says.</figcaption>
+</figure>
+
+## 7. Change it live
+
+Look at the **Your app's settings** card under the preview, it now has a **Game time** box.
+Type a different time, like `SAT 8PM`, and the badge updates instantly, no code change. That
+setting is what people fill in when they add your app (see
+[User input types](/docs/reference/input-types) for what they see on their phone).
+
+## 8. Validate
+
+When it looks right, click **Validate** at the top of Studio. It renders every page and
+runs the same check publishing does: if you forgot to declare `pawn.png`, used a font that
+doesn't exist, or misnamed the page function, it tells you here instead of on the panel.
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/gamenight-validate.png" alt="The Validate result: Looks good, 1 page draws cleanly" />
+</figure>
+
+That's a complete app. Publishing is a pull request, see [Publish an app](/docs/publish/submit).
+
+## The terminal way
+
+Everything above works from the command line too, if you prefer it:
+
+```bash
+gdn new apps/game-night        # scaffold the folder and two starter files
+# edit manifest.yaml and app.star in any editor, add pawn.png
+gdn preview apps/game-night    # live browser preview that re-renders on save
+gdn validate apps/game-night   # prints PASS game-night (1 page)
+```
+
+See the [CLI commands](/docs/guides/cli) guide for the full set.
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/studio"><h3>Glance Dev Studio</h3><p>The full tour of the build window.</p></a>
+  <a className="card" href="/docs/guides/working-with-images"><h3>Working with images</h3><p>Icons, PNGs, placing them visually, and bitmaps.</p></a>
+  <a className="card" href="/docs/guides/inputs-and-config"><h3>Add user inputs</h3><p>Let people change the text, date, or color.</p></a>
+</div>

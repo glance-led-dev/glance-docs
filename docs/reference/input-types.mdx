@@ -1,0 +1,100 @@
+---
+sidebar_position: 5
+title: User input types
+sidebar_label: User input types
+---
+
+# User input types
+
+:::note[Where people see these]
+These input types are the controls a person sees in the **Glance setup app on iOS and Android** when they add your app to their Glance LED. The `inputs` your app declares turn into a setup form that the end user fills in on their phone, and each input type below is one kind of control they will see there: a text box, a dropdown, a color picker, a toggle, a date, and so on.
+:::
+
+Set `app_input_type` on an input to choose the control the user gets. There are
+seven. Each renders a real widget in the app and passes the user's value into your
+app via `ctx.inputs["<key>"]`.
+
+<div className="typeGrid">
+  <div className="typeCard">
+    <h4>Free text</h4>
+    <div className="val">app_input_type: free-text</div>
+    <p>A plain text box, zip codes, names, symbols.</p>
+    <div className="ctrl">90210</div>
+  </div>
+  <div className="typeCard">
+    <h4>Dropdown</h4>
+    <div className="val">app_input_type: dropdown</div>
+    <p>Pick <b>one</b> from a <code>choices</code> list.</p>
+    <div className="ctrl ctrl--select">metric</div>
+  </div>
+  <div className="typeCard">
+    <h4>Selection</h4>
+    <div className="val">app_input_type: selection</div>
+    <p>Pick <b>several</b> from a <code>choices</code> list.</p>
+    <div className="ctrl ctrl--select">LAL, BOS</div>
+  </div>
+  <div className="typeCard">
+    <h4>Checkbox</h4>
+    <div className="val">app_input_type: checkbox</div>
+    <p>An on/off toggle, "live games only".</p>
+    <div className="ctrl"><span className="swatch" style={{background:'#00ff00'}}></span> On</div>
+  </div>
+  <div className="typeCard">
+    <h4>Date</h4>
+    <div className="val">app_input_type: date</div>
+    <p>A date picker, a countdown target.</p>
+    <div className="ctrl">2027-01-01</div>
+  </div>
+  <div className="typeCard">
+    <h4>Date (past)</h4>
+    <div className="val">app_input_type: date-past</div>
+    <p>A date picker capped at today, a birthday.</p>
+    <div className="ctrl">1994-08-12</div>
+  </div>
+  <div className="typeCard">
+    <h4>Color</h4>
+    <div className="val">app_input_type: color</div>
+    <p>A color wheel / picker, text tint.</p>
+    <div className="ctrl"><span className="swatch" style={{background:'#00ff00'}}></span> #00FF00</div>
+  </div>
+</div>
+
+## How they look in the app
+
+The controls above are what a person taps and fills in when they add your app. The
+two `free-text` inputs in the Traffic Tracker app are a real example:
+
+<figure className="figure">
+  <img src="/img/examples/traffic-tracker-app.png" alt="Two free-text inputs in the Glance app" width="330" />
+  <figcaption>Each <code>free-text</code> input becomes a text box like these two zip-code fields.</figcaption>
+</figure>
+
+## Using them
+
+```yaml
+inputs:
+  - key: units
+    app_input_type: dropdown
+    type: choice
+    label: Units
+    default: metric
+    choices: [metric, imperial]
+  - key: birthday
+    app_input_type: date-past
+    type: string
+    label: Your birthday
+```
+
+Then in `app.star`:
+
+```python
+def main(c, ctx):
+    units = ctx.inputs["units"]        # "metric" or "imperial"
+    bday  = ctx.inputs["birthday"]     # "1994-08-12"
+```
+
+:::tip
+`app_input_type` is optional. If you omit it, the form falls back to your `type`
+(`choice` becomes a dropdown, everything else becomes free text). Set it when you want a nicer
+control than a text box.
+:::

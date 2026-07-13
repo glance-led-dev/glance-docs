@@ -1,0 +1,77 @@
+---
+sidebar_position: 3
+title: Write your code
+---
+
+# Write your code
+
+The left half of Studio is where you edit your app. It's a code editor with color
+highlighting, strings, comments, and drawing calls are colored so the code is easy to read,
+and two tabs, one for each of your app's files.
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/editor.png" alt="The Studio editor with syntax highlighting: two file tabs, the Toolbox and Save & Render buttons, and colored code" />
+</figure>
+
+## The two tabs
+
+- **`app.star`, the drawing.** The code that draws your panel. This is where you spend
+  most of your time.
+- **`manifest.yaml`, the settings.** Your app's name, size, how often it refreshes, and
+  the inputs people fill in.
+
+Click a tab to switch between them. For what goes in each file, see
+[App fundamentals](/docs/overview/fundamentals).
+
+## Add code without typing it
+
+Don't want to write from memory? Click **Toolbox** (or press **Ctrl + B**) above the editor
+to browse every font and drawing helper with a live preview, and drop the code in with a
+click, comments and all. See [Toolbox](/docs/studio/toolbox).
+
+## Suggestions as you type
+
+Turn on **Autocomplete** (the checkbox next to the Toolbox) and Studio suggests as you go:
+`c.` lists the drawing helpers, `font="` lists the fonts, `color="` lists the named colors
+with a swatch, and `ctx.inputs.get("` lists your app's own settings. Use the arrow keys and
+**Tab** or **Enter** to accept, **Esc** to dismiss. Uncheck it any time.
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/autocomplete.png" alt="Typing a color argument shows an autocomplete list of gray, green, and grey, each with a color swatch" />
+</figure>
+
+## Draw pixel art
+
+Click **Pixel art** above the editor to open a grid painter. Paint with a color palette and
+Studio writes the drawing code into `app.star` for you, a `c.bitmap(...)` for one color or a
+`c.sprite(...)` for several. Put your cursor on an existing one and click **Pixel art** again
+to edit it. It's saved as code, so it travels with your app, with no separate file. More in
+[Working with images](/docs/guides/working-with-images#tiny-custom-art-with-no-file).
+
+## Mistakes are underlined
+
+If a line has a syntax mistake, like the wrong indentation, Studio underlines it in red and
+explains it at the bottom of the editor, before you even render:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/error-squiggle.png" alt="A red wavy underline under a wrongly-indented line, with the message 'Line 3: unexpected new indentation block here'" />
+</figure>
+
+Fix the line and the underline clears itself. (Starlark, the language `app.star` is written
+in, cares about indentation, so line things up under the `def`.)
+
+## Save & Render
+
+When you've made a change, click **Save & Render** (or press **Ctrl+S** / **Cmd+S**). Studio
+saves the file and updates the live panel on the right at the same time, so you see the
+result immediately.
+
+**Reload** throws away unsaved edits and re-reads the files from disk, handy if you also
+edited them somewhere else.
+
+:::tip[These are your real files]
+
+Studio edits the actual files in your `apps/<name>/` folder. You can flip between Studio
+and any other editor (like VS Code) whenever you want, they're always in sync.
+
+:::

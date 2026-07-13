@@ -1,0 +1,171 @@
+---
+sidebar_position: 2
+title: Quick start
+sidebar_label: Quick start
+slug: /getting-started/quickstart
+---
+
+# Quick start
+
+You'll go from nothing to a working app on your screen in about five minutes.
+Every Glance app follows the same path:
+
+<div className="diagram">
+  <img src="/img/diagrams/flow.svg" alt="Get the code, open Studio, build it, publish" />
+</div>
+
+## 1. Get the code & install
+
+Glance apps live in one repository, your apps are folders inside it, and publishing is a
+pull request. You need **Python 3.9+** and **Git** (or download the ZIP from GitHub).
+
+```bash
+git clone https://github.com/glance-led/glance-dev-network.git
+cd glance-dev-network
+pip install -e .
+gdn version        # prints gdn 0.1.0
+```
+
+<div className="step"><div className="num">OK</div><div>If <code>gdn version</code> prints a version, you're ready. If Python isn't installed or something isn't working, the <a href="/docs/getting-started/install">Install guide</a> covers every step, including the "I have nothing installed" path.</div></div>
+
+## 2. Open Glance Dev Studio
+
+Glance Dev Studio is where you'll build. It's a small app that opens in your browser and
+puts your code, a live preview of the sign, your inputs, and validation all in one place.
+There are two ways to open it, use whichever you prefer.
+
+**Option 1: type one command.** From the project folder, run:
+
+```bash
+gdn studio
+```
+
+**Option 2: double-click a launcher, no terminal needed.** In the project folder,
+double-click the file that matches your computer:
+
+- **Windows:** `studio.bat`
+- **macOS:** `studio.command`
+- **Linux:** `studio.sh`
+
+Either way, your browser opens to the editor with a live preview, and a menu to pick any
+app.
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/studio-clean.png" alt="Glance Dev Studio: code on the left, a live preview on the right" />
+  <figcaption>One window: edit on the left, watch the Glance LED update on the right.</figcaption>
+</figure>
+
+You don't *have* to use Studio, any code editor works, and there are matching
+[CLI commands](/docs/guides/cli) (`gdn preview`, `gdn validate`, `gdn build`) if you
+prefer the terminal. But Studio keeps the whole loop in one spot, so it's the easiest
+place to start. Full tour: [Glance Dev Studio](/docs/studio).
+
+To start your own app, click **+ Create New App** in Studio (it makes the folder for
+you), or scaffold one from the terminal:
+
+```bash
+gdn new apps/my-app
+```
+
+Either way you get a complete, working example to change, never a blank page.
+
+:::tip[Let an AI build it]
+
+You don't have to write the code yourself. Describe your app in plain English and an AI
+assistant will write both files for you, which is the recommended path for most people.
+See [Build with AI](/docs/build-with-ai).
+
+:::
+
+Whichever way you go, every app is a folder with just two files:
+
+```
+apps/my-app/
+├── manifest.yaml   # the settings: name, size, pages, and the inputs people fill in
+└── app.star        # the code that draws the picture
+```
+
+## 3. The two files, explained
+
+Replace both files with the smallest possible app to see what each one does.
+
+**`manifest.yaml` is the settings.** Nothing in here draws anything, it just describes
+your app: its name, how big the sign is, how often it refreshes, and which pages to show.
+
+```yaml
+gdn: 1
+id: my-first-app     # a folder-safe id (lowercase, hyphens)
+name: My First App   # the name people see
+width: 128           # how wide the sign is, in pixels
+height: 32           # how tall it is, in pixels (always 32)
+refresh: 3600        # how often it re-draws, in seconds (3600 = once an hour)
+pages: [main]        # the screens to show; each name is a function in app.star
+```
+
+**`app.star` is the picture.** Each page from the manifest is a function here that draws
+one screen. `c` is your canvas, you call `c.something(...)` to draw on it:
+
+```python
+def main(c, ctx):
+    c.clear()   # start with a blank (black) screen
+
+    # text_center draws text centered left-to-right.
+    # The 4 is the y position, how far down from the top, in pixels.
+    c.text_center("HELLO, PANEL", 4, font="6x8", color="green")
+
+    # progress_bar(x, y, width, height, percent). Every number is in pixels
+    # except the last, which is a percentage:
+    #   24 = x (left edge)   18 = y (top edge)
+    #   80 = width           7  = height
+    #   72 = percent full (0-100)
+    c.progress_bar(24, 18, 80, 7, 72, color="green")
+```
+
+Save, and the preview shows exactly this:
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/first-app.png" alt="HELLO, PANEL with a progress bar" width="360" />
+  <figcaption>The real output of the code above. What you see locally is pixel-for-pixel what ships to the Glance LED.</figcaption>
+</figure>
+
+Two things to know:
+
+- **Text is UPPERCASE only.** The bitmap fonts have capital letters only; lowercase is
+  skipped, so always write in caps (or add `.upper()` to your text).
+- `text_center` and `progress_bar` are [helpers](/docs/reference/helper-functions):
+  one-call shortcuts. The full set of what you can draw is the
+  [drawing API](/docs/reference/drawing-api).
+
+**Try it:** change `72` to `30`, save, and watch the bar shrink.
+
+## 4. Explore what you can draw
+
+Text in 37 fonts, rectangles, lines, circles, PNG images, pixel-art bitmaps,
+sparklines, badges… This whole dashboard is seven lines of code:
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/helpers.png" alt="Helper showcase: badge, progress bar, bars, sparkline" width="480" />
+  <figcaption>Badge, trend arrow, progress bar, bar chart, sparkline. See <a href="/docs/reference/helper-functions">Helper functions</a> for this exact code.</figcaption>
+</figure>
+
+## 5. Validate & publish
+
+When it looks right, check it renders cleanly, then share it. Click **Validate** in
+Studio, or from the terminal:
+
+```bash
+gdn validate apps/my-first-app
+```
+
+Publishing is a pull request, your app folder is the whole submission. See
+[Publish an app](/docs/publish/submit).
+
+---
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/guides/your-first-app"><h3>Your first real app</h3><p>Build the Game Night sign, text plus a PNG image, step by step.</p></a>
+  <a className="card" href="/docs/reference/drawing-api"><h3>Drawing API</h3><p>Everything you can draw.</p></a>
+  <a className="card" href="/docs/reference/helper-functions"><h3>Helper functions</h3><p>Progress bars, sparklines, badges, one call each.</p></a>
+</div>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="760" height="200" rx="14" fill="#0b0f0e"/>
+  <rect x="1" y="1" width="758" height="198" rx="13" fill="none" stroke="#1c2420"/>
+  <text x="30" y="36" fill="#e6e9e7" font-size="16" font-weight="800">Pages rotate on the panel, one still image at a time</text>
+
+  <!-- panel 1 -->
+  <g transform="translate(70 62)">
+    <rect width="200" height="70" rx="8" fill="#000" stroke="#243029"/>
+    <text x="16" y="30" fill="#2bff6e" font-size="15" font-family="JetBrains Mono, monospace">AQI 42</text>
+    <text x="16" y="52" fill="#8b90a0" font-size="11" font-family="JetBrains Mono, monospace">now</text>
+    <text x="100" y="92" fill="#a7b0ab" font-size="12" text-anchor="middle">page 1 · ?page=1</text>
+  </g>
+
+  <!-- arrow -->
+  <g transform="translate(285 92)" stroke="#2bff6e" stroke-width="3" fill="#2bff6e">
+    <path d="M0 5 H40" fill="none"/><path d="M36 -1 l10 6 l-10 6 z"/>
+  </g>
+
+  <!-- panel 2 -->
+  <g transform="translate(345 62)">
+    <rect width="200" height="70" rx="8" fill="#000" stroke="#243029"/>
+    <text x="16" y="30" fill="#2bff6e" font-size="15" font-family="JetBrains Mono, monospace">GOOD</text>
+    <text x="16" y="52" fill="#8b90a0" font-size="11" font-family="JetBrains Mono, monospace">health</text>
+    <text x="100" y="92" fill="#a7b0ab" font-size="12" text-anchor="middle">page 2 · ?page=2</text>
+  </g>
+
+  <!-- loop-back arrow -->
+  <path d="M545 97 H620 Q640 97 640 117 V150 Q640 170 620 170 H150 Q70 170 70 150 V138"
+        fill="none" stroke="#2bff6e" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <path d="M64 142 l6 -10 l6 10 z" fill="#2bff6e"/>
+  <text x="380" y="188" fill="#8b90a0" font-size="11.5" text-anchor="middle">then it loops back to page 1</text>
+</svg>

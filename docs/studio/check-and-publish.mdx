@@ -1,0 +1,53 @@
+---
+sidebar_position: 5
+title: Check it and publish
+---
+
+# Check it and publish
+
+When your app looks right, Studio helps you confirm it's correct, then publish it.
+
+## Validate
+
+Click **Validate** and Studio checks that every page draws without errors and that your
+files are set up properly. The status at the top turns **green** when all is well, or
+**red** if there's a problem:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/validate-pill.png" alt="A green status message reading Looks good: 2 pages draw cleanly" />
+</figure>
+
+## Messages from your code
+
+Below the panel is a console. It shows anything your app prints while it draws, plus any
+problems or tips Studio found when you validated:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/console.png" alt="The messages console showing print output and two tips" />
+</figure>
+
+- **Problems** are things you must fix, the app won't work until you do.
+- **Tips** are gentle suggestions (like "you left the author name as the placeholder").
+
+If something looks wrong on the panel, the message here usually tells you exactly what and
+where, in plain language.
+
+## Validate & Submit
+
+When everything checks out, **Validate & Submit** does the last step for you: it runs the
+same checks, then commits your app, pushes it to your GitHub fork, and opens a **pull
+request** to add it, all from the one button.
+
+The first time, git may ask you to sign in through your normal credential manager (the same
+sign-in as any `git push`), there's nothing extra to install and no token to paste. Studio
+then opens GitHub in your browser on the "Create pull request" page; click the green button
+to finish.
+
+:::note[You submit, the team merges]
+
+A pull request is a request to add your app, you don't merge it yourself. The CI runs
+`gdn validate` on it automatically; once it's green and reviewed, the Glance team merges it
+and it goes live. You need a **fork** of the app repo first (that's where your app gets
+pushed), see [Submit your app](/docs/publish/submit) for the full flow.
+
+:::

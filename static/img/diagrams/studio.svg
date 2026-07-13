@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 660" font-family="Montserrat, Segoe UI, sans-serif">
+<rect x="0" y="0" width="980" height="660" rx="0" fill="#0b0f0e" stroke="none" stroke-width="1"/>
+<rect x="10" y="10" width="960" height="470" rx="12" fill="#0b0d10" stroke="#1e242c" stroke-width="1"/>
+<rect x="10" y="10" width="960" height="34" rx="12" fill="#0a0b0d" stroke="none" stroke-width="1"/>
+<rect x="10" y="30" width="960" height="14" rx="0" fill="#0a0b0d" stroke="none" stroke-width="1"/>
+<circle cx="34" cy="27" r="6" fill="#ef4444"/>
+<circle cx="54" cy="27" r="6" fill="#f7990f"/>
+<circle cx="74" cy="27" r="6" fill="#22c55e"/>
+<text x="490" y="31" fill="#a7b0ab" font-size="13" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >GDN Studio</text>
+<rect x="10" y="44" width="960" height="44" rx="0" fill="#0e1114" stroke="none" stroke-width="1"/>
+<text x="28" y="72" fill="#e6e9ee" font-size="16" font-weight="700" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >GDN Studio</text>
+<rect x="120" y="58" width="120" height="22" rx="6" fill="#1b212a" stroke="#2a3340" stroke-width="1"/>
+<text x="130" y="73" fill="#cbd3dc" font-size="12" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >local-aqi  ▾</text>
+<text x="560" y="72" fill="#7c8794" font-size="12" font-weight="400" text-anchor="end" font-family="Montserrat, Segoe UI, sans-serif" >ready</text>
+<rect x="804" y="58" width="150" height="24" rx="8" fill="#2f6df6" stroke="#2a3340" stroke-width="1"/>
+<text x="879.0" y="74" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >Save & Render  ⌘S</text>
+<rect x="732" y="58" width="64" height="24" rx="8" fill="#1b212a" stroke="#2a3340" stroke-width="1"/>
+<text x="764.0" y="74" fill="#cbd3dc" font-size="12" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >Reload</text>
+<rect x="596" y="58" width="128" height="24" rx="8" fill="#1b212a" stroke="#2a3340" stroke-width="1"/>
+<text x="660.0" y="74" fill="#cbd3dc" font-size="12" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >Validate & Merge</text>
+<rect x="510" y="58" width="78" height="24" rx="8" fill="#1b212a" stroke="#2a3340" stroke-width="1"/>
+<text x="549.0" y="74" fill="#cbd3dc" font-size="12" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >Validate</text>
+<rect x="20" y="96" width="470" height="376" rx="8" fill="#0d1015" stroke="#1e242c" stroke-width="1"/>
+<rect x="20" y="96" width="470" height="30" rx="8" fill="#12161c" stroke="none" stroke-width="1"/>
+<rect x="20" y="116" width="470" height="10" rx="0" fill="#12161c" stroke="none" stroke-width="1"/>
+<rect x="34" y="102" width="70" height="20" rx="5" fill="#0d1015" stroke="none" stroke-width="1"/>
+<text x="69" y="116" fill="#e6e9ee" font-size="11.5" font-weight="600" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >app.star</text>
+<text x="150" y="116" fill="#8a94a0" font-size="11.5" font-weight="400" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >manifest.yaml</text>
+<text x="34" y="148" fill="#c58aff" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >def now(c, ctx):</text>
+<text x="34" y="170" fill="#d7dde5" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    c.clear()</text>
+<text x="34" y="192" fill="#d7dde5" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    zip = ctx.inputs.get(&quot;zip&quot;, &quot;90210&quot;)</text>
+<text x="34" y="214" fill="#d7dde5" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    data = http.get(AQI_URL)[&quot;json&quot;]</text>
+<text x="34" y="236" fill="#d7dde5" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    c.header(&quot;AIR QUALITY&quot;, bg=&quot;green&quot;)</text>
+<text x="34" y="258" fill="#d7dde5" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    c.stat(str(data[&quot;aqi&quot;]), &quot;AQI&quot;, 2, 12)</text>
+<text x="34" y="280" fill="#6c7393" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >    print(&quot;aqi =&quot;, data[&quot;aqi&quot;])</text>
+<rect x="500" y="96" width="460" height="376" rx="8" fill="#0a0b0d" stroke="#1e242c" stroke-width="1"/>
+<text x="516" y="116" fill="#7c8794" font-size="11" font-weight="700" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" letter-spacing="1">LIVE PANEL</text>
+<rect x="600" y="104" width="16" height="16" rx="3" fill="#0b0d10" stroke="#2a3340" stroke-width="1"/>
+<path d="M604 112 l3 3 l6 -6" stroke="#2f6df6" stroke-width="2" fill="none"/>
+<text x="622" y="116" fill="#aab4bf" font-size="11" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >pixel grid</text>
+<text x="690" y="116" fill="#aab4bf" font-size="11" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >now</text>
+<rect x="710" y="104" width="120" height="17" rx="4" fill="#0b0d10" stroke="#2a3340" stroke-width="1"/>
+<text x="716" y="116" fill="#cbd3dc" font-size="9.5" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >2027-12-31 23:59</text>
+<text x="944" y="116" fill="#7c8794" font-size="11" font-weight="400" text-anchor="end" font-family="Montserrat, Segoe UI, sans-serif" >x 22, y 14</text>
+<rect x="560" y="132" width="340" height="72" rx="8" fill="#000" stroke="#1e242c" stroke-width="1"/>
+<rect x="600" y="158" width="6" height="6" fill="#00ff00"/>
+<rect x="616" y="158" width="6" height="6" fill="#00ff00"/>
+<rect x="608" y="166" width="6" height="6" fill="#00ff00"/>
+<rect x="624" y="166" width="6" height="6" fill="#00ff00"/>
+<rect x="600" y="174" width="6" height="6" fill="#00ff00"/>
+<rect x="616" y="174" width="6" height="6" fill="#00ff00"/>
+<rect x="720" y="158" width="6" height="6" fill="#78dcff"/>
+<rect x="736" y="158" width="6" height="6" fill="#78dcff"/>
+<rect x="728" y="166" width="6" height="6" fill="#78dcff"/>
+<rect x="744" y="166" width="6" height="6" fill="#78dcff"/>
+<rect x="720" y="174" width="6" height="6" fill="#78dcff"/>
+<rect x="736" y="174" width="6" height="6" fill="#78dcff"/>
+<rect x="820" y="158" width="6" height="6" fill="#f7990f"/>
+<rect x="836" y="158" width="6" height="6" fill="#f7990f"/>
+<rect x="828" y="166" width="6" height="6" fill="#f7990f"/>
+<rect x="844" y="166" width="6" height="6" fill="#f7990f"/>
+<rect x="820" y="174" width="6" height="6" fill="#f7990f"/>
+<rect x="836" y="174" width="6" height="6" fill="#f7990f"/>
+<text x="730" y="220" fill="#66707b" font-size="11" font-weight="400" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >128 × 32 · ~0.8 KB raw</text>
+<rect x="516" y="236" width="428" height="44" rx="8" fill="#0d1015" stroke="#1e242c" stroke-width="1"/>
+<text x="528" y="254" fill="#8a94a0" font-size="11" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Zip code</text>
+<rect x="600" y="244" width="120" height="20" rx="5" fill="#0b0d10" stroke="#2a3340" stroke-width="1"/>
+<text x="608" y="258" fill="#e6e9ee" font-size="11.5" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >90210</text>
+<text x="528" y="274" fill="#66707b" font-size="10" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >inputs the user fills in</text>
+<rect x="516" y="292" width="428" height="90" rx="8" fill="#0a0d0c" stroke="#1c2420" stroke-width="1"/>
+<text x="528" y="310" fill="#7c8794" font-size="10" font-weight="600" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" letter-spacing="0.5">CONSOLE  (your print output)</text>
+<text x="528" y="332" fill="#9fe0b0" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >aqi = 42</text>
+<text x="528" y="350" fill="#9fe0b0" font-size="12" font-weight="400" text-anchor="start" font-family="JetBrains Mono, monospace" >aqi = 42</text>
+<circle cx="120" cy="69" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="120" y="73" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">1</text>
+<circle cx="69" cy="111" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="69" y="115" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">2</text>
+<circle cx="250" cy="240" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="250" y="244" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">3</text>
+<circle cx="880" cy="70" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="880" y="74" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">4</text>
+<circle cx="760" cy="70" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="760" y="74" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">5</text>
+<circle cx="690" cy="70" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="690" y="74" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">6</text>
+<circle cx="730" cy="168" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="730" y="172" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">7</text>
+<circle cx="600" cy="254" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="600" y="258" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">8</text>
+<circle cx="700" cy="112" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="700" y="116" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">9</text>
+<circle cx="528" cy="320" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="528" y="324" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">10</text>
+<circle cx="944" cy="116" r="11" fill="#00ff00" stroke="#0b0d10" stroke-width="2"/>
+<text x="944" y="120" fill="#00160a" font-size="13" font-weight="800" text-anchor="middle" font-family="Montserrat">11</text>
+<rect x="10" y="496" width="960" height="152" rx="12" fill="#0b0f0e" stroke="#1c2420" stroke-width="1"/>
+<circle cx="30" cy="520" r="10" fill="#00ff00"/>
+<text x="30" y="524" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >1</text>
+<text x="48" y="524" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Browse and switch between all your apps</text>
+<circle cx="30" cy="554" r="10" fill="#00ff00"/>
+<text x="30" y="558" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >2</text>
+<text x="48" y="558" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Tabs for app.star and manifest.yaml</text>
+<circle cx="30" cy="588" r="10" fill="#00ff00"/>
+<text x="30" y="592" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >3</text>
+<text x="48" y="592" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Code editor (edits the real file on disk)</text>
+<circle cx="30" cy="622" r="10" fill="#00ff00"/>
+<text x="30" y="626" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >4</text>
+<text x="48" y="626" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Save & Render (or press Ctrl/Cmd+S)</text>
+<circle cx="340" cy="520" r="10" fill="#00ff00"/>
+<text x="340" y="524" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >5</text>
+<text x="358" y="524" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Validate: do all pages render cleanly?</text>
+<circle cx="340" cy="554" r="10" fill="#00ff00"/>
+<text x="340" y="558" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >6</text>
+<text x="358" y="558" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Validate & Merge: publish (coming soon)</text>
+<circle cx="340" cy="588" r="10" fill="#00ff00"/>
+<text x="340" y="592" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >7</text>
+<text x="358" y="592" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Live panel: exactly what ships to the LED</text>
+<circle cx="340" cy="622" r="10" fill="#00ff00"/>
+<text x="340" y="626" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >8</text>
+<text x="358" y="626" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Your app's inputs, change and re-render</text>
+<circle cx="660" cy="520" r="10" fill="#00ff00"/>
+<text x="660" y="524" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >9</text>
+<text x="678" y="524" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >now: time-travel to test dates</text>
+<circle cx="660" cy="554" r="10" fill="#00ff00"/>
+<text x="660" y="558" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >10</text>
+<text x="678" y="558" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Console: your app's print() output</text>
+<circle cx="660" cy="588" r="10" fill="#00ff00"/>
+<text x="660" y="592" fill="#00160a" font-size="12" font-weight="800" text-anchor="middle" font-family="Montserrat, Segoe UI, sans-serif" >11</text>
+<text x="678" y="592" fill="#c8d0d8" font-size="12.5" font-weight="400" text-anchor="start" font-family="Montserrat, Segoe UI, sans-serif" >Hover the panel for pixel (x, y) coords</text>
+</svg>

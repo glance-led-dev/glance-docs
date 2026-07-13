@@ -1,0 +1,158 @@
+---
+sidebar_position: 5
+title: Examples & lessons
+---
+
+# Examples & lessons
+
+The most popular panel apps fall into a handful of shapes: a clock, the weather, a price
+ticker, a rotating fact, a countdown, a scoreboard. Below is the one-line prompt you'd
+send for each (right after the [cheat-sheet](/docs/build-with-ai)), the result, and the
+one lesson that app teaches about steering the AI.
+
+Every render below came from a prompt plus the cheat-sheet, then a quick preview to catch
+the AI's usual slip-ups, collected at the [bottom of the page](#the-mistakes-to-head-off).
+
+:::tip[See the whole loop]
+
+The [top-5-movies walkthrough](/docs/build-with-ai/example-movies) builds one app against a
+real API across four iterations, showing exactly how you reprompt and hand-edit from a
+plain list to a polished poster card.
+
+:::
+
+## A big clock
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that shows a large HH:MM clock for a 64×32 panel. Inputs: a UTC offset number, and a 12/24-hour dropdown.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/apps/ported-bigclock/main.png" alt="A large digital clock" width="300" />
+</figure>
+
+**The lesson: time is UTC.** `ctx.now` is always UTC, so ask for a UTC-offset input
+to get local time, rather than assuming the panel knows the user's timezone. And a
+"blinking colon" can't blink, frames are still, so it's simply drawn on.
+
+## The weather
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that shows a city name and its current temperature, centered, with a units dropdown (metric/imperial). Fetch the temperature live.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/apps/ported-weather/main.png" alt="A weather panel showing a city and temperature" width="300" />
+</figure>
+
+**The lesson: uppercase, centered, and check the fetch.** The AI will often write
+lowercase (which draws nothing) and forget to handle a failed request. Your prompt's job
+is to remind it: *"uppercase the text, center it, and check `status_code` before reading
+`http.get` data."*
+
+## A price ticker
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that shows the Bitcoin price from the CoinGecko API, with a small logo and a green/red arrow for the daily change.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/btc.png" alt="A Bitcoin price ticker" width="300" />
+</figure>
+
+**The lesson: live data is `http.get`, and always guard it.** Fetch with
+`http.get(url, ttl_seconds=300)`, then check `status_code` and fall back to a dash
+if it failed, so a flaky API never blanks the panel. The full build is written up in the
+[Bitcoin price example](/docs/guides/btc).
+
+## A rotating fact or quote
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that shows a short fact with a small icon and the label "FACT", wrapping the text across the panel.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/apps/ported-catfact/main.png" alt="A fact panel with a small icon and wrapped text" width="300" />
+</figure>
+
+**The lesson: long text must be wrapped by hand.** There's no scrolling marquee, so tell
+the AI to wrap the text into lines with `c.text_wrapped` (or `text_fit`) and stop at the
+bottom edge. Anything past 32px tall is simply off-screen.
+
+## A countdown
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that counts down the days to a date the user picks. Input: a target date. Show a big number of days and a label.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/apps/countdown/days.png" alt="A days-remaining countdown" width="300" />
+</figure>
+
+**The lesson: handle the empty and past states.** Ask for a `date` input, compute the
+days from `ctx.now`, and draw a friendly "SET A DATE" when it's blank and a "DONE"
+when it's passed, so the app never crashes on a missing value.
+
+## A scoreboard
+
+<div className="prompt-block">
+
+```text title="Prompt"
+Build a GDN app that shows two team abbreviations and their scores with a period label. Inputs for both team names and both scores.
+```
+
+</div>
+
+<figure className="figure">
+  <img className="led led--glow" src="/img/examples/ai-score.png" alt="A two-team scoreboard" width="300" />
+</figure>
+
+**The lesson: lean on the helpers.** One `c.scoreboard("LAL", "BOS", 108, 102, status="Q4")`
+is the whole screen. Telling the AI to *"use helpers where they fit"* turns a page of
+layout math into a single line. See the [helper functions](/docs/reference/helper-functions).
+
+## The mistakes to head off
+
+Across every one of those apps, an AI makes the same handful of mistakes, because it can't
+see the panel and it's used to bigger screens. Head them off in your prompt:
+
+| The AI's default | What GDN needs | Put this in your prompt |
+|---|---|---|
+| Lowercase text | Fonts are uppercase-only | "Uppercase all text (`.upper()`)." |
+| Animations, scrolling, blinking | Still frames | "Draw one still image; no animation." |
+| Returns a layout / widget tree | You draw with `c.*` | "Draw immediately with `c.*`; return nothing." |
+| Assumes a big screen | 32px tall, keep it short | "Target a 128×32 panel; keep text short." |
+| Uses local time | `ctx.now` is UTC | "Time is UTC; add a UTC-offset input." |
+| Ignores failed requests | Guard every fetch | "Check `status_code` before reading `http.get`." |
+| Overflowing long text | Wrap and clip by hand | "Wrap text with `c.text_wrapped`; stop at the edge." |
+| Pastes a full-size image | Panel-sized assets | "Draw images at 16px; declare them in `assets:`." |
+
+## The pattern that works
+
+1. Paste the [cheat-sheet](/docs/build-with-ai).
+2. Describe the app in one or two sentences, naming the inputs and the panel width.
+3. Preview it in [Studio](/docs/studio) or with `gdn check apps/<id>`.
+4. Paste any error back to the AI and ask it to fix the code.
+
+Two or three rounds of that gets almost any of these apps working. When you're happy,
+[submit it](/docs/publish/submit).

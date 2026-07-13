@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="920" height="380" rx="16" fill="#0b0f0e"/>
+  <rect x="1" y="1" width="918" height="378" rx="15" fill="none" stroke="#1c2420"/>
+
+  <text x="40" y="46" fill="#e6e9e7" font-size="20" font-weight="800">The coordinate system</text>
+  <text x="40" y="70" fill="#8b90a0" font-size="13">Origin (0,0) is the top-left pixel. x grows right, y grows down. There are no negative-looking surprises: up is smaller y.</text>
+
+  <!-- pixel grid: 16 x 8 cells, 30px each -->
+  <g transform="translate(80 120)">
+    <!-- cells -->
+    <g fill="#111614" stroke="#1e2823">
+      <rect width="480" height="240"/>
+    </g>
+    <g stroke="#1e2823">
+      <path d="M30 0V240 M60 0V240 M90 0V240 M120 0V240 M150 0V240 M180 0V240 M210 0V240 M240 0V240 M270 0V240 M300 0V240 M330 0V240 M360 0V240 M390 0V240 M420 0V240 M450 0V240"/>
+      <path d="M0 30H480 M0 60H480 M0 90H480 M0 120H480 M0 150H480 M0 180H480 M0 210H480"/>
+    </g>
+
+    <!-- origin pixel -->
+    <rect x="1.5" y="1.5" width="27" height="27" fill="#0f2418" stroke="#2bff6e" stroke-width="2"/>
+    <text x="15" y="-34" fill="#2bff6e" font-size="13" font-weight="700" text-anchor="middle">(0,0)</text>
+    <path d="M15 -28 V -6" stroke="#2bff6e" stroke-width="2"/>
+    <path d="M15 -6 l -5 -8 h 10 z" fill="#2bff6e"/>
+
+    <!-- highlighted pixel (4,3) -->
+    <rect x="121.5" y="91.5" width="27" height="27" fill="#00ff00"/>
+    <text x="200" y="80" fill="#00ff00" font-size="13" font-weight="700">c.pixel(4, 3, "green")</text>
+    <path d="M196 84 L152 98" stroke="#00ff00" stroke-width="1.6" fill="none"/>
+
+    <!-- x axis arrow -->
+    <path d="M0 258 H180" stroke="#8b90a0" stroke-width="2"/>
+    <path d="M180 258 l -10 -5 v 10 z" fill="#8b90a0"/>
+    <text x="196" y="263" fill="#e6e9e7" font-size="14" font-weight="700">x  (column, grows right)</text>
+
+    <!-- y axis arrow -->
+    <path d="M-18 0 V120" stroke="#8b90a0" stroke-width="2"/>
+    <path d="M-18 120 l -5 -10 h 10 z" fill="#8b90a0"/>
+    <text x="-34" y="150" fill="#e6e9e7" font-size="14" font-weight="700" transform="rotate(-90 -34 150)" text-anchor="end">y  (row, grows down)</text>
+  </g>
+
+  <!-- right panel: (x,y) = top-left corner rule -->
+  <g transform="translate(620 108)">
+    <rect width="260" height="236" rx="12" fill="#111614" stroke="#243029"/>
+    <text x="16" y="30" fill="#2bff6e" font-size="14" font-weight="700">Where does it land?</text>
+    <text x="16" y="54" fill="#a7b0ab" font-size="12">For text, images and bitmaps,</text>
+    <text x="16" y="70" fill="#e6e9e7" font-size="12" font-weight="700">(x, y) is the TOP-LEFT corner</text>
+    <text x="16" y="86" fill="#a7b0ab" font-size="12">of what you draw.</text>
+
+    <!-- mini example: image pasted at (4,3) -->
+    <g transform="translate(16 104)">
+      <text x="0" y="0" fill="#e6e9e7" font-size="11.5" font-family="JetBrains Mono, monospace">c.image("pawn.png", 4, 3)</text>
+      <!-- mini grid -->
+      <g transform="translate(0 14)">
+        <rect width="228" height="88" fill="#0d1210" stroke="#1e2823"/>
+        <!-- pasted image box -->
+        <rect x="36" y="24" width="120" height="56" fill="#0f2418" stroke="#2bff6e" stroke-dasharray="4 3"/>
+        <circle cx="36" cy="24" r="5" fill="#00ff00"/>
+        <text x="48" y="18" fill="#00ff00" font-size="11" font-weight="700">(4, 3) = this corner</text>
+        <text x="96" y="58" fill="#8b90a0" font-size="11" text-anchor="middle">the image extends</text>
+        <text x="96" y="72" fill="#8b90a0" font-size="11" text-anchor="middle">right + down from it</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="80" y="30" fill="#8b90a0" font-size="12" text-anchor="start"></text>
+</svg>

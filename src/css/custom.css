@@ -1,0 +1,166 @@
+/* ============ Glance Developer Network — brand theme ============
+   Brand: LED green #00FF00, black/white/grey, Montserrat, pixel/LED vibe. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --ifm-color-primary: #06b64a;
+  --ifm-color-primary-dark: #05a343;
+  --ifm-color-primary-darker: #059a3f;
+  --ifm-color-primary-darkest: #047f34;
+  --ifm-color-primary-light: #07c951;
+  --ifm-color-primary-lighter: #08d356;
+  --ifm-color-primary-lightest: #23e972;
+  --ifm-font-family-base: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Montserrat', system-ui, sans-serif;
+  --ifm-heading-font-weight: 800;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, 'Consolas', monospace;
+  --ifm-code-font-size: 90%;
+  --gdn-green: #00ff00;
+  --gdn-green-soft: #45ff7a;
+  --gdn-grey: #a0a0a0;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 255, 0, 0.12);
+}
+
+/* Dark is the brand default */
+[data-theme='dark'] {
+  --ifm-color-primary: #2bff6e;
+  --ifm-color-primary-dark: #08f552;
+  --ifm-color-primary-darker: #06e84c;
+  --ifm-color-primary-darkest: #05bf3e;
+  --ifm-color-primary-light: #55ff8b;
+  --ifm-color-primary-lighter: #6cff9c;
+  --ifm-color-primary-lightest: #9dffbf;
+  --ifm-background-color: #0a0d0c;
+  --ifm-background-surface-color: #111614;
+  --ifm-navbar-background-color: rgba(8, 11, 10, 0.85);
+  --ifm-footer-background-color: #070908;
+  --ifm-color-content: #e6e9e7;
+  --ifm-color-content-secondary: #a7b0ab;
+  --ifm-toc-border-color: #1c2420;
+  --ifm-hr-border-color: #1c2420;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 255, 0, 0.14);
+}
+
+html { -webkit-font-smoothing: antialiased; }
+body { letter-spacing: 0.1px; }
+
+/* Hide the auto Previous/Next pagination — the sidebar and the curated
+   "Next" cards at the bottom of pages guide the flow instead. */
+.pagination-nav { display: none; }
+
+h1, h2, h3 { letter-spacing: -0.4px; }
+[data-theme='dark'] .markdown h1,
+[data-theme='dark'] article h1 { text-shadow: 0 0 22px rgba(0, 255, 0, 0.12); }
+
+/* Navbar: subtle blur + green rule */
+.navbar {
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.14);
+}
+.navbar__title { font-weight: 800; letter-spacing: -0.3px; }
+
+/* Links get a touch of glow on hover in dark */
+[data-theme='dark'] .markdown a { text-decoration-color: rgba(43, 255, 110, 0.4); }
+
+/* ---------- LED render images: crisp pixels + panel look ---------- */
+.led {
+  image-rendering: pixelated;
+  border-radius: 6px;
+  background: #000;
+  padding: 8px;
+  border: 1px solid #1e2621;
+  box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.06), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.led--glow { box-shadow: 0 0 34px rgba(0, 255, 0, 0.18), 0 10px 30px rgba(0, 0, 0, 0.5); }
+.led img, img.led { image-rendering: pixelated; display: block; width: 100%; height: auto; }
+
+/* ---------- Reusable doc bits ---------- */
+.figure { margin: 1.4rem 0; }
+.figure figcaption, .caption {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.82rem; margin-top: 0.5rem; text-align: center;
+}
+.center { text-align: center; }
+
+/* Card grid (quick links, showcase) */
+.cardGrid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1.5rem 0;
+}
+.card {
+  display: block; padding: 1.1rem 1.2rem; border-radius: 12px;
+  border: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-background-surface-color);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  color: inherit; text-decoration: none;
+}
+.card:hover {
+  transform: translateY(-3px); text-decoration: none;
+  border-color: rgba(43, 255, 110, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(43, 255, 110, 0.2);
+}
+.card h3 { margin: 0.2rem 0 0.3rem; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--ifm-color-content-secondary); font-size: 0.9rem; }
+.card .card__ico { font-size: 1.4rem; }
+
+/* App showcase grid */
+.appGrid {
+  display: grid; gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin: 1.5rem 0;
+}
+.appTile {
+  border-radius: 10px; padding: 10px; text-align: center;
+  border: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-background-surface-color);
+}
+.appTile img { image-rendering: pixelated; width: 100%; height: auto; border-radius: 5px; background: #000; }
+.appTile .name { font-size: 0.8rem; margin-top: 0.5rem; color: var(--ifm-color-content-secondary); }
+
+/* Pixel chip / badge */
+.chip {
+  display: inline-block; padding: 2px 9px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3px;
+  border: 1px solid rgba(43, 255, 110, 0.4); color: var(--ifm-color-primary);
+  background: rgba(0, 255, 0, 0.06); margin: 0 4px 4px 0;
+}
+
+/* Step callouts */
+.step { display: flex; gap: 0.9rem; align-items: flex-start; margin: 1rem 0; }
+.step .num {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 8px;
+  display: grid; place-items: center; font-weight: 800; color: #00110a;
+  background: var(--gdn-green); box-shadow: 0 0 16px rgba(0, 255, 0, 0.35);
+}
+
+/* Full-bleed figure/diagram wrapper */
+.diagram { border-radius: 12px; overflow: hidden; border: 1px solid var(--ifm-toc-border-color); }
+.diagram img { display: block; width: 100%; height: auto; }
+
+/* Row of LED panels inside prose */
+.panelRowStatic { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+.panelRowStatic img { flex: 0 1 auto; max-width: 100%; }
+
+/* Screenshot with a soft frame (for GUI shots, not LED renders) */
+.shot { max-width: 100%; height: auto; border: 1px solid #2a3038; border-radius: 8px; box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45); display: block; margin: 0.4rem auto; }
+
+/* Two-up: code beside its render */
+.sideBySide { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center; margin: 1.2rem 0; }
+@media (max-width: 760px) { .sideBySide { grid-template-columns: 1fr; } }
+
+/* Input-type gallery */
+.typeGrid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); margin: 1.4rem 0; }
+.typeCard { border: 1px solid var(--ifm-toc-border-color); border-radius: 12px; background: var(--ifm-background-surface-color); padding: 1rem; }
+.typeCard h4 { margin: 0 0 0.2rem; font-size: 0.95rem; }
+.typeCard .val { font-family: var(--ifm-font-family-monospace); color: var(--ifm-color-primary); font-size: 0.82rem; }
+.typeCard p { margin: 0.3rem 0 0.7rem; font-size: 0.82rem; color: var(--ifm-color-content-secondary); }
+.ctrl { border: 1px solid #2a352e; border-radius: 8px; padding: 0.45rem 0.6rem; background: #0c100e; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
+.ctrl--select::after { content: '▾'; margin-left: auto; color: var(--gdn-grey); }
+.swatch { width: 18px; height: 18px; border-radius: 4px; display: inline-block; }
+
+/* Prompt code blocks (Build-with-AI examples): always soft-wrap, keep the copy button,
+   and never show the word-wrap toggle (wrapping means there's nothing to toggle). */
+.prompt-block pre code,
+.prompt-block pre code .token-line { white-space: pre-wrap !important; overflow-wrap: anywhere; }
+.prompt-block button[class*='wordWrapButton'] { display: none !important; }
