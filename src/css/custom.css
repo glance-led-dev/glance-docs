@@ -57,6 +57,13 @@ h1, h2, h3 { letter-spacing: -0.4px; }
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid rgba(0, 255, 0, 0.14);
 }
+/* On mobile the navbar's backdrop-filter makes it the containing block for the
+   position:fixed slide-in menu, so the chapter drawer can't cover the page. Drop the
+   filter there and give the drawer a solid background so it reads as a full overlay. */
+@media (max-width: 996px) {
+  .navbar { backdrop-filter: none; }
+  .navbar-sidebar { background: var(--ifm-background-color); }
+}
 .navbar__title { font-weight: 800; letter-spacing: -0.3px; }
 
 /* Links get a touch of glow on hover in dark */
