@@ -58,7 +58,7 @@ const config = {
           {to: '/docs/getting-started/quickstart', label: 'Get started', position: 'left'},
           {to: '/docs/reference/drawing-api', label: 'Reference', position: 'left'},
           {to: '/docs/publish/submit', label: 'Publish', position: 'left'},
-          {href: 'https://github.com/glance-led/glance-dev-network', label: 'GitHub', position: 'right'},
+          {href: 'https://github.com/iampluto954/glance-dev-network', label: 'GitHub', position: 'right'},
         ],
       },
       footer: {
@@ -86,7 +86,7 @@ const config = {
             items: [
               {label: 'Publish an app', to: '/docs/publish/submit'},
               {label: 'Private apps', to: '/docs/private-apps/'},
-              {label: 'GitHub', href: 'https://github.com/glance-led/glance-dev-network'},
+              {label: 'GitHub', href: 'https://github.com/iampluto954/glance-dev-network'},
             ],
           },
         ],
