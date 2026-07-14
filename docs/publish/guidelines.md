@@ -7,6 +7,11 @@ title: Guidelines
 
 A few standards keep the catalog high-quality and every app safe to run.
 
+<figure className="figure">
+  <img className="shot" src="/img/studio/validate-pill.png" alt="Studio's green status pill reading Looks good, pages draw cleanly" width="420" />
+  <figcaption>Studio's <b>Validate</b> button checks all of this at once, green means you're ready to submit.</figcaption>
+</figure>
+
 ## Must
 
 - **Renders cleanly.** `gdn validate` passes for every page.
@@ -22,6 +27,13 @@ A few standards keep the catalog high-quality and every app safe to run.
 - **Sensible refresh.** Use the slowest `refresh` that still looks live, `3600` for
   hourly data, `60`-`300` for fast-moving data.
 - **Clear metadata.** A real `name`, a one-line `description`, and an `author`.
+
+Studio builds the `preview.png` for you, every page of your app stacked into one image:
+
+<figure className="figure">
+  <img className="led" src="/img/publish/example-preview.png" alt="A preview.png showing both pages of an app stacked vertically" width="300" />
+  <figcaption>A two-page app's <code>preview.png</code>: each page at 5x, stacked. Validate or Submit generates it, so you never draw it by hand.</figcaption>
+</figure>
 
 ## Should
 
