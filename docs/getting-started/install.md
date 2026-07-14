@@ -28,9 +28,16 @@ one line at a time, each followed by Enter.
 
 ### Installing Python
 
-Download it from the official site. It's a normal installer:
+Download it from the **official site**, python.org. It's a normal installer:
 
 [python.org/downloads](https://www.python.org/downloads/)
+
+:::caution[Windows: use python.org, not the Microsoft Store]
+Install Python from **python.org**, not the Microsoft Store. The Store version puts the
+`gdn` command in a hidden folder that isn't on your PATH, so `gdn` reads as "not recognized"
+even after a perfectly successful install. If you already used the Store version, don't
+worry, `python -m gdn` still works (see step 3), but python.org is the smoother path.
+:::
 
 :::danger[Windows: tick "Add python.exe to PATH"]
 On the first screen of the Python installer, tick
@@ -94,6 +101,12 @@ cd glance-dev-network
 No Git? On the [GitHub page](https://github.com/glance-led-dev/glance-dev-network),
 click Code, then Download ZIP, unzip it, then open a terminal in that folder.
 
+:::caution[Use a normal terminal, not "Run as administrator"]
+Open a plain terminal, not an **administrator** one. An admin prompt starts in
+`C:\Windows\System32`, and cloning there drops the whole repo into a Windows system folder.
+Clone into an ordinary place instead, like `C:\Users\<you>\Documents`.
+:::
+
 :::tip[No fork to set up]
 
 Clone the main repo above and you're ready to build. When you publish, Glance Dev Studio
@@ -122,6 +135,20 @@ gdn version
 You should see `gdn 0.1.0`. You now have the toolkit: `gdn studio`,
 `gdn new`, `gdn preview`, and more. See them all in the
 [CLI commands](/docs/guides/cli) guide.
+
+:::tip["`gdn` is not recognized"? You're still fine]
+If the install said **"Successfully installed"** but `gdn version` says *"not recognized"*,
+the command simply isn't on your PATH (common with Microsoft Store Python). Nothing is
+broken and you don't have to fix it to keep going, use either of these:
+
+- Run everything with **`python -m gdn`** instead of `gdn`, for example
+  `python -m gdn version` or `python -m gdn studio`. This always works.
+- Or **double-click `studio.bat`** in the repo folder (macOS: `studio.command`,
+  Linux: `studio.sh`) to open Studio without needing `gdn` on your PATH.
+
+To make plain `gdn` work everywhere, install Python from **python.org** with
+**"Add python.exe to PATH"** ticked (see step 1), then reopen your terminal.
+:::
 
 ## Troubleshooting
 
