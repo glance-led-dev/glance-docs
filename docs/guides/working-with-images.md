@@ -84,19 +84,19 @@ def sign(c, ctx):
 ## Place it visually in Glance Dev Studio
 
 Guessing x and y numbers is fiddly. Instead, open your app in [Studio](/docs/studio) and
-drag the picture right on the panel. When your app draws an image, an **Edit images** button
-appears next to the panel size at the top of the preview. Click it (it lights up green) and
-every picture on the panel becomes draggable. The `c.image(...)` code updates itself as you
-go:
+drag the picture right on the panel. When your app draws an image or pixel art, an **Edit
+art** button appears next to the panel size at the top of the preview. Click it (it lights up
+green) and every picture and bitmap on the panel becomes draggable. The `c.image(...)` (or
+`c.bitmap(...)` / `c.sprite(...)`) code updates itself as you go:
 
 <figure className="figure">
   <img className="shot" src="/img/studio/place-image.png" alt="Dragging the gator logo on the live panel while the c.image line updates" />
 </figure>
 
 :::tip[Even faster: drag and drop]
-Drag a PNG straight from your computer onto Studio and it's imported for you, copied into
-`assets/`, shrunk to fit the panel if it's too big, declared in the manifest, and dropped on
-the panel ready to drag. Nothing to move by hand.
+Drag a PNG straight from your computer onto Studio. It asks you to confirm the import first,
+then copies the file into `assets/`, shrinks it to fit the panel if it's too big, declares it
+in the manifest, and drops it on the panel ready to drag. Nothing to move by hand.
 :::
 
 - **Move.** Drag the image where you want it. Its `x` and `y` change to match.
@@ -179,7 +179,8 @@ doesn't have.
 You don't have to write the grid by hand. In Studio, click **Pixel art** above the editor to
 paint on a grid with a color palette, and Studio writes the `c.bitmap(...)` for you (or a
 `c.sprite(...)` when you use more than one color). Put your cursor on an existing one and
-click **Pixel art** again to edit it.
+click **Pixel art** again to edit it. To reposition it, use **Edit art** and drag the bitmap
+on the panel just like an image, its `x` and `y` update as you go.
 
 <figure className="figure">
   <img className="shot" src="/img/studio/sprite-editor.png" alt="The Pixel art grid editor: a painted red heart with a color palette and a 16 by 16 grid" />
