@@ -70,7 +70,7 @@ Don't have an app yet? Either way still opens Studio, just click **Create New Ap
 ## The whole screen, labeled
 
 <figure className="figure">
-  <img className="shot" src="/img/studio/overview.png" alt="The Glance Dev Studio window with eleven numbered callouts" />
+  <img className="shot" src="/img/studio/overview.png" alt="The Glance Dev Studio window with sixteen numbered callouts" />
 </figure>
 
 1. **Switch apps.** Pick any app in your `apps/` folder from this menu.
@@ -80,10 +80,15 @@ Don't have an app yet? Either way still opens Studio, just click **Create New Ap
 5. **Validate & Submit.** Checks it, then opens a pull request to publish it (see [Check & publish](/docs/studio/check-and-publish)).
 6. **The two files.** Tabs for `app.star` (the drawing) and `manifest.yaml` (the settings).
 7. **Save & Render.** Save your changes and update the preview (or press Ctrl/Cmd+S).
-8. **Time travel.** Set any date and time to test how your app looks then.
-9. **Pointer position.** Hover the panel to read the exact pixel your mouse is on.
-10. **Your app's settings.** The inputs people fill in; the preview updates as you type.
-11. **Live panel.** Exactly what your LED sign will show, every page, pixel for pixel.
+8. **Toolbox.** Browse every font, chart, and shape with a live preview, and click to drop the code in (or press Ctrl+B). See [Toolbox](/docs/studio/toolbox).
+9. **Autocomplete.** Suggests helpers, fonts, colors, and your own settings as you type. Untick it any time.
+10. **Pixel art.** Paint on a grid and Studio writes the `c.bitmap` / `c.sprite` code for you.
+11. **Time travel.** Set any date and time to test how your app looks then (the **Now** button jumps back to the present). The **Pixel grid** toggle draws a faint line around every pixel.
+12. **Place image.** Drop a PNG on the panel and drag it into position; the `c.image(...)` code follows.
+13. **Save PNG.** Download the panel as a crisp image, handy for sharing a preview.
+14. **Live panel.** Exactly what your LED sign will show, every page, pixel for pixel. Hover it and the readout (top-right) shows the exact pixel under your mouse.
+15. **Add page.** Add another screen your app cycles through. Studio adds it to `manifest.yaml` and writes the matching `def` in `app.star` in one step. See [Pages](/docs/guides/pages).
+16. **Your app's settings.** The inputs people fill in; the preview updates as you type.
 
 Also on the toolbar: **Delete app** removes the current app's whole folder after a
 confirmation (you tick a box, then confirm). And a small **Debug** button in the
