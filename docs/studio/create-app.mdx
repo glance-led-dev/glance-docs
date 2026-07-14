@@ -24,6 +24,9 @@ Fill in a few things:
   or 384 (six panels, the maximum). Height is always 32.
 - **Category.** What kind of app it is (Sports, Finance, Weather, and so on), used to
   group it in the catalog. You can change it later in `manifest.yaml`.
+- **Refresh every.** How often Glance fetches fresh data and redraws your app, from every
+  minute to once a day (five minutes is a good default). This is your app's cache window,
+  it's written as the `refresh:` line in `manifest.yaml`, so you can fine-tune it later.
 - **Settings to start with.** The inputs people fill in when they add your app. Pick a
   **type** for each from the dropdown (text box, number, dropdown, checkbox, date, or
   color) and give it a label, then use **+ Add a setting** for more. Leave it empty for

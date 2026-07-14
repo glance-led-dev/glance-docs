@@ -26,6 +26,23 @@ pip install -e .
 gdn version        # prints gdn 0.1.0
 ```
 
+:::tip[On a Mac?]
+The steps are identical, with one wrinkle: macOS usually has **`python3`** and **`pip3`**
+(not a plain `python`/`pip`). If `pip` or `gdn` isn't found, add the `3` and run through
+Python:
+
+```bash
+git clone https://github.com/glance-led-dev/glance-dev-network.git
+cd glance-dev-network
+pip3 install -e .
+python3 -m gdn version        # prints gdn 0.1.0
+```
+
+Everywhere below that says `gdn ...`, `python3 -m gdn ...` works too (for example
+`python3 -m gdn studio`). Full macOS setup is in the
+[Install guide](/docs/getting-started/install).
+:::
+
 :::tip[No fork to set up]
 
 Clone the main repo above and you're ready to build. When you publish, Glance Dev Studio
