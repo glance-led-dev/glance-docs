@@ -24,7 +24,7 @@ the shared repository. Once it's reviewed and merged, your app is live in the
 catalog.
 
 **1. Fork the repo**, on
-[the GitHub page](https://github.com/iampluto954/glance-dev-network), click
+[the GitHub page](https://github.com/glance-led-dev/glance-dev-network), click
 **Fork**. That gives you your own copy you can push to.
 
 **2. Point your clone at your fork** (skip if you cloned your fork to begin with):

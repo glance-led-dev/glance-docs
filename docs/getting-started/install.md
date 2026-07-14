@@ -59,11 +59,11 @@ You should see `Python 3.9` or newer. On macOS/Linux, try `python3 --version` if
 Your apps are folders inside the GDN repository, so start by downloading it:
 
 ```bash
-git clone https://github.com/iampluto954/glance-dev-network.git
+git clone https://github.com/glance-led-dev/glance-dev-network.git
 cd glance-dev-network
 ```
 
-No Git? On the [GitHub page](https://github.com/iampluto954/glance-dev-network),
+No Git? On the [GitHub page](https://github.com/glance-led-dev/glance-dev-network),
 click Code, then Download ZIP, unzip it, then open a terminal in that folder.
 
 ## 3. Install `gdn`
