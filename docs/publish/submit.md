@@ -48,6 +48,23 @@ paste. When it's done, your pull request is open and Studio links you straight t
   <img className="shot" src="/img/studio/publish-done.png" alt="The Publish dialog showing 'Your pull request is open' with a link to view it on GitHub" />
 </figure>
 
+:::tip[Signing in to GitHub]
+The first time you publish, a **GitHub sign-in window opens in your browser**. That's
+expected, it's how git proves it's you. Complete it once and it's remembered, so you won't
+be asked again for a while.
+
+- If a publish seems to **hang or "stick"**, it's almost always waiting on that sign-in
+  window. Find it (check your taskbar or other browser tabs) and finish it, and publishing
+  continues on its own.
+- GitHub **occasionally asks you to sign in again later** (credentials expire). Same window,
+  same one click, no reason to worry.
+
+That window comes from **Git itself** (its credential manager), not from Glance Dev Studio.
+Studio never sees, stores, or sends your GitHub password or token, git handles the sign-in
+and keeps it in your operating system's own secure credential store, on your machine. Glance
+has no access to it, and you never paste a token or type a git command.
+:::
+
 :::note[You submit, the team merges]
 A pull request is a *request* to add your app, you don't merge it yourself. CI runs
 `gdn validate` on it automatically; once it's green and reviewed, the Glance team merges
