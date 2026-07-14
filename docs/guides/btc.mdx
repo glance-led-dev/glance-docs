@@ -21,7 +21,7 @@ re-runs the fetch and redraws the panel on the spot:
 
 Your `app.star` runs in a sandbox, so it can't open a socket itself. Instead it
 calls **`http.get(url)`** and the **GDN host** performs the real request on its
-behalf, with a hard 10-second timeout and built-in caching, then hands the response
+behalf, with a hard 5-second timeout and built-in caching, then hands the response
 back as plain data. From your code's point of view it's one function call:
 
 1. You declare an API key input. The user pastes their CoinGecko key once, in

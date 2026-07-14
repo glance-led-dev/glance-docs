@@ -97,8 +97,8 @@ never served from cache. Match `ttl_seconds` to your data: `300` for prices,
 
 ## Timeouts and limits
 
-- Each request has a hard 10 second timeout. A slow endpoint comes back as
-  `status_code: 0` instead of hanging the panel.
+- Each request has a hard 5 second timeout. A slow endpoint comes back as
+  `status_code: 0` instead of hanging the panel, so pick APIs that answer quickly.
 - An app may make at most 8 uncached requests per render. Cache hits don't
   count. Exceeding it stops the render with a clear error.
 - Response bodies are capped at 1 MB. Panel apps need kilobytes; if you're

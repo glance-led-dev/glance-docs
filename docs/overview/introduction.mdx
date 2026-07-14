@@ -51,7 +51,7 @@ up front:
 - **No filesystem or OS access.** Your code can't open files, read environment
   variables, or reach secrets.
 - **No direct network.** The only way out is [`http.get(...)`](/docs/reference/http),
-  which the host runs for you. It's `GET` only, with a hard 10-second timeout, a 1 MB
+  which the host runs for you. It's `GET` only, with a hard 5-second timeout, a 1 MB
   response cap, and at most 8 uncached requests per render.
 - **A pixel canvas.** Each Glance panel is 64×32 pixels, and panels daisy-chain up to
   384×32. For best performance, keep images to 192×32 or smaller and split content
