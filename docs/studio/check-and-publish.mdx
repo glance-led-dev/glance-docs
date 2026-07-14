@@ -47,7 +47,11 @@ to finish.
 
 A pull request is a request to add your app, you don't merge it yourself. The CI runs
 `gdn validate` on it automatically; once it's green and reviewed, the Glance team merges it
-and it goes live. You need a **fork** of the app repo first (that's where your app gets
-pushed), see [Submit your app](/docs/publish/submit) for the full flow.
+and it goes live.
+
+Validate & Submit pushes to your clone's `origin`, so `origin` has to be **your own fork**
+of the app repo, not the shared Glance repo. If you cloned the main repo you'll see
+*"origin is the main repo, not your fork"*, fork it on GitHub and point your clone at your
+fork first. See [Submit your app](/docs/publish/submit) for the full flow.
 
 :::

@@ -66,6 +66,14 @@ cd glance-dev-network
 No Git? On the [GitHub page](https://github.com/glance-led-dev/glance-dev-network),
 click Code, then Download ZIP, unzip it, then open a terminal in that folder.
 
+:::tip[Planning to publish an app?]
+
+Publishing happens from your own **fork** of the repo, that's where submissions get pushed.
+If you already know you'll publish, fork the repo on GitHub first and clone your fork instead
+of the main repo above. Everything else works the same. See [Submit your app](/docs/publish/submit).
+
+:::
+
 ## 3. Install `gdn`
 
 From the repository folder you just entered, run:

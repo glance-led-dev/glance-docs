@@ -17,41 +17,63 @@ No accounts, no keys, no hosting.
 
 See [Guidelines](/docs/publish/guidelines) for the complete list of requirements.
 
-## The pull-request flow
+## You submit from your fork
 
-If you've never opened a pull request: it's how you propose adding your folder to
-the shared repository. Once it's reviewed and merged, your app is live in the
-catalog.
+Publishing pushes your app to **your own fork** of the repo, then opens a pull
+request from it. So the one thing to get right first: work in a clone whose
+`origin` is your fork, not the shared Glance repo.
 
-**1. Fork the repo**, on
+**1. Fork the repo.** On
 [the GitHub page](https://github.com/glance-led-dev/glance-dev-network), click
-**Fork**. That gives you your own copy you can push to.
+**Fork**. That gives you your own copy of the repo under your account, which you
+can push to.
 
-**2. Point your clone at your fork** (skip if you cloned your fork to begin with):
+**2. Clone your fork** (not the main repo), so `origin` points at your copy:
 
 ```bash
-git remote add fork https://github.com/<your-username>/glance-dev-network.git
+git clone https://github.com/<your-username>/glance-dev-network.git
+cd glance-dev-network
+pip install -e .
 ```
 
-**3. Create a branch and commit your app:**
+Already cloned the main repo? You don't have to start over. Just point `origin`
+at your fork:
+
+```bash
+git remote set-url origin https://github.com/<your-username>/glance-dev-network.git
+```
+
+## Open the pull request
+
+If you've never opened a pull request: it's how you propose adding your folder to
+the shared repository. Once it's reviewed and merged, your app is live in the catalog.
+
+The easiest way is **Glance Dev Studio**: open your app and click **Validate &
+Submit**. It commits your app, pushes it to your fork, and opens the pull request
+for you, all from one button. See [Check it and publish](/docs/studio/check-and-publish).
+
+Prefer the terminal? Do the same steps by hand:
 
 ```bash
 git checkout -b my-app
 git add apps/my-app
 git commit -m "Add my-app"
-```
-
-**4. Push and open the PR:**
-
-```bash
-git push fork my-app
+git push -u origin my-app
 ```
 
 GitHub prints a link to open the pull request, click it, write one line about
 what the app shows, and submit.
 
-**5. CI validates automatically**, the same `gdn validate` you ran locally. Once
-the PR is merged, your app goes live in the app catalog.
+**CI validates automatically**, the same `gdn validate` you ran locally. Once the
+PR is reviewed and merged, your app goes live in the app catalog.
+
+:::caution[Seeing "origin is the main repo, not your fork"?]
+
+Validate & Submit and `gdn submit` push to your `origin`, so `origin` has to be
+**your fork**, not the shared Glance repo. If you cloned the main repo, run the
+`git remote set-url origin ...` command above with your fork's URL, then submit again.
+
+:::
 
 ## Private apps
 
