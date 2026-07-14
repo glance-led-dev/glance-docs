@@ -18,8 +18,9 @@ prefer it).
 ## 1. Create the app
 
 Open [Glance Dev Studio](/docs/studio) and click **+ Create New App**. Give it the name
-**Game Night**, set the panel width to **128 x 32**, pick a category, and add one setting, a
-**Game time** text box (you'll use it in a moment). Click **Create app**:
+**Game Night**, set the panel width to **128 x 32**, pick a category, choose how often it
+should refresh (once an hour is plenty for a sign), and add one setting, a **Game time**
+text box (you'll use it in a moment). Click **Create app**:
 
 <figure className="figure">
   <img className="shot" src="/img/studio/create-new-app.png" alt="The Create New App dialog: name, panel width, category, and starter settings" />
@@ -149,7 +150,36 @@ Type a different time, like `SAT 8PM`, and the badge updates instantly, no code 
 setting is what people fill in when they add your app (see
 [User input types](/docs/reference/input-types) for what they see on their phone).
 
-## 8. Validate
+## 8. Add a second page
+
+An app can cycle through more than one screen. Say you want a second page that credits
+whoever's hosting. You don't have to edit two files by hand: under the live preview, click
+**+ Add page** and name it `hosted`.
+
+Studio adds it to `manifest.yaml` (so the line reads `pages: [sign, hosted]`) **and** writes
+a matching `def hosted(c, ctx)` in `app.star`, then renders it right away. Add a **Hosted by**
+setting with **+ Add setting** (name it `host`), then fill in the new page:
+
+```python
+def hosted(c, ctx):
+    c.fill("black")
+    c.text_center("HOSTED BY", 5, font="5x7", color="green")
+    c.text_center(ctx.inputs.get("host", "THE SMITHS"), 18, font="6x8", color="white")
+```
+
+Now the panel shows both screens, and the real Glance cycles through them in the order they're
+listed:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/add-second-page.png" alt="Studio showing two pages: the Game Night sign and a HOSTED BY THE SMITHS page, each with a remove button, plus the Add page button" />
+  <figcaption>Two pages at once. <code>+ Add page</code> wires up both files; the small <b>×</b> on a panel removes a page.</figcaption>
+</figure>
+
+Changed your mind about a page? Click the small **×** on its panel and Studio takes it out of
+both files for you. (An app always keeps at least one page, so the last one has no **×**.) More
+in [Pages](/docs/guides/pages).
+
+## 9. Validate
 
 When it looks right, click **Validate** at the top of Studio. It renders every page and
 runs the same check publishing does: if you forgot to declare `pawn.png`, used a font that

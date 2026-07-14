@@ -9,11 +9,12 @@ sidebar_label: 'API Example: Bitcoin'
 A step past a static sign: a live Bitcoin price with a 24-hour trend, fetched
 from the free CoinGecko API with one `http.get` call. Along the way you'll import a
 logo, make an HTTP request, and parse a JSON response, the three things every
-live-data app does.
+live-data app does. You'll build it in [Glance Dev Studio](/docs/studio), so every save
+re-runs the fetch and redraws the panel on the spot:
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/examples/btc.png" alt="Bitcoin price panel: logo, live price, sparkline, and 24h change" width="380" />
-  <figcaption>Rendered from a live fetch (128×32, shown enlarged). Your price will differ.</figcaption>
+  <img className="shot" src="/img/studio/btc-studio.png" alt="Glance Dev Studio building the Bitcoin app: the fetch, parse, and draw code on the left, and a live $64,415 render with the logo, an upward sparkline, and +3.6% on the right, with the API key setting below" />
+  <figcaption>The whole app in Glance Dev Studio: your code on the left, a live fetch rendered on the right. Your price will differ.</figcaption>
 </figure>
 
 ## How live data reaches a GDN app
@@ -65,6 +66,13 @@ inputs:
     label: API key
     help: Your CoinGecko API key. Optional for this endpoint; raises rate limits.
 ```
+
+That `api_key` input becomes a field in the app's **settings** card in Studio (and on the
+user's phone when they add the app), with your `help:` text shown as the hint underneath:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/btc-inputs.png" alt="The Your app's settings card in Studio showing an API key text box with the CoinGecko help text below it" />
+</figure>
 
 ## 2. The logo
 
@@ -142,20 +150,20 @@ The pieces:
 
 ## 4. Render it
 
+Open the app in [Glance Dev Studio](/docs/studio) and press **Save & Render**: it runs the
+fetch and draws the result live, exactly the screenshot at the top of this page. Every save
+re-renders, so you tweak a color or a coordinate and see the real data redraw instantly.
+
+Prefer the terminal? Both of these work too:
+
 ```bash
-gdn preview examples/btc
+gdn preview examples/btc                          # live browser preview, re-renders on save
+gdn render examples/btc --page 1 --out btc.png    # render one page straight to a PNG
 ```
 
-Or render a page straight to a PNG, exactly what produced the image at the top of
-this page:
-
-```bash
-python -m gdn render examples/btc --page 1 --out btc.png
-```
-
-Run it twice: the second render is instant because the response is served from the
-cache for `ttl_seconds`. Unplug the network and it still renders (from cache), and
-once the cache expires you get the "NO DATA" fallback instead of a crash.
+Render it twice and the second one is instant, the response is served from the cache for
+`ttl_seconds`. Unplug the network and it still renders (from cache); once the cache expires
+you get the "NO DATA" fallback instead of a crash.
 
 ## Next
 
