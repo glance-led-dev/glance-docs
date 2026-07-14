@@ -31,6 +31,9 @@ That one click:
 2. Commits your app and pushes it to your fork on its own branch.
 3. Opens a **pull request** to add it to the catalog.
 
+It also renders your app's **preview images** (a PNG of each page, plus a `preview.png`
+thumbnail) into a `preview/` folder, so they ship with your app and show in the catalog.
+
 :::tip[New to forks? You don't need to be]
 A fork is simply your own copy of the app catalog on your GitHub account, the place your
 app gets pushed from. You never have to create it by hand or even know what it is: Studio
@@ -94,7 +97,8 @@ GitHub prints a link to open the pull request. This is exactly what Studio autom
 
 - `gdn validate apps/my-app` passes (Studio's **Validate** button runs the same check)
 - No secrets or API keys committed
-- Small PNG assets, all declared under `assets:`
+- All images in the app's `assets/` folder and declared under `assets:`
+- A `preview/` folder with a render of each page (Validate and Submit generate it for you)
 - A clear `name`, `description`, and `author` in the manifest
 
 See [Guidelines](/docs/publish/guidelines) for the complete list of requirements.
