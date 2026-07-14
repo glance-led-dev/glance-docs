@@ -123,8 +123,24 @@ From the repository folder you just entered, run:
 pip install -e .
 ```
 
-That single command also downloads everything GDN needs (Pillow, Flask, PyYAML, and a
-few others) automatically, so there's no separate list of packages to install by hand.
+That single command installs everything GDN depends on automatically, so you normally
+never touch these by hand. For reference, the dependencies are:
+
+| Package | Version | What it does |
+|---|---|---|
+| **Pillow** | `>=9` | Renders your panel to PNG images |
+| **PyYAML** | `>=6` | Reads your `manifest.yaml` |
+| **Flask** | `>=2.2` | Runs the local preview and Studio servers |
+| **jsonschema** | `>=4.18` | Validates the manifest |
+| **starlark-pyo3** | `>=2026.1` | Runs your `app.star` in the Starlark sandbox |
+| **requests** | `>=2.28` | Fetches data for apps that call an API |
+
+`pip install -e .` pulls all of these in for you. If you'd rather install them yourself,
+you can do it in one line instead:
+
+```bash
+pip install Pillow PyYAML Flask jsonschema starlark-pyo3 requests
+```
 
 Then check it works:
 
