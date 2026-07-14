@@ -179,6 +179,15 @@ To make plain `gdn` work everywhere, install Python from **python.org** with
   `gdn studio` from the project folder instead, or double-click the launcher for your
   system (`studio.bat`, `studio.command`, or `studio.sh`). See
   [Opening Glance Dev Studio](/docs/studio#opening-glance-dev-studio).
+- **Studio's Save fails with "Permission denied" and a `C:\Windows\System32\...` path**
+  the repo is inside a protected Windows system folder. It lands there if you cloned from an
+  **administrator** terminal (which opens in `System32`). Move the whole `glance-dev-network`
+  folder to your **Documents** or **Desktop**, open a **normal** (non-admin) terminal there,
+  and run `gdn studio` again.
+- **"Parse error: cannot use reserved keyword `import`"** `app.star` is
+  [Starlark, not Python](/docs/studio/write-code#appstar-is-starlark-not-python), so `import`
+  and Python libraries aren't allowed. Use `c` and `ctx` (and the
+  [HTTP helper](/docs/reference/http) for web data) instead.
 - **Permission errors on install** add `--user`, or use a virtual environment:
 
 ```bash

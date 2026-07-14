@@ -60,6 +60,23 @@ explains it at the bottom of the editor, before you even render:
 Fix the line and the underline clears itself. (Starlark, the language `app.star` is written
 in, cares about indentation, so line things up under the `def`.)
 
+## app.star is Starlark, not Python
+
+`app.star` looks like Python, but it's **Starlark**, a safe, sandboxed dialect. That's what
+keeps every app fast and secure to run, but it means a few Python things don't work:
+
+- **No `import`.** You can't import modules, if you try, you'll see
+  *"Parse error: cannot use reserved keyword `import`"*. There's no `os`, `sys`, `datetime`,
+  `random`, `requests`, or any other Python library.
+- **No file, network, or system access** from your code directly. To pull data from the web,
+  use the built-in HTTP helper, see [HTTP requests](/docs/reference/http). For the current
+  date and time, use `ctx.now` instead of `datetime`.
+- You don't need imports anyway: everything is handed to your page function, `c` (the canvas
+  and all its `c.*` drawing calls) and `ctx` (`ctx.inputs`, `ctx.now`).
+
+So write plain functions that draw with `c` and read from `ctx`, and leave `import` out
+entirely.
+
 ## Save & Render
 
 When you've made a change, click **Save & Render** (or press **Ctrl+S** / **Cmd+S**). Studio
@@ -68,6 +85,15 @@ result immediately.
 
 **Reload** throws away unsaved edits and re-reads the files from disk, handy if you also
 edited them somewhere else.
+
+:::caution[Save says "Permission denied"?]
+If **Save & Render** fails with *"Couldn't save: [Errno 13] Permission denied"* and the path
+starts with `C:\Windows\System32\...`, your app is in a **protected system folder** and Studio
+can't write there. This happens when the repo was cloned from an **administrator** terminal,
+which opens in `System32`. Move the whole `glance-dev-network` folder to a normal place like
+your **Documents** or **Desktop**, open a **regular (non-admin)** terminal there, and run
+`gdn studio` again. See [Install](/docs/getting-started/install).
+:::
 
 :::tip[These are your real files]
 
