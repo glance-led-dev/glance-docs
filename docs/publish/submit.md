@@ -31,6 +31,12 @@ That one click:
 2. Commits your app and pushes it to your fork on its own branch.
 3. Opens a **pull request** to add it to the catalog.
 
+:::tip[New to forks? You don't need to be]
+A fork is simply your own copy of the app catalog on your GitHub account, the place your
+app gets pushed from. You never have to create it by hand or even know what it is: Studio
+makes it for you the first time you publish, and reuses it after that.
+:::
+
 The first time, git asks you to sign in to GitHub through your normal credential manager
 (the same sign-in as any `git push`), so there's nothing extra to install and no token to
 paste. When it's done, your pull request is open and Studio links you straight to it:
