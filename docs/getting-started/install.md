@@ -54,6 +54,34 @@ python --version
 You should see `Python 3.9` or newer. On macOS/Linux, try `python3 --version` if
 `python` isn't found.
 
+### Installing Git
+
+Git downloads the app repository, and later publishes your app. First check whether you
+already have it, type this in your terminal:
+
+```bash
+git --version
+```
+
+If you see a version number, you're set, skip to the next step. If it says "command not
+found" or "not recognized", install it:
+
+- **Windows:** download and run the installer from
+  [git-scm.com/download/win](https://git-scm.com/download/win) and accept the defaults.
+  It also installs **Git Credential Manager**, which handles your GitHub sign-in for you
+  the first time you publish, so there's no token to set up.
+- **macOS:** just run `git --version` once, macOS offers to install the developer tools,
+  click **Install**. Or `brew install git`.
+- **Linux:** `sudo apt install git` (Debian/Ubuntu), or your distro's package manager.
+
+Open a **new** terminal afterward and run `git --version` again to confirm.
+
+:::tip[You'll want a free GitHub account]
+Publishing an app opens a pull request on GitHub, so make a free account at
+[github.com](https://github.com) if you don't have one. You don't need it to build and
+preview locally, only to publish.
+:::
+
 ## 2. Get the code
 
 Your apps are folders inside the GDN repository, so start by downloading it:
@@ -66,11 +94,11 @@ cd glance-dev-network
 No Git? On the [GitHub page](https://github.com/glance-led-dev/glance-dev-network),
 click Code, then Download ZIP, unzip it, then open a terminal in that folder.
 
-:::tip[Planning to publish an app?]
+:::tip[No fork to set up]
 
-Publishing happens from your own **fork** of the repo, that's where submissions get pushed.
-If you already know you'll publish, fork the repo on GitHub first and clone your fork instead
-of the main repo above. Everything else works the same. See [Submit your app](/docs/publish/submit).
+Clone the main repo above and you're ready to build. When you publish, Glance Dev Studio
+creates your own **fork** automatically and sends the pull request from it, so there's no
+extra git setup. See [Submit your app](/docs/publish/submit).
 
 :::
 

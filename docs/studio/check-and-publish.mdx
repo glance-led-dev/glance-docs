@@ -34,24 +34,24 @@ where, in plain language.
 
 ## Validate & Submit
 
-When everything checks out, **Validate & Submit** does the last step for you: it runs the
-same checks, then commits your app, pushes it to your GitHub fork, and opens a **pull
-request** to add it, all from the one button.
+When everything checks out, **Validate & Submit** publishes your app in one button. It
+runs the same checks, then shows you exactly what it will do and waits for your OK:
 
-The first time, git may ask you to sign in through your normal credential manager (the same
-sign-in as any `git push`), there's nothing extra to install and no token to paste. Studio
-then opens GitHub in your browser on the "Create pull request" page; click the green button
-to finish.
+<figure className="figure">
+  <img className="shot" src="/img/studio/publish-confirm.png" alt="The Publish dialog listing its steps, make a fork, push the app, open a pull request, with a checkbox to approve" />
+</figure>
+
+Tick the box and click **Publish**. Studio creates your **fork** if you don't have one yet,
+pushes your app to it, and opens a **pull request**, all through your normal GitHub sign-in
+(the same one as `git push`, no token to set up). The first time, git may ask you to sign in
+through your credential manager. When it's done, Studio links you straight to your new pull
+request.
 
 :::note[You submit, the team merges]
 
-A pull request is a request to add your app, you don't merge it yourself. The CI runs
+A pull request is a request to add your app, you don't merge it yourself. CI runs
 `gdn validate` on it automatically; once it's green and reviewed, the Glance team merges it
-and it goes live.
-
-Validate & Submit pushes to your clone's `origin`, so `origin` has to be **your own fork**
-of the app repo, not the shared Glance repo. If you cloned the main repo you'll see
-*"origin is the main repo, not your fork"*, fork it on GitHub and point your clone at your
-fork first. See [Submit your app](/docs/publish/submit) for the full flow.
+and it goes live. You can publish more apps the same way, each becomes its own pull request
+with no re-setup. See [Submit your app](/docs/publish/submit) for the full flow.
 
 :::
