@@ -26,20 +26,23 @@ pip install -e .
 gdn version        # prints gdn 0.1.0
 ```
 
-:::tip[On a Mac?]
-The steps are identical, with one wrinkle: macOS usually has **`python3`** and **`pip3`**
-(not a plain `python`/`pip`). If `pip` or `gdn` isn't found, add the `3` and run through
-Python:
+:::tip[On a Mac? Use a virtualenv]
+macOS's Python is usually Homebrew's, and it **won't let you install into it** —
+`pip3 install -e .` stops with `error: externally-managed-environment`. Make a virtual
+environment instead (the tidy way to do it anyway):
 
 ```bash
 git clone https://github.com/glance-led-dev/glance-dev-network.git
 cd glance-dev-network
-pip3 install -e .
-python3 -m gdn version        # prints gdn 0.1.0
+python3 -m venv .venv
+source .venv/bin/activate      # do this in EVERY new terminal
+pip install -e .
+gdn version                    # prints gdn 0.1.0
 ```
 
-Everywhere below that says `gdn ...`, `python3 -m gdn ...` works too (for example
-`python3 -m gdn studio`). Full macOS setup is in the
+The `.venv` only applies to the terminal you activate it in. **Each time you open a new
+terminal** to run `gdn` (for example `gdn studio`), `cd` back into the folder and run
+`source .venv/bin/activate` first. Full macOS setup is in the
 [Install guide](/docs/getting-started/install).
 :::
 

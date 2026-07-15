@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" font-family="Montserrat, Segoe UI, sans-serif">
-  <rect width="920" height="380" rx="16" fill="#0b0f0e"/>
-  <rect x="1" y="1" width="918" height="378" rx="15" fill="none" stroke="#1c2420"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -6 944 416" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect x="-12" y="-6" width="944" height="416" rx="16" fill="#0b0f0e"/>
+  <rect x="-11" y="-5" width="942" height="414" rx="15" fill="none" stroke="#1c2420"/>
 
   <text x="40" y="46" fill="#e6e9e7" font-size="20" font-weight="800">The coordinate system</text>
   <text x="40" y="70" fill="#8b90a0" font-size="13">Origin (0,0) is the top-left pixel. x grows right, y grows down. There are no negative-looking surprises: up is smaller y.</text>

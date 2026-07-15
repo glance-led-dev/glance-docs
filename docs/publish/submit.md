@@ -9,6 +9,27 @@ Sharing an app is a pull request: you propose adding your app folder to the shar
 catalog, the Glance team reviews it, and once it's merged your app is live. You don't
 have to do any of that by hand, Glance Dev Studio does it in one button.
 
+:::caution[First, sign in to GitHub (one time)]
+Publishing needs **write access to GitHub**. Cloning the repo never asked for this (it's
+public), so on a brand-new machine nothing is signed in yet, and the first publish will
+fail until you sign in once:
+
+- **macOS / Linux:** the easiest way is the GitHub CLI:
+  ```bash
+  brew install gh      # if you don't have it (cli.github.com)
+  gh auth login
+  ```
+  Choose **GitHub.com → HTTPS → Authenticate Git: Yes → Login with a web browser**.
+  Heads-up: `gh` prints a one-time code **in your terminal** (like `A1B2-C3D4`), then opens
+  GitHub asking you to enter it. It's the code in your terminal, not a 2FA code or anything
+  from the GitHub mobile app, copy it before you switch to the browser.
+- **Windows:** you can skip this. The first publish pops up a GitHub sign-in window
+  automatically (Git Credential Manager); running `git push` once does the same.
+
+You **don't** need to set `git config user.name` / `user.email`, Studio stamps the commit
+author from your GitHub login for you (you'd only need those to commit by hand).
+:::
+
 ## The one-button way
 
 Open your app in [Glance Dev Studio](/docs/studio) and click **Validate & Submit**.
@@ -55,7 +76,8 @@ be asked again for a while.
 
 - If a publish seems to **hang or "stick"**, it's almost always waiting on that sign-in
   window. Find it (check your taskbar or other browser tabs) and finish it, and publishing
-  continues on its own.
+  continues on its own. If you were **never signed in** (see the note above), Studio tells
+  you right away instead of waiting.
 - GitHub **occasionally asks you to sign in again later** (credentials expire). Same window,
   same one click, no reason to worry.
 

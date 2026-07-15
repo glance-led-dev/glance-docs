@@ -142,6 +142,22 @@ you can do it in one line instead:
 pip install Pillow PyYAML Flask jsonschema starlark-pyo3 requests
 ```
 
+:::caution[macOS: "externally-managed-environment"?]
+On a Mac, Python is usually Homebrew's, which **blocks installing into it** — `pip install`
+fails with `error: externally-managed-environment`. Use a virtual environment (this is the
+recommended setup on macOS anyway):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate      # do this in EVERY new terminal
+pip install -e .
+```
+
+The `.venv` only applies to the terminal you activate it in. Each time you open a **new**
+terminal to run `gdn` (including `gdn studio`), `cd` into the folder and run
+`source .venv/bin/activate` again first.
+:::
+
 Then check it works:
 
 ```bash
@@ -188,7 +204,9 @@ To make plain `gdn` work everywhere, install Python from **python.org** with
   [Starlark, not Python](/docs/studio/write-code#appstar-is-starlark-not-python), so `import`
   and Python libraries aren't allowed. Use `c` and `ctx` (and the
   [HTTP helper](/docs/reference/http) for web data) instead.
-- **Permission errors on install** add `--user`, or use a virtual environment:
+- **"externally-managed-environment" (common on macOS with Homebrew Python)** or other
+  permission errors on install use a virtual environment (and remember to re-activate it in
+  each new terminal, including before `gdn studio`):
 
 ```bash
 python -m venv .venv
