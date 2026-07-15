@@ -28,10 +28,18 @@ Fill in a few things:
   minute to once a day (five minutes is a good default). This is your app's cache window,
   it's written as the `refresh:` line in `manifest.yaml`, so you can fine-tune it later.
 - **Settings to start with.** The inputs people fill in when they add your app. Pick a
-  **type** for each from the dropdown (text box, number, dropdown, checkbox, date, or
-  color) and give it a label, then use **+ Add a setting** for more. Leave it empty for
-  none, and you can always add or change settings later, see
+  **type** for each from the dropdown (text box, number, dropdown, multi-select, checkbox,
+  date, or color) and give it a label, then use **+ Add a setting** for more. Leave it
+  empty for none, and you can always add or change settings later, see
   [Input types](/docs/reference/input-types).
+
+  If you pick **Dropdown** or **Multi-select**, a **Choices** box appears, type the options
+  **comma separated** (like `Pizza, Tacos, Sushi`) and Studio writes them into the
+  manifest's `choices:` list for you:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/create-new-app-choices.png" alt="The Create New App dialog with a Dropdown setting labeled 'Lunch vote' and a Choices box below it reading 'Pizza, Tacos, Sushi'" />
+</figure>
 
 Click **Create app** and Studio:
 
