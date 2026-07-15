@@ -30,6 +30,11 @@ You **don't** need to set `git config user.name` / `user.email`, Studio stamps t
 author from your GitHub login for you (you'd only need those to commit by hand).
 :::
 
+<figure className="figure">
+  <div className="diagram"><img src="/img/diagrams/github-signin.svg" alt="gh auth login prints a one-time code in your terminal; you type that same code into the GitHub device-activation page in your browser. It is not a 2FA code or the GitHub mobile app." /></div>
+  <figcaption>The code shows up in your <b>terminal</b>. Type that same code into GitHub in your browser, it's not a 2FA code or anything from the GitHub app.</figcaption>
+</figure>
+
 ## The one-button way
 
 Open your app in [Glance Dev Studio](/docs/studio) and click **Validate & Submit**.

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 352" font-family="Montserrat, Segoe UI, sans-serif">
+  <defs>
+    <marker id="gsa" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00FF00"/>
+    </marker>
+    <style>
+      .win{fill:#0d1117;stroke:#2a313b}
+      .bar{fill:#161b22}
+      .mono{font-family:'JetBrains Mono','SFMono-Regular',Consolas,monospace}
+      .dim{fill:#8b939d}
+      .fg{fill:#c9d1d9}
+      .grn{fill:#3fb950}
+      .amb{fill:#e3b341}
+      .hd{fill:#f0f2f5;font-weight:700}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="352" rx="16" fill="#0b0f14"/>
+
+  <!-- heading -->
+  <text class="hd" x="34" y="42" font-size="20">Signing in to GitHub</text>
+  <text class="dim" x="34" y="66" font-size="13">gh auth login shows a one-time code in your terminal. You type that same code into GitHub in your browser.</text>
+
+  <!-- ============ Terminal ============ -->
+  <rect class="win" x="30" y="90" width="386" height="238" rx="12"/>
+  <path class="bar" d="M30 102 a12 12 0 0 1 12 -12 h362 a12 12 0 0 1 12 12 v16 h-386 z"/>
+  <circle cx="50" cy="103" r="4.5" fill="#ff5f57"/>
+  <circle cx="66" cy="103" r="4.5" fill="#febc2e"/>
+  <circle cx="82" cy="103" r="4.5" fill="#28c840"/>
+  <text class="dim mono" x="223" y="107" font-size="11" text-anchor="middle">Terminal</text>
+  <line x1="30" y1="118" x2="416" y2="118" stroke="#2a313b"/>
+
+  <text class="mono" x="46" y="146" font-size="12.5"><tspan class="grn">$ </tspan><tspan class="fg">gh auth login</tspan></text>
+  <text class="mono dim" x="46" y="170" font-size="12">GitHub.com &#183; HTTPS &#183; Auth Git: Yes</text>
+  <text class="mono dim" x="46" y="190" font-size="12">Sign in with: a web browser</text>
+  <text class="mono amb" x="46" y="222" font-size="12">! First copy your one-time code:</text>
+
+  <!-- the code, highlighted -->
+  <rect x="46" y="234" width="168" height="38" rx="7" fill="#0b0f14" stroke="#2ea043" stroke-width="1.5"/>
+  <text class="mono grn" x="130" y="259" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="2">A1B2-C3D4</text>
+
+  <text class="mono dim" x="46" y="304" font-size="11">Press Enter to open github.com &#8230;</text>
+
+  <!-- ============ arrow ============ -->
+  <path d="M424 210 H476" stroke="#00FF00" stroke-width="2.5" fill="none" marker-end="url(#gsa)"/>
+  <text class="hd" x="450" y="196" font-size="10.5" text-anchor="middle" fill="#00FF00">same</text>
+  <text class="hd" x="450" y="234" font-size="10.5" text-anchor="middle" fill="#00FF00">code</text>
+
+  <!-- ============ Browser ============ -->
+  <rect class="win" x="484" y="90" width="386" height="238" rx="12"/>
+  <path class="bar" d="M484 102 a12 12 0 0 1 12 -12 h362 a12 12 0 0 1 12 12 v16 h-386 z"/>
+  <circle cx="504" cy="103" r="4.5" fill="#ff5f57"/>
+  <circle cx="520" cy="103" r="4.5" fill="#febc2e"/>
+  <circle cx="536" cy="103" r="4.5" fill="#28c840"/>
+  <rect x="556" y="95" width="296" height="17" rx="8" fill="#0b0f14" stroke="#30363d"/>
+  <text class="mono dim" x="704" y="107" font-size="10" text-anchor="middle">github.com/login/device</text>
+  <line x1="484" y1="118" x2="870" y2="118" stroke="#2a313b"/>
+
+  <text class="hd" x="677" y="152" font-size="15" text-anchor="middle">Device activation</text>
+  <text class="dim" x="677" y="174" font-size="11.5" text-anchor="middle">Enter the code shown in your terminal</text>
+
+  <rect x="558" y="188" width="238" height="42" rx="8" fill="#0b0f14" stroke="#30363d"/>
+  <text class="mono fg" x="677" y="216" font-size="20" text-anchor="middle" letter-spacing="3">A1B2-C3D4</text>
+
+  <rect x="558" y="242" width="238" height="36" rx="8" fill="#2ea043"/>
+  <text class="hd" x="677" y="265" font-size="13.5" text-anchor="middle" fill="#ffffff">Continue</text>
+
+  <text class="amb" x="677" y="306" font-size="11" text-anchor="middle">Not a 2FA code, and not the GitHub mobile app.</text>
+</svg>
