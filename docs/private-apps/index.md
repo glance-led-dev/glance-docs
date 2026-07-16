@@ -25,6 +25,15 @@ You provide:
 Your panel fetches that image **directly over your own network** and draws it. Glance
 never creates, stores, or proxies the picture itself.
 
+:::note[Why it uses plain http, and why that is safe here]
+Panels are small devices without the memory for TLS, so the fetch is plain `http`,
+not `https`. For this feature that is completely fine: your panel only **displays a
+public picture** and **sends no data** of its own, so there is nothing private in
+transit to protect. Encryption matters when you send passwords or personal details -
+here you send nothing and show something that is already public. The only rule that
+follows from it is the caution below: keep the image itself public and non-sensitive.
+:::
+
 :::danger[Read this before you use it - proceed at your own risk]
 
 **Treat every image as fully public. Never point a panel at anything you would not be
