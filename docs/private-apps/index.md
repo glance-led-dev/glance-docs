@@ -89,8 +89,19 @@ not be comfortable a complete stranger seeing or logging.**
 - **So use it only for public, non-sensitive content** - logos, signs, labels, fun
   graphics. **Never** put financial figures, account details, personal information,
   a private dashboard, or anything that would be a problem if a stranger looked at it.
+- **You are responsible for every image you display.** Do not use this feature for
+  hateful, harassing, sexually explicit, illegal, or otherwise objectionable content.
+  Glance does not create, review, or moderate these images - by using this feature you
+  accept **full responsibility** for what you show and confirm it violates neither the law
+  nor these terms.
+- **Keep your device MAC addresses private.** A MAC address is how an image is assigned to
+  a specific device, so treat it as a secret: do not share or post it, and keep your
+  account and devices secure. Your safety and security here are your responsibility.
 
 If the content is at all sensitive, do not use this feature. Instead, email us at
 **help@glance-led.com** to build and submit a proper private app - the process is the
 same, but we will set up proper encryption or help you navigate it.
+
+For how Glance handles your data, see our
+[Privacy Policy](https://www.glance-led.com/policies/privacy-policy).
 :::
