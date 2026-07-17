@@ -63,7 +63,7 @@ Your Glance Scroll fetches that image **directly over your own network** and cac
 where to look, but the picture is never uploaded to, stored on, or proxied through
 Glance - it lives only in your Glance Scroll's own memory.
 
-A Glance Scroll can hold up to **4** of these image apps at a time.
+A Glance Scroll can hold up to **10** of these image apps at a time.
 
 :::note[Why it uses plain http, and why that is safe here]
 Your Glance Scroll fetches its images over plain `http` rather than `https`. This is a
