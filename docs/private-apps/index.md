@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Private apps
+sidebar_label: Overview
 slug: /private-apps/
 ---
 

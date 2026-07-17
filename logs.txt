@@ -1,0 +1,3314 @@
+[BLE] Client connected
+[BLE] Connection handle: 1, Peer address: 5c:6b:79:2a:d8:73
+[FW5-P2] Restarted BLE advertising (core-0 producer)
+[BLE Write] Characteristic UUID: 323e8400-e89b-12d3-a456-426614174005
+[BLE Write] Received value: 'D8:3B:DA:83:94:48|ON'
+[BLE Write] Raw data (hex): 44 38 3A 33 42 3A 44 41 3A 38 33 3A 39 34 3A 34 38 7C 4F 4E 
+[Device Control] Received command: D8:3B:DA:83:94:48|ON
+[Device Control] MAC matched: D8:3B:DA:83:94:48
+[Device Control] Turning device ON
+[Device State] ENABLED — reason: BLE ON command
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40377990
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3808,len:0x4bc
+load:0x403c9700,len:0xbd8
+load:0x403cc700,len:0x2a0c
+entry 0x403c98d0
+Setup started.
+[FW5-P1] Serial TX buffer = 8192 bytes (set BEFORE begin; heavy logging no longer blocks fetches)
+[FW5-P1][ALLOC] imageSize=12288 px (24576 B/slot), slots: main=8 temp=8
+[FW5-P1][ALLOC] images[0]=0x3d800908
+[FW5-P1][ALLOC] images[1]=0x3d806918
+[FW5-P1][ALLOC] images[2]=0x3d80c928
+[FW5-P1][ALLOC] images[3]=0x3d812938
+[FW5-P1][ALLOC] images[4]=0x3d818948
+[FW5-P1][ALLOC] images[5]=0x3d81e958
+[FW5-P1][ALLOC] images[6]=0x3d824968
+[FW5-P1][ALLOC] images[7]=0x3d82a978
+[FW5-P1][ALLOC] tempImageBuffer[0]=0x3d830988
+[FW5-P1][ALLOC] tempImageBuffer[1]=0x3d836998
+[FW5-P1][ALLOC] tempImageBuffer[2]=0x3d83c9a8
+[FW5-P1][ALLOC] tempImageBuffer[3]=0x3d8429b8
+[FW5-P1][ALLOC] tempImageBuffer[4]=0x3d8489c8
+[FW5-P1][ALLOC] tempImageBuffer[5]=0x3d84e9d8
+[FW5-P1][ALLOC] tempImageBuffer[6]=0x3d8549e8
+[FW5-P1][ALLOC] tempImageBuffer[7]=0x3d85a9f8
+[FW5-P1][ALLOC] Free PSRAM after belt alloc: 7948307 bytes
+[FW5-P1][WD] watchdog frame installed: E501/E502 defined, beats stamping, CHECKS DORMANT until Phase 2 (DISPLAY_FROZEN_MS=90000ms, FETCH_HANG_MS=180000ms)
+SPIFFS mounted successfully
+PSRAM is initialized and found!
+
+========== Initializing Global PSRAM Buffers ==========
+Total PSRAM needed: 189576 bytes (185.1 KB)
+Available PSRAM before allocation: 7933263 bytes (7747.3 KB)
+✓ Response buffer: 15000 bytes at 0x3d86fa00
+✓ Compressed buffer: 150000 bytes at 0x3d8734a8
+✓ Image buffer (Core 0): 12288 pixels (24576 bytes) at 0x3d897ea8
+✓ Image buffer (Core 1): 12288 pixels (24576 bytes) at 0x3d89deb8
+✓ Endpoints buffer: 15000 bytes at 0x3d8a3ec8
+========== Buffer Allocation Summary ==========
+SUCCESS: All buffers allocated successfully!
+Total PSRAM allocated: 189576 bytes (185.1 KB)
+Remaining free PSRAM: 7704031 bytes (7523.5 KB)
+Free heap: 238104 bytes (232.5 KB)
+===============================================
+
+[STARTUP GIF] Starting startup GIF display...
+[STARTUP GIF] PANEL_CHAIN=6, GIF size: 384x32, Frames: 100 (RLE)
+[STARTUP GIF]   Free Heap:  134064 bytes (130.9 KB)
+[STARTUP GIF]   Free PSRAM: 7679875 bytes (7.32 MB)
+[STARTUP GIF] Frame buffer: 24576 bytes in PSRAM
+[STARTUP GIF] Played 100 frames in 8601ms
+[STARTUP GIF] Startup GIF complete!
+[Device State] ENABLED — reason: BLE ON command
+Credentials read from NVS: SSID=GLANCE
+WiFi connection attempt 1/3...
+.WiFi connected
+Sending MAC: D8:3B:DA:83:94:48
+Device MAC Address: D8:3B:DA:83:94:48
+Corrected device name: GLANCE_D8:3B:DA:83:94:48
+Corrected device name: GLANCE_D8:3B:DA:83:94:48
+Initializing BLE...
+BLE service created successfully
+BLE advertising started with service UUID: 550e8400-e29b-41d4-a716-446655440000
+BLE device name: GLANCE_D8:3B:DA:83:94:48
+..WiFi connected
+Sending MAC: D8:3B:DA:83:94:48
+WiFi connected successfully!
+WiFi connected. Device MAC Address: D8:3B:DA:83:94:48
+MAC address sent to iOS app via BLE.
+[BLE] Advertising throttled to 1-2s intervals (WiFi connected)
+Starting server configuration...
+[Heap] Free heap: 86848
+Trying HealthCheck...
+HealthCheck attempt 1/3
+Updated GSCROLL_HOST to: gledv1.us
+Success! Server: http://gledv1.us/
+[DNS] Starting DNS resolution
+[DNS] Attempt 1/4 for gledv1.us... SUCCESS -> 172.67.72.176 (LB DNS lookup #1)
+
+========== getFirmwareVersion START ==========
+[FIRMWARE] Free heap: 85792 bytes
+[FIRMWARE] WiFi Status: 3 (1=connected)
+[FIRMWARE] Request path: /FIRMWARE/SCROLL_FIRMWARE_UPDATED.php?panel_chain=6
+[FIRMWARE] Using cached IP: 172.67.72.176
+
+[FIRMWARE] Attempt 1/5
+[FIRMWARE] Trying HTTPClient method
+[FIRMWARE] URL: http://gscroll.us/FIRMWARE/SCROLL_FIRMWARE_UPDATED.php?panel_chain=6
+[FIRMWARE] Executing GET request...
+[FIRMWARE] HTTP Code: 200
+[FIRMWARE] HTTPClient success, payload size: 19
+[FIRMWARE] Parsing JSON (size: 19)
+[FIRMWARE] First 100 chars: {"FIRMWARE":"4.00"}
+[FIRMWARE] Extracted version: '4.00'
+[FIRMWARE] SUCCESS!
+
+[FIRMWARE] ✓ SUCCESS - Version: 4.00
+========== getFirmwareVersion END ==========
+
+[PublicIP] HTTP code: 200
+[PublicIP] Public IP: 8.17.57.40
+MAC: D8:3B:DA:83:94:48
+URL: http://gscroll.us/Scrolling/monitor/start_session.php?mac=D8:3B:DA:83:94:48&ip=8.17.57.40
+HTTP code: 200
+Payload: {"session_id":290}
+✅ sessionID = 290
+URL: http://gscroll.us/Scrolling/monitor/update_heartbeat.php?mac=D8:3B:DA:83:94:48&session=290&rssi=-31&dns_cache_hits=1
+[Heartbeat] RSSI: -31 dBm
+[DNS-LB-Stats] LB DNS lookups: 1 | LB cache hits: 0 | uptime: 14s
+[HEARTBEAT-FIX] Initialized persistent polling client with setReuse(true)
+HTTP code: 200
+[HEARTBEAT-FIX] Success — connection kept alive
+The Update firmware verison ishttp://gscroll.us/Scrolling/ARDUINO-HELPER-FUNCTIONS-SCROLL/update_firmware_version.php?mac=D8:3B:DA:83:94:48&version=4.00
+http code is200
+
+========== getCurrentProfileNumber START ==========
+[PROFILE] Free heap: 82252 bytes
+[PROFILE] WiFi Status: 3 (1=connected)
+[PROFILE] Request path: /Scrolling/fetchProfile.php?MAC=D8%3A3B%3ADA%3A83%3A94%3A48
+
+[PROFILE] Attempt 1/6
+[PROFILE] Trying direct IP method
+[IP-HTTP] Opening NEW connection to 172.67.72.176:80 (timeout: 10000ms)
+[IP-HTTP] Connected in 29ms
+[IP-HTTP] Sending request: GET /Scrolling/fetchProfile.php?MAC=D8%3A3B%3ADA%3A83%3A94%3A48
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 15 bytes — connection kept alive for reuse
+[IP-HTTP] Content: {"Profile":"1"}
+[PROFILE] Extracted profile: '1'
+[PROFILE] SUCCESS!
+
+[PROFILE] ✓ SUCCESS - Profile: 1
+========== getCurrentProfileNumber END ==========
+
+
+========== fetch_UserSelections START ==========
+[SELECTIONS] Free heap: 80092 bytes
+[SELECTIONS] Request path: /Scrolling/fetch_selectionsScoring.php?dev_mac=D8:3B:DA:83:94:48&profile=1
+
+[SELECTIONS] Attempt 1/5
+[SELECTIONS] Trying direct IP method
+[IP-HTTP] *** REUSING existing keep-alive connection ***
+[IP-HTTP] Connection age: 107ms
+[IP-HTTP] Sending request: GET /Scrolling/fetch_selectionsScoring.php?dev_mac=D8:3B:DA:83:94:48&profile=1
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 64 bytes — connection kept alive for reuse
+[IP-HTTP] Content: {"s1":"tz_ET","s2":"br_100","s3":"ss_5","s4":"ntf_mlbgames:all"}
+[SELECTIONS] Parsing JSON (size: 64)
+Selection 1: tz_ET
+Selection 2: br_100
+Selection 3: ss_5
+Selection 4: ntf_mlbgames:all
+[SELECTIONS] Successfully fetched 4 selections
+Starting timezone extraction from user selections...
+Timezone found: ET
+
+[SELECTIONS] ✓ SUCCESS
+========== fetch_UserSelections END ==========
+
+
+========== fetch_EndPoints START ==========
+[ENDPOINTS] Free heap: 80044 bytes
+[ENDPOINTS] Request path: /Scrolling/endPointScoring.php?dev_mac=D8:3B:DA:83:94:48&profile=1
+
+[ENDPOINTS] Attempt 1/5
+[ENDPOINTS] Trying direct IP method
+[IP-HTTP] *** REUSING existing keep-alive connection ***
+[IP-HTTP] Connection age: 212ms
+[IP-HTTP] Sending request: GET /Scrolling/endPointScoring.php?dev_mac=D8:3B:DA:83:94:48&profile=1
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 718 bytes — connection kept alive for reuse
+[IP-HTTP] Content: ["SS:192:32:create_sports_panel_scoring:PHP:Games|WORLDCUP_F:1:true:S","SS:192:32:create_sports_panel_scoring:PHP:Games|MLB:1.2.3:true:S","GDN:192:32:gdn_us_sky_clock:1:10:zone-EST","GDN:128:32:star_of_the_day:1:3600","GDN:64:32:ported_timezone:1:300:tz-ET","GDN:64:32:ported_chemicalelements:1:300","GDN:64:32:hello_world:1:300","GDN:64:32:ported_bofhquotes:1:300","GDN:192:32:moon_phase:1:3600:hemisphere-Northern_accent-502F02","GDN:64:32:ported_christmascountdown:1:300","GDN:192:32:quote:1:3600","GDN:64:32:gdn_ported_christmascountdown:1:300","GDN:128:32:gdn_local_aqi:2:300:zip-33324_city-Plantation","GDNP:192:32:300:http:\/\/gscroll.us\/Scrolling\/App_Output\/Json\/create_commodities_panel\/commodities.jpg"]
+[ENDPOINTS] Processing response (size: 718)
+EndPoint 1: SS:192:32:create_sports_panel_scoring:PHP:Games|WORLDCUP_F:1:true:S
+EndPoint 2: SS:192:32:create_sports_panel_scoring:PHP:Games|MLB:1.2.3:true:S
+EndPoint 3: GDN:192:32:gdn_us_sky_clock:1:10:zone-EST
+EndPoint 4: GDN:128:32:star_of_the_day:1:3600
+EndPoint 5: GDN:64:32:ported_timezone:1:300:tz-ET
+EndPoint 6: GDN:64:32:ported_chemicalelements:1:300
+EndPoint 7: GDN:64:32:hello_world:1:300
+EndPoint 8: GDN:64:32:ported_bofhquotes:1:300
+EndPoint 9: GDN:192:32:moon_phase:1:3600:hemisphere-Northern_accent-502F02
+EndPoint 10: GDN:64:32:ported_christmascountdown:1:300
+EndPoint 11: GDN:192:32:quote:1:3600
+EndPoint 12: GDN:64:32:gdn_ported_christmascountdown:1:300
+EndPoint 13: GDN:128:32:gdn_local_aqi:2:300:zip-33324_city-Plantation
+EndPoint 14: GDNP:192:32:300:http://gscroll.us/Scrolling/App_Output/Json/create_commodities_panel/commodities.jpg
+[ENDPOINTS] Successfully fetched 14 endpoints
+
+[ENDPOINTS] ✓ SUCCESS
+========== fetch_EndPoints END ==========
+
+Starting settings extraction from user selections...
+LED brightness found: 100
+Scroll speed found: 5
+Notifications found: mlbgames:all (len=12)
+No sleep start time found in selections.
+No sleep end time found in selections.
+[FW5-P1] userUpdatedSelections -> OK
+[ifContiniousScroll] continuousScroll = true
+Number of Fun apps is: 0
+Number of Gifs is: 0
+[FW5-P1] resetArrays: zeroed 8 main + 8 temp slots in 13ms
+=== CHECKING FOR CRASH LOGS ===
+No crash log found to upload
+[WDT] Task watchdog armed: 300s
+[FW5-P2] setup complete -> producer released
+[Parser] No valid GIF endpoints found.
+[LOOP] >>> displayTickerAndScrollImages() entry — resetting dedup
+[DEDUP] resetDedup() -> cleared 0 previous entries, fresh loop begins
+[INIT_DEBUG] imagesScrolledOff initialized to: 0
+[IP-HTTP] Opening NEW connection to 172.67.72.176:80 (timeout: 10000ms)
+[IP-HTTP] Connected in 12ms
+[IP-HTTP] Sending request: GET /Scrolling/determineBreakPointV5.php?mac=D8:3B:DA:83:94:48&profile=1
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 849 bytes — connection kept alive for reuse
+[IP-HTTP] Content: {"breakPoints":[2,3,4,5,6,7,8,9,10,11,12,13,15],"validEndpointCount":13,"validUserEndPoints":["SS:192:32:create_sports_panel_scoring:PHP:Games|WORLDCUP_F:1:true:S","SS:192:32:create_sports_panel_scoring:PHP:Games|MLB:1.2.3:true:S","GDN:192:32:gdn_us_sky_clock:1:10:zone-EST","GDN:128:32:star_of_the_day:1:3600","GDN:64:32:ported_timezone:1:300:tz-ET","GDN:64:32:ported_chemicalelements:1:300","GDN:64:32:hello_world:1:300","GDN:64:32:ported_bofhquotes:1:300","GDN:192:32:moon_phase:1:3600:hemisphere-Northern_accent-502F02","GDN:64:32:ported_christmascountdown:1:300","GDN:192:32:quote:1:3600","GDN:64:32:gdn_ported_christmascountdown:1:300","GDN:128:32:gdn_local_aqi:2:300:zip-33324_city-Plantation"],"inputTypeStrs":["S","S","zone-EST","","tz-ET","","","","hemisphere-Northern_accent-502F02","","","","zip-33324_city-Plantation"],"totalImages":15}
+[FW5-P1][BREAKPOINTS] validEndpointCount=13 accepted (range 1..256)
+Function duration: 223ms
+========== determineBreakPointPHP END (SUCCESS) ==========
+
+[BREAKPOINTS] Using PHP-calculated breakpoints
+[BREAKPOINTS] validEndpointCount: 13
+[INIT] Symbol for userEndPoint[0]: 
+[INIT] Start breaking threshold: 7
+[INIT] Max images to fetch: 15
+[INIT] Total symbols for current API: 2 ✓
+
+[INIT] Buffer initialization:
+  Buffer[0]: API=0, Width=192, StartX=384, OffScreenX=-192
+  Buffer[1]: API=0, Width=192, StartX=576, OffScreenX=-192
+  Buffer[2]: API=1, Width=192, StartX=768, OffScreenX=-192
+  Buffer[3]: API=2, Width=192, StartX=960, OffScreenX=-192
+  Buffer[4]: API=3, Width=128, StartX=1152, OffScreenX=-128
+  Buffer[5]: API=4, Width=64, StartX=1280, OffScreenX=-64
+  Buffer[6]: API=5, Width=64, StartX=1344, OffScreenX=-64
+  Buffer[7]: API=6, Width=64, StartX=1408, OffScreenX=-64
+ScrollType: SS
+Image Width: 192
+Image Height: 32
+API Endpoint: create_sports_panel_scoring
+Fetch Type: PHP
+Symbol Type: Games|WORLDCUP_F
+Scoring GIF: 1
+Active Only Flag: true
+Input Type: S
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 75484
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 75484)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 75484
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[NTF] outputUserSelections URL: input=WORLDCUP_F ntf='mlbgames:all' (len=12)
+[DEBUG] Request path: /Scrolling/outputUserSelections.php?input=WORLDCUP_F&only_active=true&timeZone=ET&ntf=mlbgames:all
+[FILTER] Trying direct IP method
+[IP-HTTP] *** REUSING existing keep-alive connection ***
+[IP-HTTP] Connection age: 215ms
+[IP-HTTP] Sending request: GET /Scrolling/outputUserSelections.php?input=WORLDCUP_F&only_active=true&timeZone=ET&ntf=mlbgames:all
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 137 bytes — connection kept alive for reuse
+[IP-HTTP] Content: ["ENG_FRA_2_18_ET_F","ARG_ENG_12_15_FINAL_F","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 74860 bytes
+[DEBUG] Response length: 137
+    Heap AFTER transfer: 74860 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ENG_FRA_2_18_ET_F","ARG_ENG_12_15_FINAL_F","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (137 chars)
+[MEM] Heap during JSON parse: +0 (Now: 75068)
+[DEBUG] JSON parsed OK, array size: 25
+[DEDUP] currentInputLeague='WORLDCUP_F' (endpointIndex=0)
+[INFO] Found '|' delimiter — exiting early loop for sports type.
+[MEM] Heap after cleanup: 75068 (net change: +208)
+[MEM] Total Heap delta from fetch: -128 (Now: 75356)
+[INFO] Dumping 2 userSelectionsforLoop[] values:
+  [000] ENG_FRA_2_18_ET_F
+  [001] ARG_ENG_12_15_FINAL_F
+[EXIT] Heap: 75356 | Net Change from START: -128
+======= EXITING filterUserSelectionsInit() =======
+
+[BP-ADJUST] API 0: MISMATCH expected=2 actual=3 delta=1 -- ADJUSTING breakpoints
+[BP-ADJUST]   breakPoints[0] 2 -> 3
+[BP-ADJUST]   breakPoints[1] 3 -> 4
+[BP-ADJUST]   breakPoints[2] 4 -> 5
+[BP-ADJUST]   breakPoints[3] 5 -> 6
+[BP-ADJUST]   breakPoints[4] 6 -> 7
+[BP-ADJUST]   breakPoints[5] 7 -> 8
+[BP-ADJUST]   breakPoints[6] 8 -> 9
+[BP-ADJUST]   breakPoints[7] 9 -> 10
+[BP-ADJUST]   breakPoints[8] 10 -> 11
+[BP-ADJUST]   breakPoints[9] 11 -> 12
+[BP-ADJUST]   breakPoints[10] 12 -> 13
+[BP-ADJUST]   breakPoints[11] 13 -> 14
+[BP-ADJUST]   breakPoints[12] 15 -> 16
+[BP-ADJUST]   maxImagesToFetch=16 startBreakingIntCS=8
+[BP-ADJUST]   totalSymbolsForCurrentAPI 2 -> 3
+
+========== INITIAL FETCHING (PARALLEL) ==========
+[PREP] Buffer[0]: HOME 'WORLDCUP_F' (PHP type)
+[PREP] Buffer[1]: 'ENG_FRA_2_18_ET_F' (symbolIdx=0)
+[PREP] Buffer[2]: 'ARG_ENG_12_15_FINAL_F' (symbolIdx=1)
+
+[BREAKPOINT] Hit at position 3 - switching API
+ScrollType: SS
+Image Width: 192
+Image Height: 32
+API Endpoint: create_sports_panel_scoring
+Fetch Type: PHP
+Symbol Type: Games|MLB
+Scoring GIF: 1.2.3
+Active Only Flag: true
+Input Type: S
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 74764
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 74764)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 74764
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[NTF] outputUserSelections URL: input=MLB ntf='mlbgames:all' (len=12)
+[DEBUG] Request path: /Scrolling/outputUserSelections.php?input=MLB&only_active=true&timeZone=ET&ntf=mlbgames:all
+[FILTER] Trying direct IP method
+[IP-HTTP] *** REUSING existing keep-alive connection ***
+[IP-HTTP] Connection age: 393ms
+[IP-HTTP] Sending request: GET /Scrolling/outputUserSelections.php?input=MLB&only_active=true&timeZone=ET&ntf=mlbgames:all
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 118 bytes — connection kept alive for reuse
+[IP-HTTP] Content: ["NYM_PHI_3_16_FINAL","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 74508 bytes
+[DEBUG] Response length: 118
+    Heap AFTER transfer: 74508 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["NYM_PHI_3_16_FINAL","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (118 chars)
+[MEM] Heap during JSON parse: +0 (Now: 74508)
+[DEBUG] JSON parsed OK, array size: 25
+[DEDUP] currentInputLeague='MLB' (endpointIndex=1)
+[INFO] Found '|' delimiter — exiting early loop for sports type.
+[MEM] Heap after cleanup: 74508 (net change: +0)
+[MEM] Total Heap delta from fetch: +0 (Now: 74764)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] NYM_PHI_3_16_FINAL
+[EXIT] Heap: 74764 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+[BP-ADJUST] API 1: MISMATCH expected=1 actual=2 delta=1 -- ADJUSTING breakpoints
+[BP-ADJUST]   breakPoints[1] 4 -> 5
+[BP-ADJUST]   breakPoints[2] 5 -> 6
+[BP-ADJUST]   breakPoints[3] 6 -> 7
+[BP-ADJUST]   breakPoints[4] 7 -> 8
+[BP-ADJUST]   breakPoints[5] 8 -> 9
+[BP-ADJUST]   breakPoints[6] 9 -> 10
+[BP-ADJUST]   breakPoints[7] 10 -> 11
+[BP-ADJUST]   breakPoints[8] 11 -> 12
+[BP-ADJUST]   breakPoints[9] 12 -> 13
+[BP-ADJUST]   breakPoints[10] 13 -> 14
+[BP-ADJUST]   breakPoints[11] 14 -> 15
+[BP-ADJUST]   breakPoints[12] 16 -> 17
+[BP-ADJUST]   maxImagesToFetch=17 startBreakingIntCS=9
+[PREP-BP] Buffer[3]: 'MLB'
+[BREAKPOINT] New totalSymbolsForCurrentAPI: 1
+[PREP] Buffer[4]: 'NYM_PHI_3_16_FINAL' (symbolIdx=0)
+
+[BREAKPOINT] Hit at position 5 - switching API
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: gdn_us_sky_clock
+Fetch Type: 1
+Symbol Type: 10
+Scoring GIF: zone-EST
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 74540
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 74540)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 74540
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] Fetching GDN server assignment...
+[GDN] gdnServers.php attempt 1/3
+[GDN] Success! GDN server: http://gledv2.us/
+[GDN] raw='GDN:192:32:gdn_us_sky_clock:1:10:zone-EST' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 73564 bytes
+[DEBUG] Response length: 9
+    Heap AFTER transfer: 73564 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["EST-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (9 chars)
+[MEM] Heap during JSON parse: +0 (Now: 73564)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=2)
+[MEM] Heap after cleanup: 73724 (net change: +160)
+[MEM] Total Heap delta from fetch: -656 (Now: 73884)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] EST-1
+[EXIT] Heap: 73884 | Net Change from START: -656
+======= EXITING filterUserSelectionsInit() =======
+
+[BP-ADJUST] API 2: MATCH expected=1 actual=1 -- no adjustment needed
+[PREP-BP] Buffer[5]: 'EST-1'
+[BREAKPOINT] New totalSymbolsForCurrentAPI: 1
+
+[BREAKPOINT] Hit at position 6 - switching API
+ScrollType: GDN
+Image Width: 128
+Image Height: 32
+API Endpoint: star_of_the_day
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: GDN
+Active Only Flag: 128
+Input Type: 32:star_of_the_day:1:3600
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 73732
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 73732)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 73732
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:128:32:star_of_the_day:1:3600' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 73160 bytes
+[DEBUG] Response length: 21
+    Heap AFTER transfer: 73160 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["star_of_the_day-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (21 chars)
+[MEM] Heap during JSON parse: +0 (Now: 73160)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=3)
+[MEM] Heap after cleanup: 73160 (net change: +0)
+[MEM] Total Heap delta from fetch: -380 (Now: 73352)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] star_of_the_day-1
+[EXIT] Heap: 73352 | Net Change from START: -380
+======= EXITING filterUserSelectionsInit() =======
+
+[BP-ADJUST] API 3: MATCH expected=1 actual=1 -- no adjustment needed
+[PREP-BP] Buffer[6]: 'star_of_the_day-1'
+[BREAKPOINT] New totalSymbolsForCurrentAPI: 1
+
+[BREAKPOINT] Hit at position 7 - switching API
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_timezone
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: tz-ET
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 73192
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 73192)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 73192
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_timezone:1:300:tz-ET' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 72816 bytes
+[DEBUG] Response length: 8
+    Heap AFTER transfer: 72816 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ET-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (8 chars)
+[MEM] Heap during JSON parse: +0 (Now: 72816)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=4)
+[MEM] Heap after cleanup: 72964 (net change: +148)
+[MEM] Total Heap delta from fetch: -68 (Now: 73124)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ET-1
+[EXIT] Heap: 73124 | Net Change from START: -68
+======= EXITING filterUserSelectionsInit() =======
+
+[BP-ADJUST] API 4: MATCH expected=1 actual=1 -- no adjustment needed
+[PREP-BP] Buffer[7]: 'ET-1'
+[BREAKPOINT] New totalSymbolsForCurrentAPI: 1
+
+[PARALLEL] Starting dual-core fetch: 8 images
+  [0]: http://gledv1.us/Scrolling/HI/192/WORLDCUP_F.bin
+  [1]: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+  [2]: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+  [3]: http://gledv1.us/Scrolling/HI/192/MLB.bin
+  [4]: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+  [5]: http://gledv2.us/Scrolling/App_Output/Json/gdn_us_sky_clock/EST-1.bin
+  [6]: http://gledv2.us/Scrolling/App_Output/Json/star_of_the_day/star_of_the_day-1.bin
+  [7]: http://gledv2.us/Scrolling/App_Output/Json/ported_timezone/ET-1.bin
+[BOOTFILL] Fetching images[0]
+Server URL: http://gledv1.us/Scrolling/HI/192/WORLDCUP_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/HI/192/WORLDCUP_F.bin
+Free heap: 72792 bytes, Free PSRAM: 7679715 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Connecting to 172.67.72.176:80...
+
+##################################################
+#            NEW CONNECTION OPENED               #
+##################################################
+# Connection #1 opened
+# Total requests served so far: 1
+##################################################
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 23 00 00 00 FF 04 00 FF FF FF 04 00 21 A8 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 91ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 70532 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 1
+Current connection requests: 1
+Overall efficiency: 1.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[1]
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+Free heap: 70184 bytes, Free PSRAM: 7679715 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 80 ms (0.1 sec)
+* Requests on this connection: 2
+* Total connections opened: 1
+* Total requests served: 2
+* CONNECTION EFFICIENCY: 2.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 2D 00 00 00 FF 02 00 E1 20 FF 01 00 E1 28 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 100ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 70392 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 2
+Current connection requests: 2
+Overall efficiency: 2.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[2]
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+Free heap: 70344 bytes, Free PSRAM: 7679715 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 182 ms (0.2 sec)
+* Requests on this connection: 3
+* Total connections opened: 1
+* Total requests served: 3
+* CONNECTION EFFICIENCY: 3.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 2D 00 00 00 FF 02 00 E1 20 FF 01 00 E1 28 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 95ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 70344 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 3
+Current connection requests: 3
+Overall efficiency: 3.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[3]
+Server URL: http://gledv1.us/Scrolling/HI/192/MLB.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/HI/192/MLB.bin
+Free heap: 70464 bytes, Free PSRAM: 7679715 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 279 ms (0.3 sec)
+* Requests on this connection: 4
+* Total connections opened: 1
+* Total requests served: 4
+* CONNECTION EFFICIENCY: 4.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 0F 00 00 00 FF 36 00 FF FF FF 01 00 61 08 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 68ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 70040 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 4
+Current connection requests: 4
+Overall efficiency: 4.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[4]
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+Free heap: 70376 bytes, Free PSRAM: 7679715 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 388 ms (0.4 sec)
+* Requests on this connection: 5
+* Total connections opened: 1
+* Total requests served: 5
+* CONNECTION EFFICIENCY: 5.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF D5 01 00 00 FF 01 00 6E 01 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 108ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 70376 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[5]
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_us_sky_clock/EST-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_us_sky_clock/EST-1.bin
+Free heap: 70408 bytes, Free PSRAM: 7679715 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/3 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 72 00 00 00 FF 4E 00 85 08 FF 07 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 170ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69520 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[6]
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/star_of_the_day/star_of_the_day-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/star_of_the_day/star_of_the_day-1.bin
+Free heap: 69488 bytes, Free PSRAM: 7679715 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/3 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF A8 00 00 00 FF 05 00 FF FF FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 40ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69056 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+[BOOTFILL] Fetching images[7]
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_timezone/ET-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_timezone/ET-1.bin
+Free heap: 69088 bytes, Free PSRAM: 7679715 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/3 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 4D 00 E8 06 FF 03 00 00 00 FF 02 00 E8 06 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 81ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69712 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+[PARALLEL] Both cores done. Total parallel fetch time: 1758ms
+
+[FETCH-SUMMARY] Initial fetches complete: 8 images
+Buffer contents:
+  [0]: 'WORLDCUP_F' @ X=384
+  [1]: 'ENG_FRA_2_18_ET_F' @ X=576
+  [2]: 'ARG_ENG_12_15_FINAL_F' @ X=768
+  [3]: 'MLB' @ X=960
+  [4]: 'NYM_PHI_3_16_FINAL' @ X=1152
+  [5]: 'EST-1' @ X=1344
+  [6]: 'star_of_the_day-1' @ X=1536
+  [7]: 'ET-1' @ X=1664
+[SCORING] Panel chain: 6, Effective: 6, Offset: 0
+
+[TIMING] Time from initial fetch start to scroll start: 1767ms
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 4
+  New API: 5
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_chemicalelements
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_chemicalelements:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69772
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69852)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 70060
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[FW5-P2][BELT] f=1 reps=0 off=0 api=5 drainReq=0 gifTrig=0 | s0 'WORLDCUP_F' x=383 w=192 t=0 [GDN] raw='GDN:64:32:ported_chemicalelements:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+| s1 'ENG_FRA_2_18_ET_F' x=575 w=192 t=0 [DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+| s2 'ARG_ENG_12_15_FINAL_F' x=767 w=192 t=0 [GDN] Routing to GDN host: gledv2.us
+| s3 'MLB' x=959 w=192 t=0 [FILTER] Using HTTPClient fallback
+| s4 'NYM_PHI_3_16_FINAL' x=1151 w=192 t=0 | s5 'EST-1' x=1343 w=192 t=0 | s6 'star_of_the_day-1' x=1535 w=128 t=0 | s7 'ET-1' x=1663 w=64 t=0 
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69700 bytes
+[DEBUG] Response length: 29
+    Heap AFTER transfer: 69700 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ported_chemicalelements-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (29 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69700)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=5)
+[MEM] Heap after cleanup: 69852 (net change: +152)
+[MEM] Total Heap delta from fetch: +0 (Now: 70060)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_chemicalelements-1
+[EXIT] Heap: 70060 | Net Change from START: +288
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 5: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_chemicalelements-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_chemicalelements-1'
+  Into: tempBuffer[0]
+  API: 5
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_chemicalelements/ported_chemicalelements-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_chemicalelements/ported_chemicalelements-1.bin
+Free heap: 69596 bytes, Free PSRAM: 7655103 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 80 00 75 04 FF 44 00 00 00 FF 0E 00 75 04 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 90ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69228 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_chemicalelements-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 5
+[FW5-P2][PRODUCER-FILL] slot=0 item='ported_chemicalelements-1' ok=1 api=5 sym=1/1 368ms heap=69596
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 5
+  New API: 6
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: hello_world
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:hello_world:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69804
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69756)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69964
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:hello_world:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69620 bytes
+[DEBUG] Response length: 17
+    Heap AFTER transfer: 69620 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["hello_world-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (17 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69620)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=6)
+[MEM] Heap after cleanup: 69772 (net change: +152)
+[MEM] Total Heap delta from fetch: +0 (Now: 69964)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] hello_world-1
+[EXIT] Heap: 69964 | Net Change from START: +160
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 6: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: hello_world-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'hello_world-1'
+  Into: tempBuffer[1]
+  API: 6
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/hello_world/hello_world-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/hello_world/hello_world-1.bin
+Free heap: 69692 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 41 00 00 00 FF 02 00 E8 06 FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 91ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69336 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'hello_world-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 6
+[FW5-P2][PRODUCER-FILL] slot=1 item='hello_world-1' ok=1 api=6 sym=1/1 306ms heap=69608
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 6
+  New API: 7
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_bofhquotes
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_bofhquotes:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69816
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69964)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69964
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_bofhquotes:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69624 bytes
+[DEBUG] Response length: 23
+    Heap AFTER transfer: 69624 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ported_bofhquotes-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (23 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69624)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=7)
+[MEM] Heap after cleanup: 69564 (net change: -60)
+[MEM] Total Heap delta from fetch: +0 (Now: 69964)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_bofhquotes-1
+[EXIT] Heap: 69964 | Net Change from START: +148
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 7: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_bofhquotes-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_bofhquotes-1'
+  Into: tempBuffer[2]
+  API: 7
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_bofhquotes/ported_bofhquotes-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_bofhquotes/ported_bofhquotes-1.bin
+Free heap: 69536 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 4B 00 00 F8 FF 04 00 FF FF FF 01 00 00 F8 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 92ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69180 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_bofhquotes-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 7
+[FW5-P2][PRODUCER-FILL] slot=2 item='ported_bofhquotes-1' ok=1 api=7 sym=1/1 305ms heap=69560
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 7
+  New API: 8
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: moon_phase
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: hemisphere-Northern_accent-502F02
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69704
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69852)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69852
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:192:32:moon_phase:1:3600:hemisphere-Northern_accent-502F02' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69468 bytes
+[DEBUG] Response length: 21
+    Heap AFTER transfer: 69468 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["Northern-502F02-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (21 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69468)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=8)
+[MEM] Heap after cleanup: 69624 (net change: +156)
+[MEM] Total Heap delta from fetch: +0 (Now: 69852)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] Northern-502F02-1
+[EXIT] Heap: 69852 | Net Change from START: +148
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 8: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: 3600
+  Type: WS/OA, fetching: Northern-502F02-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'Northern-502F02-1'
+  Into: tempBuffer[3]
+  API: 8
+  Width: 192
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/moon_phase/Northern-502F02-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/moon_phase/Northern-502F02-1.bin
+Free heap: 69472 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF E6 00 00 00 FF 02 00 60 51 FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 124ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68700 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'Northern-502F02-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 8
+[FW5-P2][PRODUCER-FILL] slot=3 item='Northern-502F02-1' ok=1 api=8 sym=1/1 342ms heap=69032
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 8
+  New API: 9
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_christmascountdown
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_christmascountdown:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69032
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69032)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69032
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_christmascountdown:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69408 bytes
+[DEBUG] Response length: 31
+    Heap AFTER transfer: 69408 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ported_christmascountdown-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (31 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69408)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=9)
+[MEM] Heap after cleanup: 69556 (net change: +148)
+[MEM] Total Heap delta from fetch: +772 (Now: 69804)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_christmascountdown-1
+[EXIT] Heap: 69804 | Net Change from START: +772
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 9: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_christmascountdown-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_christmascountdown-1'
+  Into: tempBuffer[4]
+  API: 9
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_christmascountdown/ported_christmascountdown-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_christmascountdown/ported_christmascountdown-1.bin
+Free heap: 69316 bytes, Free PSRAM: 7655103 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 10 01 00 00 FF 01 00 00 F8 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 91ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69156 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_christmascountdown-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 9
+[FW5-P2][PRODUCER-FILL] slot=4 item='ported_christmascountdown-1' ok=1 api=9 sym=1/1 293ms heap=69584
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 9
+  New API: 10
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: quote
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: GDN
+Active Only Flag: 192
+Input Type: 32:quote:1:3600
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69584
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69584)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69584
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:192:32:quote:1:3600' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69244 bytes
+[DEBUG] Response length: 11
+    Heap AFTER transfer: 69244 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["quote-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (11 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69244)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=10)
+[MEM] Heap after cleanup: 69244 (net change: +0)
+[MEM] Total Heap delta from fetch: -196 (Now: 69388)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] quote-1
+[EXIT] Heap: 69388 | Net Change from START: -196
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 10: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: 3600
+  Type: WS/OA, fetching: quote-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'quote-1'
+  Into: tempBuffer[5]
+  API: 10
+  Width: 192
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/quote/quote-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/quote/quote-1.bin
+Free heap: 69164 bytes, Free PSRAM: 7655123 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 4D 05 00 00 FF 06 00 EA FE FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 81ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68956 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'quote-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 10
+[FW5-P2][PRODUCER-FILL] slot=5 item='quote-1' ok=1 api=10 sym=1/1 316ms heap=69180
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 10
+  New API: 11
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: gdn_ported_christmascountdown
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:gdn_ported_christmascountdown:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69180
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69180)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69040
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:gdn_ported_christmascountdown:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68956 bytes
+[DEBUG] Response length: 35
+    Heap AFTER transfer: 68956 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["gdn_ported_christmascountdown-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (35 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68956)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=11)
+[MEM] Heap after cleanup: 69372 (net change: +416)
+[MEM] Total Heap delta from fetch: +556 (Now: 69596)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] gdn_ported_christmascountdown-1
+[EXIT] Heap: 69596 | Net Change from START: +416
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 11: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: gdn_ported_christmascountdown-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'gdn_ported_christmascountdown-1'
+  Into: tempBuffer[6]
+  API: 11
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_ported_christmascountdown/gdn_ported_christmascountdown-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_ported_christmascountdown/gdn_ported_christmascountdown-1.bin
+Free heap: 69120 bytes, Free PSRAM: 7655099 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 10 01 00 00 FF 01 00 00 F8 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 93ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68476 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: 'gdn_ported_christmascountdown-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 11
+[FW5-P2][PRODUCER-FILL] slot=6 item='gdn_ported_christmascountdown-1' ok=1 api=11 sym=1/1 370ms heap=68904
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 11
+  New API: 12
+ScrollType: GDN
+Image Width: 128
+Image Height: 32
+API Endpoint: gdn_local_aqi
+Fetch Type: 2
+Symbol Type: 300
+Scoring GIF: zip-33324_city-Plantation
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69528
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69528)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69528
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:128:32:gdn_local_aqi:2:300:zip-33324_city-Plantation' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69308 bytes
+[DEBUG] Response length: 43
+    Heap AFTER transfer: 69308 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["33324-Plantation-1","33324-Plantation-2"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (43 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69308)
+[DEBUG] JSON parsed OK, array size: 2
+[DEDUP] currentInputLeague='' (endpointIndex=12)
+[MEM] Heap after cleanup: 69456 (net change: +148)
+[MEM] Total Heap delta from fetch: +168 (Now: 69696)
+[INFO] Dumping 2 userSelectionsforLoop[] values:
+  [000] 33324-Plantation-1
+  [001] 33324-Plantation-2
+[EXIT] Heap: 69696 | Net Change from START: +168
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 2
+  Calculation result is VALID
+[BP-ADJUST] API 12: MATCH expected=2 actual=2 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 2 (VALID)
+  Actual found by filterUserSelectionsInit: 2
+  Using: 2
+  New width: 128
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: 33324-Plantation-1
+
+[TASK2-FETCH] Fetching image:
+  Image: '33324-Plantation-1'
+  Into: tempBuffer[7]
+  API: 12
+  Width: 128
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-1.bin
+Free heap: 69328 bytes, Free PSRAM: 7655067 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF A3 00 E8 06 FF 04 00 00 00 FF 02 00 E8 06 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 84ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68972 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: '33324-Plantation-1' (fetchOk=1)
+[FW5-P2][PRODUCER-FILL] slot=7 item='33324-Plantation-1' ok=1 api=12 sym=1/2 304ms heap=69452
+[FW5-P2][BELT] f=181 reps=0 off=0 api=12 drainReq=0 gifTrig=0 | s0 'WORLDCUP_F' x=203 w=192 t=1 | s1 'ENG_FRA_2_18_ET_F' x=395 w=192 t=1 | s2 'ARG_ENG_12_15_FINAL_F' x=587 w=192 t=1 | s3 'MLB' x=779 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=971 w=192 t=1 | s5 'EST-1' x=1163 w=192 t=1 | s6 'star_of_the_day-1' x=1355 w=128 t=1 | s7 'ET-1' x=1483 w=64 t=1 
+[FW5-P2][NET] wifi=3 rssi=-31 ip=192.168.4.57 heap=69600 psram=7655067
+[FW5-P2][BELT] f=361 reps=0 off=0 api=12 drainReq=0 gifTrig=0 | s0 'WORLDCUP_F' x=23 w=192 t=1 | s1 'ENG_FRA_2_18_ET_F' x=215 w=192 t=1 | s2 'ARG_ENG_12_15_FINAL_F' x=407 w=192 t=1 | s3 'MLB' x=599 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=791 w=192 t=1 | s5 'EST-1' x=983 w=192 t=1 | s6 'star_of_the_day-1' x=1175 w=128 t=1 | s7 'ET-1' x=1303 w=64 t=1 
+[NEEDSUPDATE-FIX] Success — connection kept alive
+[FW5-P2][BELT] f=540 reps=0 off=0 api=12 drainReq=0 gifTrig=0 | s0 'WORLDCUP_F' x=-156 w=192 t=1 | s1 'ENG_FRA_2_18_ET_F' x=36 w=192 t=1 | s2 'ARG_ENG_12_15_FINAL_F' x=228 w=192 t=1 | s3 'MLB' x=420 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=612 w=192 t=1 | s5 'EST-1' x=804 w=192 t=1 | s6 'star_of_the_day-1' x=996 w=128 t=1 | s7 'ET-1' x=1124 w=64 t=1 
+[FW5-P2][RECYCLE] slot=0 'ported_chemicalelements-1' spawnX=1153 zackFormula=1153
+  API changed from 5 to 12
+  Type: WS/OA
+  URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+  Width: 128
+
+[TASK2-FETCH] Fetching image:
+  Image: '33324-Plantation-2'
+  Into: tempBuffer[0]
+  API: 12
+  Width: 128
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+Free heap: 69024 bytes, Free PSRAM: 7655067 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF AF 00 DF 02 FF 01 00 FF FF FF 03 00 DF 02 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 123ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68668 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 5
+Current connection requests: 5
+Overall efficiency: 5.0 req/conn
+-------------------------------------
+
+  AFTER: '33324-Plantation-2' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 12
+[FW5-P2][PRODUCER-FILL] slot=0 item='33324-Plantation-2' ok=1 api=12 sym=2/2 128ms heap=69036
+[FW5-P2][BELT] f=719 reps=1 off=1 api=12 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=1010 w=64 t=1 | s1 'ENG_FRA_2_18_ET_F' x=-143 w=192 t=1 | s2 'ARG_ENG_12_15_FINAL_F' x=49 w=192 t=1 | s3 'MLB' x=241 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=433 w=192 t=1 | s5 'EST-1' x=625 w=192 t=1 | s6 'star_of_the_day-1' x=817 w=128 t=1 | s7 'ET-1' x=945 w=64 t=1 
+[FW5-P2][RECYCLE] slot=1 'hello_world-1' spawnX=1025 zackFormula=1025
+[DEDUP] resetDedup() -> cleared 0 previous entries, fresh loop begins
+[PRODUCER] WRAP -> API 0 (epoch 1)
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: -1
+  New API: 0
+ScrollType: SS
+Image Width: 192
+Image Height: 32
+API Endpoint: create_sports_panel_scoring
+Fetch Type: PHP
+Symbol Type: Games|WORLDCUP_F
+Scoring GIF: 1
+Active Only Flag: true
+Input Type: S
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69776
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69776)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69776
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[NTF] outputUserSelections URL: input=WORLDCUP_F ntf='mlbgames:all' (len=12)
+[DEBUG] Request path: /Scrolling/outputUserSelections.php?input=WORLDCUP_F&only_active=true&timeZone=ET&ntf=mlbgames:all
+[FILTER] Trying direct IP method
+[IP-HTTP] Stale keep-alive (23651ms old, max 2500ms) — closing
+[IP-HTTP] Opening NEW connection to 172.67.72.176:80 (timeout: 10000ms)
+[IP-HTTP] Connected in 71ms
+[IP-HTTP] Sending request: GET /Scrolling/outputUserSelections.php?input=WORLDCUP_F&only_active=true&timeZone=ET&ntf=mlbgames:all
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 137 bytes — connection kept alive for reuse
+[IP-HTTP] Content: ["ENG_FRA_2_18_ET_F","ARG_ENG_12_15_FINAL_F","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69272 bytes
+[DEBUG] Response length: 137
+    Heap AFTER transfer: 69272 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ENG_FRA_2_18_ET_F","ARG_ENG_12_15_FINAL_F","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (137 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69272)
+[DEBUG] JSON parsed OK, array size: 25
+[DEDUP] currentInputLeague='WORLDCUP_F' (endpointIndex=0)
+[INFO] Found '|' delimiter — exiting early loop for sports type.
+[MEM] Heap after cleanup: 69272 (net change: +0)
+[MEM] Total Heap delta from fetch: -216 (Now: 69560)
+[INFO] Dumping 2 userSelectionsforLoop[] values:
+  [000] ENG_FRA_2_18_ET_F
+  [001] ARG_ENG_12_15_FINAL_F
+[EXIT] Heap: 69560 | Net Change from START: -216
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 3
+  Calculation result is VALID
+[BP-ADJUST] API 0: MATCH expected=3 actual=3 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 3 (VALID)
+  Actual found by filterUserSelectionsInit: 2
+  Using: 2
+  New width: 192
+  New symbol: 
+  New endpoint: WORLDCUP_F
+  Type: PHP HOME, fetching: WORLDCUP_F
+
+[TASK2-FETCH] Fetching image:
+  Image: 'WORLDCUP_F'
+  Into: tempBuffer[1]
+  API: 0
+  Width: 192
+Server URL: http://gledv1.us/Scrolling/HI/192/WORLDCUP_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/HI/192/WORLDCUP_F.bin
+Free heap: 69336 bytes, Free PSRAM: 7655067 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 22521 ms (22.5 sec)
+* Requests on this connection: 6
+* Total connections opened: 1
+* Total requests served: 6
+* CONNECTION EFFICIENCY: 6.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 23 00 00 00 FF 04 00 FF FF FF 04 00 21 A8 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 80ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68920 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 6
+Current connection requests: 6
+Overall efficiency: 6.0 req/conn
+-------------------------------------
+
+  AFTER: 'WORLDCUP_F' (fetchOk=1)
+[FW5-P2][PRODUCER-FILL] slot=1 item='WORLDCUP_F' ok=1 api=0 sym=0/2 282ms heap=69560
+[FW5-P2][BELT] f=899 reps=2 off=2 api=0 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=830 w=64 t=1 | s1 'hello_world-1' x=894 w=64 t=1 | s2 'ARG_ENG_12_15_FINAL_F' x=-131 w=192 t=1 | s3 'MLB' x=61 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=253 w=192 t=1 | s5 'EST-1' x=445 w=192 t=1 | s6 'star_of_the_day-1' x=637 w=128 t=1 | s7 'ET-1' x=765 w=64 t=1 
+[FW5-P2][RECYCLE] slot=2 'ported_bofhquotes-1' spawnX=897 zackFormula=897
+  API changed from 7 to 0
+  Type: PHP
+  URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+  Width: 192
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ENG_FRA_2_18_ET_F'
+  Into: tempBuffer[2]
+  API: 0
+  Width: 192
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/ENG_FRA_2_18_ET_F.bin
+Free heap: 69132 bytes, Free PSRAM: 7655067 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 27686 ms (27.7 sec)
+* Requests on this connection: 7
+* Total connections opened: 1
+* Total requests served: 7
+* CONNECTION EFFICIENCY: 7.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 2D 00 00 00 FF 02 00 E1 20 FF 01 00 E1 28 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 61ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69132 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 7
+Current connection requests: 7
+Overall efficiency: 7.0 req/conn
+-------------------------------------
+
+  AFTER: 'ENG_FRA_2_18_ET_F' (fetchOk=1)
+[FW5-P2][PRODUCER-FILL] slot=2 item='ENG_FRA_2_18_ET_F' ok=1 api=0 sym=1/2 65ms heap=69560
+[FW5-P2][BELT] f=1080 reps=3 off=3 api=0 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=649 w=64 t=1 | s1 'hello_world-1' x=713 w=64 t=1 | s2 'ported_bofhquotes-1' x=777 w=64 t=1 | s3 'MLB' x=-120 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=72 w=192 t=1 | s5 'EST-1' x=264 w=192 t=1 | s6 'star_of_the_day-1' x=456 w=128 t=1 | s7 'ET-1' x=584 w=64 t=1 
+[FW5-P2][RECYCLE] slot=3 'Northern-502F02-1' spawnX=769 zackFormula=769
+  API changed from 8 to 0
+  Type: PHP
+  URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+  Width: 192
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ARG_ENG_12_15_FINAL_F'
+  Into: tempBuffer[3]
+  API: 0
+  Width: 192
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/ARG_ENG_12_15_FINAL_F.bin
+Free heap: 69032 bytes, Free PSRAM: 7655067 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 32992 ms (33.0 sec)
+* Requests on this connection: 8
+* Total connections opened: 1
+* Total requests served: 8
+* CONNECTION EFFICIENCY: 8.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 2D 00 00 00 FF 02 00 E1 20 FF 01 00 E1 28 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 79ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69032 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 8
+Current connection requests: 8
+Overall efficiency: 8.0 req/conn
+-------------------------------------
+
+  AFTER: 'ARG_ENG_12_15_FINAL_F' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 0
+[FW5-P2][PRODUCER-FILL] slot=3 item='ARG_ENG_12_15_FINAL_F' ok=1 api=0 sym=2/2 83ms heap=69512
+[FW5-P2][BELT] f=1261 reps=4 off=4 api=0 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=468 w=64 t=1 | s1 'hello_world-1' x=532 w=64 t=1 | s2 'ported_bofhquotes-1' x=596 w=64 t=1 | s3 'Northern-502F02-1' x=660 w=192 t=1 | s4 'NYM_PHI_3_16_FINAL' x=-109 w=192 t=1 | s5 'EST-1' x=83 w=192 t=1 | s6 'star_of_the_day-1' x=275 w=128 t=1 | s7 'ET-1' x=403 w=64 t=1 
+[FW5-P2][RECYCLE] slot=4 'ported_christmascountdown-1' spawnX=769 zackFormula=769
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 0
+  New API: 1
+ScrollType: SS
+Image Width: 192
+Image Height: 32
+API Endpoint: create_sports_panel_scoring
+Fetch Type: PHP
+Symbol Type: Games|MLB
+Scoring GIF: 1.2.3
+Active Only Flag: true
+Input Type: S
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69460
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69460)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69460
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[NTF] outputUserSelections URL: input=MLB ntf='mlbgames:all' (len=12)
+[DEBUG] Request path: /Scrolling/outputUserSelections.php?input=MLB&only_active=true&timeZone=ET&ntf=mlbgames:all
+[FILTER] Trying direct IP method
+[IP-HTTP] Stale keep-alive (15902ms old, max 2500ms) — closing
+[IP-HTTP] Opening NEW connection to 172.67.72.176:80 (timeout: 10000ms)
+[IP-HTTP] Connected in 70ms
+[IP-HTTP] Sending request: GET /Scrolling/outputUserSelections.php?input=MLB&only_active=true&timeZone=ET&ntf=mlbgames:all
+[IP-HTTP] Request flushed, waiting for response...
+[IP-HTTP] Status: HTTP/1.1 200 OK
+[IP-HTTP] Detected chunked transfer encoding
+[IP-HTTP] Reading chunked response
+[IP-HTTP] End of chunks
+[IP-HTTP] Received 118 bytes — connection kept alive for reuse
+[IP-HTTP] Content: ["NYM_PHI_3_16_FINAL","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69192 bytes
+[DEBUG] Response length: 118
+    Heap AFTER transfer: 69192 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["NYM_PHI_3_16_FINAL","|","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (118 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69192)
+[DEBUG] JSON parsed OK, array size: 25
+[DEDUP] currentInputLeague='MLB' (endpointIndex=1)
+[INFO] Found '|' delimiter — exiting early loop for sports type.
+[MEM] Heap after cleanup: 69192 (net change: +0)
+[MEM] Total Heap delta from fetch: +0 (Now: 69460)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] NYM_PHI_3_16_FINAL
+[EXIT] Heap: 69460 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 2
+  Calculation result is VALID
+[BP-ADJUST] API 1: MATCH expected=2 actual=2 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 2 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: MLB
+  Type: PHP HOME, fetching: MLB
+
+[TASK2-FETCH] Fetching image:
+  Image: 'MLB'
+  Into: tempBuffer[4]
+  API: 1
+  Width: 192
+Server URL: http://gledv1.us/Scrolling/HI/192/MLB.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/HI/192/MLB.bin
+Free heap: 69284 bytes, Free PSRAM: 7655107 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 38487 ms (38.5 sec)
+* Requests on this connection: 9
+* Total connections opened: 1
+* Total requests served: 9
+* CONNECTION EFFICIENCY: 9.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF 0F 00 00 00 FF 36 00 FF FF FF 01 00 61 08 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 79ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69284 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 9
+Current connection requests: 9
+Overall efficiency: 9.0 req/conn
+-------------------------------------
+
+  AFTER: 'MLB' (fetchOk=1)
+[FW5-P2][PRODUCER-FILL] slot=4 item='MLB' ok=1 api=1 sym=0/1 273ms heap=69512
+[FW5-P2][NET] wifi=3 rssi=-31 ip=192.168.4.57 heap=69512 psram=7655107
+[FW5-P2][BELT] f=1442 reps=5 off=5 api=1 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=287 w=64 t=1 | s1 'hello_world-1' x=351 w=64 t=1 | s2 'ported_bofhquotes-1' x=415 w=64 t=1 | s3 'Northern-502F02-1' x=479 w=192 t=1 | s4 'ported_christmascountdown-1' x=671 w=64 t=1 | s5 'EST-1' x=-98 w=192 t=1 | s6 'star_of_the_day-1' x=94 w=128 t=1 | s7 'ET-1' x=222 w=64 t=1 
+[NEEDSUPDATE-FIX] Success — connection kept alive
+[FW5-P2][RECYCLE] slot=5 'quote-1' spawnX=641 zackFormula=641
+  API changed from 10 to 1
+  Type: PHP
+  URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+  Width: 192
+
+[TASK2-FETCH] Fetching image:
+  Image: 'NYM_PHI_3_16_FINAL'
+  Into: tempBuffer[5]
+  API: 1
+  Width: 192
+Server URL: http://gledv1.us/Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/create_sports_panel_scoring/NYM_PHI_3_16_FINAL.bin
+Free heap: 69080 bytes, Free PSRAM: 7655107 bytes
+
+--- Attempt 1/2 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+
+**************************************************
+*         CONNECTION REUSED (KEEP-ALIVE)         *
+**************************************************
+* Connection age: 43589 ms (43.6 sec)
+* Requests on this connection: 10
+* Total connections opened: 1
+* Total requests served: 10
+* CONNECTION EFFICIENCY: 10.0 req/conn
+**************************************************
+
+[IMAGE] Status: HTTP/1.1 200 OK
+Starting improved RLE decompression...
+First bytes: FF D5 01 00 00 FF 01 00 6E 01 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 29ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 69080 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'NYM_PHI_3_16_FINAL' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 1
+[FW5-P2][PRODUCER-FILL] slot=5 item='NYM_PHI_3_16_FINAL' ok=1 api=1 sym=1/1 32ms heap=69460
+[FW5-P2][BELT] f=1625 reps=6 off=6 api=1 drainReq=0 gifTrig=0 | s0 'ported_chemicalelements-1' x=104 w=64 t=1 | s1 'hello_world-1' x=168 w=64 t=1 | s2 'ported_bofhquotes-1' x=232 w=64 t=1 | s3 'Northern-502F02-1' x=296 w=192 t=1 | s4 'ported_christmascountdown-1' x=488 w=64 t=1 | s5 'quote-1' x=552 w=192 t=1 | s6 'star_of_the_day-1' x=-89 w=128 t=1 | s7 'ET-1' x=39 w=64 t=1 
+[FW5-P2][RECYCLE] slot=6 'gdn_ported_christmascountdown-1' spawnX=705 zackFormula=705
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 1
+  New API: 2
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: gdn_us_sky_clock
+Fetch Type: 1
+Symbol Type: 10
+Scoring GIF: zone-EST
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69412
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69412)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69412
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:192:32:gdn_us_sky_clock:1:10:zone-EST' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Agdn_us_sky_clock%3A1%3A10%3Azone-EST
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69104 bytes
+[DEBUG] Response length: 9
+    Heap AFTER transfer: 69104 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["EST-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (9 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69104)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=2)
+[MEM] Heap after cleanup: 69252 (net change: +148)
+[MEM] Total Heap delta from fetch: +0 (Now: 69412)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] EST-1
+[EXIT] Heap: 69412 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 2: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: 10
+  Type: WS/OA, fetching: EST-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'EST-1'
+  Into: tempBuffer[6]
+  API: 2
+  Width: 192
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_us_sky_clock/EST-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_us_sky_clock/EST-1.bin
+Free heap: 69128 bytes, Free PSRAM: 7655123 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 72 00 00 00 FF 4E 00 85 08 FF 07 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 192ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68980 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'EST-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 2
+[FW5-P2][PRODUCER-FILL] slot=6 item='EST-1' ok=1 api=2 sym=1/1 389ms heap=69312
+[FW5-P2][RECYCLE] slot=7 '33324-Plantation-1' spawnX=705 zackFormula=705
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 2
+  New API: 3
+ScrollType: GDN
+Image Width: 128
+Image Height: 32
+API Endpoint: star_of_the_day
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: GDN
+Active Only Flag: 128
+Input Type: 32:star_of_the_day:1:3600
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69364
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69364)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69364
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:128:32:star_of_the_day:1:3600' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Astar_of_the_day%3A1%3A3600
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68608 bytes
+[DEBUG] Response length: 21
+    Heap AFTER transfer: 68608 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["star_of_the_day-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (21 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68608)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=3)
+[MEM] Heap after cleanup: 69172 (net change: +564)
+[MEM] Total Heap delta from fetch: +0 (Now: 69364)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] star_of_the_day-1
+[EXIT] Heap: 69364 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 3: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 128
+  New symbol: 
+  New endpoint: 3600
+  Type: WS/OA, fetching: star_of_the_day-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'star_of_the_day-1'
+  Into: tempBuffer[7]
+  API: 3
+  Width: 128
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/star_of_the_day/star_of_the_day-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/star_of_the_day/star_of_the_day-1.bin
+Free heap: 68984 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF A8 00 00 00 FF 05 00 DF C6 FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 93ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68628 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'star_of_the_day-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 3
+[FW5-P2][PRODUCER-FILL] slot=7 item='star_of_the_day-1' ok=1 api=3 sym=1/1 280ms heap=69264
+[FW5-P2][RECYCLE] slot=0 '33324-Plantation-2' spawnX=769 zackFormula=769
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 3
+  New API: 4
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_timezone
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: tz-ET
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69364
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69364)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69364
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_timezone:1:300:tz-ET' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_timezone%3A1%3A300%3Atz-ET
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69056 bytes
+[DEBUG] Response length: 8
+    Heap AFTER transfer: 69056 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ET-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (8 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69056)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=4)
+[MEM] Heap after cleanup: 69204 (net change: +148)
+[MEM] Total Heap delta from fetch: +0 (Now: 69364)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ET-1
+[EXIT] Heap: 69364 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 4: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ET-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ET-1'
+  Into: tempBuffer[0]
+  API: 4
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_timezone/ET-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_timezone/ET-1.bin
+Free heap: 69088 bytes, Free PSRAM: 7655123 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 4D 00 E8 06 FF 03 00 00 00 FF 02 00 E8 06 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 89ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68732 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'ET-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 4
+[FW5-P2][PRODUCER-FILL] slot=0 item='ET-1' ok=1 api=4 sym=1/1 238ms heap=69056
+[FW5-P2][BELT] f=1807 reps=9 off=9 api=4 drainReq=0 gifTrig=0 | s0 '33324-Plantation-2' x=755 w=128 t=1 | s1 'hello_world-1' x=-14 w=64 t=1 | s2 'ported_bofhquotes-1' x=50 w=64 t=1 | s3 'Northern-502F02-1' x=114 w=192 t=1 | s4 'ported_christmascountdown-1' x=306 w=64 t=1 | s5 'quote-1' x=370 w=192 t=1 | s6 'gdn_ported_christmascountdown-1' x=562 w=64 t=1 | s7 '33324-Plantation-1' x=626 w=128 t=1 
+[FW5-P2][RECYCLE] slot=1 'WORLDCUP_F' spawnX=833 zackFormula=833
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 4
+  New API: 5
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_chemicalelements
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_chemicalelements:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69412
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69412)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69412
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_chemicalelements:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_chemicalelements%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68916 bytes
+[DEBUG] Response length: 29
+    Heap AFTER transfer: 69056 bytes (recovered 140 bytes)
+[DEBUG] First 300 chars: ["ported_chemicalelements-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (29 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69056)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=5)
+[MEM] Heap after cleanup: 69056 (net change: +140)
+[MEM] Total Heap delta from fetch: -148 (Now: 69264)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_chemicalelements-1
+[EXIT] Heap: 69264 | Net Change from START: -148
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 5: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_chemicalelements-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_chemicalelements-1'
+  Into: tempBuffer[1]
+  API: 5
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_chemicalelements/ported_chemicalelements-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_chemicalelements/ported_chemicalelements-1.bin
+Free heap: 68788 bytes, Free PSRAM: 7655103 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 80 00 F7 FF FF 42 00 00 00 FF 10 00 F7 FF FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 83ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68776 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_chemicalelements-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 5
+[FW5-P2][PRODUCER-FILL] slot=1 item='ported_chemicalelements-1' ok=1 api=5 sym=1/1 222ms heap=69204
+[FW5-P2][RECYCLE] slot=2 'ENG_FRA_2_18_ET_F' spawnX=961 zackFormula=961
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 5
+  New API: 6
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: hello_world
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:hello_world:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69316
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69316)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69316
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:hello_world:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Ahello_world%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68760 bytes
+[DEBUG] Response length: 17
+    Heap AFTER transfer: 68760 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["hello_world-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (17 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68760)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=6)
+[MEM] Heap after cleanup: 69120 (net change: +360)
+[MEM] Total Heap delta from fetch: +0 (Now: 69316)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] hello_world-1
+[EXIT] Heap: 69316 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 6: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: hello_world-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'hello_world-1'
+  Into: tempBuffer[2]
+  API: 6
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/hello_world/hello_world-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/hello_world/hello_world-1.bin
+Free heap: 69044 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 41 00 00 00 FF 02 00 E8 06 FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 84ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68896 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'hello_world-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 6
+[FW5-P2][PRODUCER-FILL] slot=2 item='hello_world-1' ok=1 api=6 sym=1/1 272ms heap=69216
+[FW5-P2][BELT] f=1987 reps=11 off=11 api=6 drainReq=0 gifTrig=0 | s0 '33324-Plantation-2' x=575 w=128 t=1 | s1 'WORLDCUP_F' x=703 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=895 w=192 t=1 | s3 'Northern-502F02-1' x=-66 w=192 t=1 | s4 'ported_christmascountdown-1' x=126 w=64 t=1 | s5 'quote-1' x=190 w=192 t=1 | s6 'gdn_ported_christmascountdown-1' x=382 w=64 t=1 | s7 '33324-Plantation-1' x=446 w=128 t=1 
+[FW5-P2][RECYCLE] slot=3 'ARG_ENG_12_15_FINAL_F' spawnX=961 zackFormula=961
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 6
+  New API: 7
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_bofhquotes
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_bofhquotes:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69316
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69316)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69316
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_bofhquotes:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_bofhquotes%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68972 bytes
+[DEBUG] Response length: 23
+    Heap AFTER transfer: 68972 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ported_bofhquotes-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (23 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68972)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=7)
+[MEM] Heap after cleanup: 68912 (net change: -60)
+[MEM] Total Heap delta from fetch: +0 (Now: 69316)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_bofhquotes-1
+[EXIT] Heap: 69316 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 7: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_bofhquotes-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_bofhquotes-1'
+  Into: tempBuffer[3]
+  API: 7
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_bofhquotes/ported_bofhquotes-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_bofhquotes/ported_bofhquotes-1.bin
+Free heap: 68936 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 48 00 00 F8 FF 04 00 FF FF FF 01 00 00 F8 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 92ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68372 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_bofhquotes-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 7
+[FW5-P2][PRODUCER-FILL] slot=3 item='ported_bofhquotes-1' ok=1 api=7 sym=1/1 252ms heap=69216
+[FW5-P2][BELT] f=2167 reps=12 off=12 api=7 drainReq=0 gifTrig=0 | s0 '33324-Plantation-2' x=395 w=128 t=1 | s1 'WORLDCUP_F' x=523 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=715 w=192 t=1 | s3 'ARG_ENG_12_15_FINAL_F' x=907 w=192 t=1 | s4 'ported_christmascountdown-1' x=-54 w=64 t=1 | s5 'quote-1' x=10 w=192 t=1 | s6 'gdn_ported_christmascountdown-1' x=202 w=64 t=1 | s7 '33324-Plantation-1' x=266 w=128 t=1 
+[FW5-P2][RECYCLE] slot=4 'MLB' spawnX=1089 zackFormula=1089
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 7
+  New API: 8
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: moon_phase
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: hemisphere-Northern_accent-502F02
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69364
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69364)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69364
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:192:32:moon_phase:1:3600:hemisphere-Northern_accent-502F02' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Amoon_phase%3A1%3A3600%3Ahemisphere-Northern_accent-502F02
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68968 bytes
+[DEBUG] Response length: 21
+    Heap AFTER transfer: 68968 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["Northern-502F02-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (21 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68968)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=8)
+[MEM] Heap after cleanup: 69132 (net change: +164)
+[MEM] Total Heap delta from fetch: +0 (Now: 69364)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] Northern-502F02-1
+[EXIT] Heap: 69364 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 8: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: 3600
+  Type: WS/OA, fetching: Northern-502F02-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'Northern-502F02-1'
+  Into: tempBuffer[4]
+  API: 8
+  Width: 192
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/moon_phase/Northern-502F02-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/moon_phase/Northern-502F02-1.bin
+Free heap: 69044 bytes, Free PSRAM: 7655107 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF E6 00 00 00 FF 02 00 60 51 FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 93ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68896 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'Northern-502F02-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 8
+[FW5-P2][PRODUCER-FILL] slot=4 item='Northern-502F02-1' ok=1 api=8 sym=1/1 201ms heap=69216
+[FW5-P2][BELT] f=2346 reps=13 off=13 api=8 drainReq=0 gifTrig=0 | s0 '33324-Plantation-2' x=216 w=128 t=1 | s1 'WORLDCUP_F' x=344 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=536 w=192 t=1 | s3 'ARG_ENG_12_15_FINAL_F' x=728 w=192 t=1 | s4 'MLB' x=920 w=192 t=1 | s5 'quote-1' x=-169 w=192 t=1 | s6 'gdn_ported_christmascountdown-1' x=23 w=64 t=1 | s7 '33324-Plantation-1' x=87 w=128 t=1 
+[FW5-P2][RECYCLE] slot=5 'NYM_PHI_3_16_FINAL' spawnX=1089 zackFormula=1089
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 8
+  New API: 9
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: ported_christmascountdown
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:ported_christmascountdown:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69264
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69264)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69264
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:ported_christmascountdown:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Aported_christmascountdown%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68872 bytes
+[DEBUG] Response length: 31
+    Heap AFTER transfer: 68872 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["ported_christmascountdown-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (31 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68872)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=9)
+[MEM] Heap after cleanup: 69028 (net change: +156)
+[MEM] Total Heap delta from fetch: +0 (Now: 69264)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] ported_christmascountdown-1
+[EXIT] Heap: 69264 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 9: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: ported_christmascountdown-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'ported_christmascountdown-1'
+  Into: tempBuffer[5]
+  API: 9
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/ported_christmascountdown/ported_christmascountdown-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/ported_christmascountdown/ported_christmascountdown-1.bin
+Free heap: 68848 bytes, Free PSRAM: 7655103 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 10 01 00 00 FF 01 00 00 F8 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 91ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68480 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'ported_christmascountdown-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 9
+[FW5-P2][PRODUCER-FILL] slot=5 item='ported_christmascountdown-1' ok=1 api=9 sym=1/1 244ms heap=68948
+[FW5-P2][RECYCLE] slot=6 'EST-1' spawnX=1217 zackFormula=1217
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 9
+  New API: 10
+ScrollType: GDN
+Image Width: 192
+Image Height: 32
+API Endpoint: quote
+Fetch Type: 1
+Symbol Type: 3600
+Scoring GIF: GDN
+Active Only Flag: 192
+Input Type: 32:quote:1:3600
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69316
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69316)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69316
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:192:32:quote:1:3600' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A192%3A32%3Aquote%3A1%3A3600
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 69012 bytes
+[DEBUG] Response length: 11
+    Heap AFTER transfer: 69012 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["quote-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (11 chars)
+[MEM] Heap during JSON parse: +0 (Now: 69012)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=10)
+[MEM] Heap after cleanup: 69168 (net change: +156)
+[MEM] Total Heap delta from fetch: +0 (Now: 69316)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] quote-1
+[EXIT] Heap: 69316 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 10: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 192
+  New symbol: 
+  New endpoint: 3600
+  Type: WS/OA, fetching: quote-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'quote-1'
+  Into: tempBuffer[6]
+  API: 10
+  Width: 192
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/quote/quote-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 6144 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/quote/quote-1.bin
+Free heap: 69092 bytes, Free PSRAM: 7655123 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 0D 09 00 00 FF 05 00 EA FE FF 02 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 93ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68528 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'quote-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 10
+[FW5-P2][PRODUCER-FILL] slot=6 item='quote-1' ok=1 api=10 sym=1/1 283ms heap=69168
+[FW5-P2][NET] wifi=3 rssi=-31 ip=192.168.4.57 heap=69316 psram=7655123
+[NEEDSUPDATE-FIX] Success — connection kept alive
+[FW5-P2][BELT] f=2524 reps=15 off=15 api=10 drainReq=0 gifTrig=0 | s0 '33324-Plantation-2' x=38 w=128 t=1 | s1 'WORLDCUP_F' x=166 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=358 w=192 t=1 | s3 'ARG_ENG_12_15_FINAL_F' x=550 w=192 t=1 | s4 'MLB' x=742 w=192 t=1 | s5 'NYM_PHI_3_16_FINAL' x=934 w=192 t=1 | s6 'EST-1' x=1126 w=192 t=1 | s7 '33324-Plantation-1' x=-91 w=128 t=1 
+[FW5-P2][RECYCLE] slot=7 'star_of_the_day-1' spawnX=1281 zackFormula=1281
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 10
+  New API: 11
+ScrollType: GDN
+Image Width: 64
+Image Height: 32
+API Endpoint: gdn_ported_christmascountdown
+Fetch Type: 1
+Symbol Type: 300
+Scoring GIF: GDN
+Active Only Flag: 64
+Input Type: 32:gdn_ported_christmascountdown:1:300
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69264
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69264)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69264
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:64:32:gdn_ported_christmascountdown:1:300' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A64%3A32%3Agdn_ported_christmascountdown%3A1%3A300
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68876 bytes
+[DEBUG] Response length: 35
+    Heap AFTER transfer: 68876 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["gdn_ported_christmascountdown-1"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (35 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68876)
+[DEBUG] JSON parsed OK, array size: 1
+[DEDUP] currentInputLeague='' (endpointIndex=11)
+[MEM] Heap after cleanup: 68820 (net change: -56)
+[MEM] Total Heap delta from fetch: +0 (Now: 69264)
+[INFO] Dumping 1 userSelectionsforLoop[] values:
+  [000] gdn_ported_christmascountdown-1
+[EXIT] Heap: 69264 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 1
+  Calculation result is VALID
+[BP-ADJUST] API 11: MATCH expected=1 actual=1 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 1 (VALID)
+  Actual found by filterUserSelectionsInit: 1
+  Using: 1
+  New width: 64
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: gdn_ported_christmascountdown-1
+
+[TASK2-FETCH] Fetching image:
+  Image: 'gdn_ported_christmascountdown-1'
+  Into: tempBuffer[7]
+  API: 11
+  Width: 64
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_ported_christmascountdown/gdn_ported_christmascountdown-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 2048 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_ported_christmascountdown/gdn_ported_christmascountdown-1.bin
+Free heap: 68836 bytes, Free PSRAM: 7655099 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF 10 01 00 00 FF 01 00 00 F8 FF 03 00 00 00 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 85ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68260 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: 'gdn_ported_christmascountdown-1' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 11
+[FW5-P2][PRODUCER-FILL] slot=7 item='gdn_ported_christmascountdown-1' ok=1 api=11 sym=1/1 237ms heap=69156
+[FW5-P2][RECYCLE] slot=0 'ET-1' spawnX=1281 zackFormula=1281
+
+[TASK2-HOME] Fetching NEW HOME IMAGE or OPEN APP
+  Previous API: 11
+  New API: 12
+ScrollType: GDN
+Image Width: 128
+Image Height: 32
+API Endpoint: gdn_local_aqi
+Fetch Type: 2
+Symbol Type: 300
+Scoring GIF: zip-33324_city-Plantation
+Active Only Flag: FALSE
+======= ENTERING filterUserSelectionsInit() =======
+[START] Heap: 69316
+[INFO] numberOfSelections: 256
+[STEP] Clearing userSelectionsforLoop...
+[MEM] Heap delta after clearing userSelectionsforLoop: +0 (Now: 69316)
+[INFO] relevantSelectionsFound reset to 0
+[MODE] PHP Fetch Mode
+[MEM] Heap before fetch loop: 69316
+[RETRY] Attempt #0
+[WiFi] Status: Connected | RSSI: -31 dBm | IP: 192.168.4.57
+[GDN] raw='GDN:128:32:gdn_local_aqi:2:300:zip-33324_city-Plantation' -> path=/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[DEBUG] Request path: /Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[GDN] Routing to GDN host: gledv2.us
+[FILTER] Using HTTPClient fallback
+[DEBUG] Full URL: http://gledv2.us/Scrolling/GDN/GDN-Wrapper.php?e=GDN%3A128%3A32%3Agdn_local_aqi%3A2%3A300%3Azip-33324_city-Plantation
+[HTTP] Making request...
+[HTTP] Response Code: 200
+*** ZERO HEAP: Using static PSRAM buffer ***
+    Heap BEFORE: 68924 bytes
+[DEBUG] Response length: 43
+    Heap AFTER transfer: 68924 bytes (recovered 0 bytes)
+[DEBUG] First 300 chars: ["33324-Plantation-1","33324-Plantation-2"]
+[DEBUG] Found JSON start at offset 0
+[DEBUG] Clean JSON (43 chars)
+[MEM] Heap during JSON parse: +0 (Now: 68924)
+[DEBUG] JSON parsed OK, array size: 2
+[DEDUP] currentInputLeague='' (endpointIndex=12)
+[MEM] Heap after cleanup: 69072 (net change: +148)
+[MEM] Total Heap delta from fetch: +0 (Now: 69316)
+[INFO] Dumping 2 userSelectionsforLoop[] values:
+  [000] 33324-Plantation-1
+  [001] 33324-Plantation-2
+[EXIT] Heap: 69316 | Net Change from START: +0
+======= EXITING filterUserSelectionsInit() =======
+
+  Array access is SAFE - proceeding with calculation
+  Raw calculation result: 2
+  Calculation result is VALID
+[BP-ADJUST] API 12: MATCH expected=2 actual=2 -- no adjustment needed
+
+[TASK2-API-COUNT] API Symbol Count:
+  Calculated from breakpoints: 2 (VALID)
+  Actual found by filterUserSelectionsInit: 2
+  Using: 2
+  New width: 128
+  New symbol: 
+  New endpoint: 300
+  Type: WS/OA, fetching: 33324-Plantation-1
+
+[TASK2-FETCH] Fetching image:
+  Image: '33324-Plantation-1'
+  Into: tempBuffer[0]
+  API: 12
+  Width: 128
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-1.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-1.bin
+Free heap: 68992 bytes, Free PSRAM: 7655067 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF A3 00 E8 06 FF 04 00 00 00 FF 02 00 E8 06 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 90ms
+Copying decompressed data to target array...
+Data copy complete in 1ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68636 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: '33324-Plantation-1' (fetchOk=1)
+[FW5-P2][PRODUCER-FILL] slot=0 item='33324-Plantation-1' ok=1 api=12 sym=1/2 209ms heap=68960
+[FW5-P2][BELT] f=2702 reps=17 off=17 api=12 drainReq=0 gifTrig=0 | s0 'ET-1' x=1269 w=64 t=1 | s1 'WORLDCUP_F' x=-12 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=180 w=192 t=1 | s3 'ARG_ENG_12_15_FINAL_F' x=372 w=192 t=1 | s4 'MLB' x=564 w=192 t=1 | s5 'NYM_PHI_3_16_FINAL' x=756 w=192 t=1 | s6 'EST-1' x=948 w=192 t=1 | s7 'star_of_the_day-1' x=1140 w=128 t=1 
+[FW5-P2][BELT] f=2881 reps=17 off=17 api=12 drainReq=0 gifTrig=0 | s0 'ET-1' x=1090 w=64 t=1 | s1 'WORLDCUP_F' x=-191 w=192 t=1 | s2 'ENG_FRA_2_18_ET_F' x=1 w=192 t=1 | s3 'ARG_ENG_12_15_FINAL_F' x=193 w=192 t=1 | s4 'MLB' x=385 w=192 t=1 | s5 'NYM_PHI_3_16_FINAL' x=577 w=192 t=1 | s6 'EST-1' x=769 w=192 t=1 | s7 'star_of_the_day-1' x=961 w=128 t=1 
+[FW5-P2][RECYCLE] slot=1 'ported_chemicalelements-1' spawnX=1153 zackFormula=1153
+  API changed from 5 to 12
+  Type: WS/OA
+  URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+  Width: 128
+
+[TASK2-FETCH] Fetching image:
+  Image: '33324-Plantation-2'
+  Into: tempBuffer[1]
+  API: 12
+  Width: 128
+Server URL: http://gledv2.us/Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+[Core 0] Using pre-allocated PSRAM buffer for 4096 pixels
+URL does not need encoding
+Path extracted: /Scrolling/App_Output/Json/gdn_local_aqi/33324-Plantation-2.bin
+Free heap: 68936 bytes, Free PSRAM: 7655067 bytes
+[GDN] Foreign-host fetch, pinning to: gledv2.us
+
+--- Attempt 1/5 (load balancer) ---
+WiFi connected (RSSI: -31 dBm)
+[IMAGE] Trying HTTPClient fallback
+HTTP response code: 200
+Starting improved RLE decompression...
+First bytes: FF AF 00 DF 02 FF 01 00 FF FF FF 03 00 DF 02 FF 
+First RLE marker (0xFF) found
+SUCCESS: Full image decompressed
+[KEEPALIVE] Success! Connection kept alive for next request
+Attempt 1 took 119ms
+Copying decompressed data to target array...
+Data copy complete in 0ms
+Consecutive failures reset to 0
+=== Result: SUCCESS ===
+=== Final heap: 68580 bytes ===
+=== Consecutive failures: 0 ===
+
+------ KEEPALIVE SESSION STATS ------
+Total connections opened: 1
+Total requests served: 10
+Current connection requests: 10
+Overall efficiency: 10.0 req/conn
+-------------------------------------
+
+  AFTER: '33324-Plantation-2' (fetchOk=1)
+
+[TASK2-NEXT] No more images for API 12
+[FW5-P2][PRODUCER-FILL] slot=1 item='33324-Plantation-2' ok=1 api=12 sym=2/2 123ms heap=68960
