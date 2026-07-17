@@ -20,12 +20,13 @@ sign, a room label, a fun graphic.
 required. Glance only cares that your URL returns a **baseline PNG or JPG** image - generate
 it however you want, in whatever language or framework you already use, and the URL does not
 even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance Scroll fetches
-it, resizes it to its width, and shows it.
+it, stores it in its own memory, and shows it.
 
-:::tip[Two rules on the image itself]
-Save it as a **baseline JPEG or a PNG** - a *progressive* JPEG will not decode on the
-device (re-save it as baseline, or just use PNG). And keep it at or under **1 megapixel**;
-the Glance Scroll only needs something roughly its own size.
+:::tip[Two rules on the image]
+1. Save it as a **baseline JPEG or a PNG**. A *progressive* JPEG will not decode on the
+   device - re-save it as baseline, or just use PNG.
+2. Size it to the display: **up to 192 pixels wide and 32 pixels tall**. That is all a
+   Glance Scroll shows, so there is no need for anything bigger.
 :::
 
 **Need somewhere to host it?** You do not need much, and most options are free:
