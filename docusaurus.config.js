@@ -28,7 +28,6 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/glance-led-dev/glance-docs/tree/main/',
         },
         blog: false,
         theme: {customCss: './src/css/custom.css'},

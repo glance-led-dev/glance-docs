@@ -19,7 +19,7 @@ sign, a room label, a fun graphic.
 **Use any language or tool you like.** There is no SDK, no Starlark, and no Python
 required. Glance only cares that your URL returns a **PNG** image - generate
 it however you want, in whatever language or framework you already use, and the URL does not
-even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance Scroll fetches
+even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance fetches
 it, stores it in its own memory, and shows it.
 
 :::tip[Two rules on the image]
@@ -58,7 +58,7 @@ You provide:
 - a **refresh interval** - how often your Glance Scroll re-fetches the image,
 - the image **width** (up to 192). The **height is always 32** to match the Glance Scroll.
 
-Your Glance Scroll fetches that image **directly over your own network** and caches it
+Your Glance fetches that image **directly over your own network** and caches it
 **on the device itself**. Glance's servers store your URL so the Glance Scroll knows
 where to look, but the picture is never uploaded to, stored on, or proxied through
 Glance - it lives only in your Glance Scroll's own memory.
@@ -66,7 +66,7 @@ Glance - it lives only in your Glance Scroll's own memory.
 A Glance Scroll can hold up to **10** of these image apps at a time.
 
 :::note[Why it uses plain http, and why that is safe here]
-Your Glance Scroll fetches its images over plain `http` rather than `https`. This is a
+Your Glance fetches its images over plain `http` rather than `https`. This is a
 deliberate design choice: the device only downloads public, non-sensitive images and never
 transmits passwords, personal details, or any data of its own. Since nothing private
 travels over the connection, skipping encryption frees up memory and keeps the device fast
@@ -97,15 +97,3 @@ If the content is at all sensitive, do not use this feature. Instead, email us a
 **help@glance-led.com** to build and submit a proper private app - the process is the
 same, but we will set up proper encryption or help you navigate it.
 :::
-
-## Build a full private app
-
-You can also build a normal app and simply keep it out of the public catalog:
-
-- Build and preview exactly like a public app (same two files, same `gdn` commands).
-- No pull request required.
-- Install it to your own Glance Scrolls privately.
-
-Everything in [Getting started](/docs/getting-started/quickstart) and the
-[guides](/docs/guides/your-first-app) applies - a private app is just an app you do not
-submit.
