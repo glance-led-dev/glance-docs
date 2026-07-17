@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Glance Developer Network',
-  tagline: 'Build apps for your Glance.',
+  tagline: 'Build apps for your GLANCE.',
   favicon: 'img/favicon.png',
 
   future: {v4: true},

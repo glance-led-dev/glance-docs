@@ -39,7 +39,7 @@ function Hero() {
       <div className={styles.heroInner}>
         <span className={styles.kicker}>GLANCE DEVELOPER NETWORK</span>
         <h1 className={styles.title}>
-          Build Apps for your <span className={styles.grn}>Glance</span>.
+          Build Apps for your <span className={styles.grn}>GLANCE</span>.
         </h1>
         <p className={styles.sub}>
           Write your own apps, preview them in the Glance Dev Studio environment, then push
@@ -64,7 +64,7 @@ function Hero() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout title="Build apps for your Glance" description={siteConfig.tagline}>
+    <Layout title="Build apps for your GLANCE" description={siteConfig.tagline}>
       <Hero />
       <main className="container margin-vert--xl">
         <div className="cardGrid">
