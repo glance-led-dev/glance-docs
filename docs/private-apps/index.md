@@ -44,9 +44,9 @@ where to start? An AI assistant can generate the whole thing for you.
 
 You provide:
 
-- your Glance Scroll's **MAC address**,
 - a public image **URL** (`http://...`, ending in `.png`, `.jpg`, or `.jpeg`),
-- the **width** (up to 192) and a **refresh interval**.
+- a **refresh interval** - how often your Glance Scroll re-fetches the image,
+- the image **width** (up to 192). The **height is always 32** to match the Glance Scroll.
 
 Your Glance Scroll fetches that image **directly over your own network** and caches it
 **on the device itself**. Glance's servers store your URL so the Glance Scroll knows
@@ -56,12 +56,14 @@ Glance - it lives only in your Glance Scroll's own memory.
 A Glance Scroll can hold up to **4** of these image apps at a time.
 
 :::note[Why it uses plain http, and why that is safe here]
-Glance Scrolls are small devices without the memory for TLS, so the fetch is plain
-`http`, not `https`. For this feature that is completely fine: your Glance Scroll only
-**displays a public picture** and **sends no data** of its own, so there is nothing
-private in transit to protect. Encryption matters when you send passwords or personal
-details - here you send nothing and show something that is already public. The only rule
-that follows from it is the caution below: keep the image itself public and non-sensitive.
+A Glance Scroll runs on an ESP32-S3, a microcontroller with very limited storage and
+SRAM. Validating a TLS certificate (the "s" in `https`) takes up precious memory the
+device does not have to spare, so the fetch is plain `http`. That is completely fine
+here: your Glance Scroll only **displays a public picture** and **sends none of its own
+data**, so there is nothing private in transit to protect. Encryption matters when you
+send passwords or personal details - here you send nothing and show something that is
+already public. The only rule that follows: keep the image itself public and
+non-sensitive.
 :::
 
 :::danger[Read this before you use it - proceed at your own risk]
