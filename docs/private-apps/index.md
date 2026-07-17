@@ -17,9 +17,16 @@ for things you already generate as a PNG or JPG on your own server - a personal 
 sign, a room label, a fun graphic.
 
 **Use any language or tool you like.** There is no SDK, no Starlark, and no Python
-required. Glance only cares that your URL returns a `.png` or `.jpg` - generate that image
-however you want, in whatever language or framework you already use. Your Glance Scroll
-simply fetches it and shows it.
+required. Glance only cares that your URL returns a **baseline PNG or JPG** image - generate
+it however you want, in whatever language or framework you already use, and the URL does not
+even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance Scroll fetches
+it, resizes it to its width, and shows it.
+
+:::tip[Two rules on the image itself]
+Save it as a **baseline JPEG or a PNG** - a *progressive* JPEG will not decode on the
+device (re-save it as baseline, or just use PNG). And keep it at or under **1 megapixel**;
+the Glance Scroll only needs something roughly its own size.
+:::
 
 **Need somewhere to host it?** You do not need much, and most options are free:
 
@@ -39,12 +46,13 @@ simply fetches it and shows it.
 - **A Raspberry Pi** on your own network works too - run a tiny web server at home that
   returns your image.
 
-Either way, the only requirement is a public URL that ends in `.png` or `.jpg`. Not sure
-where to start? An AI assistant can generate the whole thing for you.
+Either way, the only requirement is a public URL that returns a PNG or JPG image - it does
+not need a file extension. Not sure where to start? An AI assistant can generate the whole
+thing for you.
 
 You provide:
 
-- a public image **URL** (`http://...`, ending in `.png`, `.jpg`, or `.jpeg`),
+- a public image **URL** (`http://...` - no file extension required),
 - a **refresh interval** - how often your Glance Scroll re-fetches the image,
 - the image **width** (up to 192). The **height is always 32** to match the Glance Scroll.
 
