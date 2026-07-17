@@ -13,18 +13,18 @@ public catalog or going through review.
 
 The fastest private app: give a Glance Scroll an image URL and it displays that picture,
 refreshing on the schedule you choose. No code, no pull request, no review. It is made
-for things you already generate as a PNG or JPG on your own server - a personal logo, a
+for things you already generate as a PNG on your own server - a personal logo, a
 sign, a room label, a fun graphic.
 
 **Use any language or tool you like.** There is no SDK, no Starlark, and no Python
-required. Glance only cares that your URL returns a **baseline PNG or JPG** image - generate
+required. Glance only cares that your URL returns a **PNG** image - generate
 it however you want, in whatever language or framework you already use, and the URL does not
 even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance Scroll fetches
 it, stores it in its own memory, and shows it.
 
 :::tip[Two rules on the image]
-1. Save it as a **baseline JPEG or a PNG**. A *progressive* JPEG will not decode on the
-   device - re-save it as baseline, or just use PNG.
+1. Use a **PNG** - that is the only format a Glance Scroll decodes, and it is lossless so
+   it stays crisp at panel size (JPEG is not supported).
 2. Size it to the display: **up to 192 pixels wide and 32 pixels tall**. That is all a
    Glance Scroll shows, so there is no need for anything bigger.
 :::
@@ -32,7 +32,7 @@ it, stores it in its own memory, and shows it.
 **Need somewhere to host it?** You do not need much, and most options are free:
 
 - **[Cloudflare Pages](https://pages.cloudflare.com)** is the easiest for a **static
-  image** (a logo, a fixed sign). Put your `.png`/`.jpg` in and you get a public URL in a
+  image** (a logo, a fixed sign). Put your `.png` in and you get a public URL in a
   few minutes on the free plan. This
   [Cloudflare Pages walkthrough](https://www.youtube.com/watch?v=mzNpuj4T66Q) is a good
   start, and an AI assistant can scaffold the whole thing for you.
@@ -47,8 +47,8 @@ it, stores it in its own memory, and shows it.
 - **A Raspberry Pi** on your own network works too - run a tiny web server at home that
   returns your image.
 
-Either way, the only requirement is a public URL that returns a PNG or JPG image - it does
-not need a file extension. Not sure where to start? An AI assistant can generate the whole
+Either way, the only requirement is a public URL that returns a PNG image - it does not
+need a file extension. Not sure where to start? An AI assistant can generate the whole
 thing for you.
 
 You provide:
@@ -65,14 +65,12 @@ Glance - it lives only in your Glance Scroll's own memory.
 A Glance Scroll can hold up to **4** of these image apps at a time.
 
 :::note[Why it uses plain http, and why that is safe here]
-A Glance Scroll runs on an ESP32-S3, a microcontroller with very limited storage and
-SRAM. Validating a TLS certificate (the "s" in `https`) takes up precious memory the
-device does not have to spare, so the fetch is plain `http`. That is completely fine
-here: your Glance Scroll only **displays a public picture** and **sends none of its own
-data**, so there is nothing private in transit to protect. Encryption matters when you
-send passwords or personal details - here you send nothing and show something that is
-already public. The only rule that follows: keep the image itself public and
-non-sensitive.
+Your Glance Scroll fetches its images over plain `http` rather than `https`. This is a
+deliberate design choice: the device only downloads public, non-sensitive images and never
+transmits passwords, personal details, or any data of its own. Since nothing private
+travels over the connection, skipping encryption frees up memory and keeps the device fast
+and responsive on frequent updates. The one rule that follows: only use images you would
+consider public.
 :::
 
 :::danger[Read this before you use it - proceed at your own risk]
@@ -80,7 +78,7 @@ non-sensitive.
 **Treat every image as fully public. Never point a Glance Scroll at anything you would
 not be comfortable a complete stranger seeing or logging.**
 
-- **The image comes from YOUR server.** Every PNG/JPG is generated and hosted by you.
+- **The image comes from YOUR server.** Every PNG is generated and hosted by you.
   Glance does not make, store, or proxy the image, and **Glance is not responsible for
   any leak** of whatever you choose to publish this way.
 - **The URL is stored on Glance's servers in plain `http`** (not `https`), on purpose:
