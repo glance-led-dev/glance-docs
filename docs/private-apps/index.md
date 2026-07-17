@@ -55,13 +55,13 @@ thing for you.
 You provide:
 
 - a public image **URL** (`http://...` - no file extension required),
-- a **refresh interval** - how often your Glance Scroll re-fetches the image,
+- a **refresh interval** - how often your Glance re-fetches the image,
 - the image **width** (up to 192). The **height is always 32** to match the Glance Scroll.
 
 Your Glance fetches that image **directly over your own network** and caches it
 **on the device itself**. Glance's servers store your URL so the Glance Scroll knows
 where to look, but the picture is never uploaded to, stored on, or proxied through
-Glance - it lives only in your Glance Scroll's own memory.
+Glance - it lives only in your Glance's own memory.
 
 A Glance Scroll can hold up to **10** of these image apps at a time.
 
@@ -82,13 +82,10 @@ not be comfortable a complete stranger seeing or logging.**
 - **The image comes from YOUR server.** Every PNG is generated and hosted by you.
   Glance does not make, store, or proxy the image, and **Glance is not responsible for
   any leak** of whatever you choose to publish this way.
-- **The URL is stored on Glance's servers in plain `http`** (not `https`), on purpose:
-  the Glance Scroll is memory-constrained and TLS will not fit. That is acceptable here
-  because the URL only points at a **public picture** - you are not submitting any
-  personal data through it - but it does mean the URL itself is **not secret**.
-- **Anyone who learns the URL can view the image.** Think of it like a public repo:
-  anyone can reach it. You have simply skipped the approval process to get something on
-  your own Glance Scroll quickly.
+- **Treat the URL as public.** It travels unencrypted between your Glance and your server,
+  and it is stored on Glance's servers so your device knows where to look. Do not
+  use a URL that is meant to be secret, and do not rely on the URL being hard to guess as
+  a form of protection.
 - **So use it only for public, non-sensitive content** - logos, signs, labels, fun
   graphics. **Never** put financial figures, account details, personal information,
   a private dashboard, or anything that would be a problem if a stranger looked at it.
