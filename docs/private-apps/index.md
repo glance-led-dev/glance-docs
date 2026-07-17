@@ -21,16 +21,26 @@ required. Glance only cares that your URL returns a `.png` or `.jpg` - generate 
 however you want, in whatever language or framework you already use. Your Glance Scroll
 simply fetches it and shows it.
 
-**Need somewhere to host it?** You do not need much:
+**Need somewhere to host it?** You do not need much, and most options are free:
 
-- **[Render](https://render.com)** lets you spin up a small web service in minutes, in
-  almost any language. Search YouTube for
-  [how to deploy a web app on Render](https://www.youtube.com/results?search_query=deploy+web+app+on+render)
-  for step-by-step walkthroughs, or read [Render's docs](https://render.com/docs).
+- **[Cloudflare Pages](https://pages.cloudflare.com)** is the easiest for a **static
+  image** (a logo, a fixed sign). Put your `.png`/`.jpg` in and you get a public URL in a
+  few minutes on the free plan. This
+  [Cloudflare Pages walkthrough](https://www.youtube.com/watch?v=mzNpuj4T66Q) is a good
+  start, and an AI assistant can scaffold the whole thing for you.
+- **[Cloudflare Workers](https://workers.cloudflare.com)** suits a **dynamic image** you
+  generate on the fly (a live score, changing data). A Worker is a small piece of code
+  that runs on Cloudflare's edge and returns your image on each request - the free plan is
+  generous and it deploys in a few minutes.
+- **[Render](https://render.com)** spins up a small web service in almost any language;
+  search YouTube for
+  [deploy a web app on Render](https://www.youtube.com/results?search_query=deploy+web+app+on+render)
+  or read [Render's docs](https://render.com/docs).
 - **A Raspberry Pi** on your own network works too - run a tiny web server at home that
   returns your image.
 
-Either way, the only requirement is a public URL that ends in `.png` or `.jpg`.
+Either way, the only requirement is a public URL that ends in `.png` or `.jpg`. Not sure
+where to start? An AI assistant can generate the whole thing for you.
 
 You provide:
 
