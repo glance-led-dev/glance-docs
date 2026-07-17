@@ -9,18 +9,49 @@ slug: /private-apps/
 Install an app for just yourself or your organization, without publishing it to the
 public catalog or going through review.
 
+:::danger[Read this before you use it - proceed at your own risk]
+
+**Treat every image as fully public. Never point a Glance Scroll at anything you would
+not be comfortable a complete stranger seeing or logging.**
+
+- **The image comes from YOUR server.** Every PNG is generated and hosted by you.
+  Glance does not make, store, or proxy the image, and **Glance is not responsible for
+  any leak** of whatever you choose to publish this way.
+- **Treat the URL as public.** It travels unencrypted between your Glance and your server,
+  and it is stored on Glance's servers so your device knows where to look. Do not
+  use a URL that is meant to be secret, and do not rely on the URL being hard to guess as
+  a form of protection.
+- **So use it only for public, non-sensitive content** - logos, signs, labels, fun
+  graphics. **Never** put financial figures, account details, personal information,
+  a private dashboard, or anything that would be a problem if a stranger looked at it.
+- **You are responsible for every image you display.** Do not use this feature for
+  hateful, harassing, sexually explicit, illegal, or otherwise objectionable content.
+  Glance does not create, review, or moderate these images - by using this feature you
+  accept **full responsibility** for what you show and confirm it violates neither the law
+  nor these terms.
+- **Keep your device MAC addresses private.** A MAC address is how an image is assigned to
+  a specific device, so treat it as a secret: do not share or post it, and keep your
+  account and devices secure. Your safety and security here are your responsibility.
+
+If the content is at all sensitive, do not use this feature. Instead, email us at
+**help@glance-led.com** to build and submit a proper private app - the process is the
+same, but we will set up proper encryption or help you navigate it.
+
+For how Glance handles your data, see our
+[Privacy Policy](https://www.glance-led.com/policies/privacy-policy).
+:::
+
 ## Point a Glance Scroll at your own image
 
-The fastest private app: give a Glance Scroll an image URL and it displays that picture,
-refreshing on the schedule you choose. No code, no pull request, no review. It is made
-for things you already generate as a PNG on your own server - a personal logo, a
-sign, a room label, a fun graphic.
+Give Glance an image URL and it displays that picture, refreshing on the schedule you
+choose. No code, no pull request, no review. It is made for things you already generate as
+a PNG on your own server - a personal logo, a sign, a room label, a fun graphic.
 
 **Use any language or tool you like.** There is no SDK, no Starlark, and no Python
-required. Glance only cares that your URL returns a **PNG** image - generate
-it however you want, in whatever language or framework you already use, and the URL does not
-even need a `.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance fetches
-it, stores it in its own memory, and shows it.
+required. Glance only cares that your URL returns a **PNG** image - generate it however you
+want, in whatever language or framework you already use, and the URL does not even need a
+`.png`/`.jpg` ending (a dynamic endpoint works too). Your Glance fetches it, stores it in
+its own memory, and shows it.
 
 :::tip[Two rules on the image]
 1. Use a **PNG** - that is the only format a Glance Scroll decodes, and it is lossless so
@@ -63,7 +94,14 @@ Your Glance fetches that image **directly over your own network** and caches it
 where to look, but the picture is never uploaded to, stored on, or proxied through
 Glance - it lives only in your Glance's own memory.
 
-A Glance Scroll can hold up to **10** of these image apps at a time.
+Glance can hold up to **10** private apps or images at a time.
+
+:::note[Caching - your Glance will not hammer your server]
+Once your Glance fetches an image it keeps it in the device's own memory and only goes back
+to your server on the **refresh interval (TTL)** you set. A 5-minute refresh means about one
+request every 5 minutes, not a constant stream - between refreshes it redraws the cached
+copy with no network traffic at all.
+:::
 
 :::note[Why it uses plain http, and why that is safe here]
 Your Glance fetches its images over plain `http` rather than `https`. This is a
@@ -72,36 +110,4 @@ transmits passwords, personal details, or any data of its own. Since nothing pri
 travels over the connection, skipping encryption frees up memory and keeps the device fast
 and responsive on frequent updates. The one rule that follows: only use images you would
 consider public.
-:::
-
-:::danger[Read this before you use it - proceed at your own risk]
-
-**Treat every image as fully public. Never point a Glance Scroll at anything you would
-not be comfortable a complete stranger seeing or logging.**
-
-- **The image comes from YOUR server.** Every PNG is generated and hosted by you.
-  Glance does not make, store, or proxy the image, and **Glance is not responsible for
-  any leak** of whatever you choose to publish this way.
-- **Treat the URL as public.** It travels unencrypted between your Glance and your server,
-  and it is stored on Glance's servers so your device knows where to look. Do not
-  use a URL that is meant to be secret, and do not rely on the URL being hard to guess as
-  a form of protection.
-- **So use it only for public, non-sensitive content** - logos, signs, labels, fun
-  graphics. **Never** put financial figures, account details, personal information,
-  a private dashboard, or anything that would be a problem if a stranger looked at it.
-- **You are responsible for every image you display.** Do not use this feature for
-  hateful, harassing, sexually explicit, illegal, or otherwise objectionable content.
-  Glance does not create, review, or moderate these images - by using this feature you
-  accept **full responsibility** for what you show and confirm it violates neither the law
-  nor these terms.
-- **Keep your device MAC addresses private.** A MAC address is how an image is assigned to
-  a specific device, so treat it as a secret: do not share or post it, and keep your
-  account and devices secure. Your safety and security here are your responsibility.
-
-If the content is at all sensitive, do not use this feature. Instead, email us at
-**help@glance-led.com** to build and submit a proper private app - the process is the
-same, but we will set up proper encryption or help you navigate it.
-
-For how Glance handles your data, see our
-[Privacy Policy](https://www.glance-led.com/policies/privacy-policy).
 :::
