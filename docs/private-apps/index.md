@@ -25,8 +25,9 @@ it, stores it in its own memory, and shows it.
 :::tip[Two rules on the image]
 1. Use a **PNG** - that is the only format a Glance Scroll decodes, and it is lossless so
    it stays crisp at panel size (JPEG is not supported).
-2. Size it to the display: **up to 192 pixels wide and 32 pixels tall**. That is all a
-   Glance Scroll shows, so there is no need for anything bigger.
+2. Size it to the panel: **up to 192 pixels wide** (it can be narrower) and **32 pixels
+   tall**. That is a single frame - if you need multiple pages, more images, or more data
+   than fits, split it into separate images (each is its own private app).
 :::
 
 **Need somewhere to host it?** You do not need much, and most options are free:
