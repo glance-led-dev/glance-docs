@@ -38,8 +38,10 @@ You provide:
 - a public image **URL** (`http://...`, ending in `.png`, `.jpg`, or `.jpeg`),
 - the **width** (up to 192) and a **refresh interval**.
 
-Your Glance Scroll fetches that image **directly over your own network** and draws it.
-Glance never creates, stores, or proxies the picture itself.
+Your Glance Scroll fetches that image **directly over your own network** and caches it
+**on the device itself**. Glance's servers store your URL so the Glance Scroll knows
+where to look, but the picture is never uploaded to, stored on, or proxied through
+Glance - it lives only in your Glance Scroll's own memory.
 
 :::note[Why it uses plain http, and why that is safe here]
 Glance Scrolls are small devices without the memory for TLS, so the fetch is plain
