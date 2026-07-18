@@ -57,6 +57,7 @@ const config = {
           {to: '/docs/getting-started/quickstart', label: 'Get started', position: 'left'},
           {to: '/docs/reference/drawing-api', label: 'Reference', position: 'left'},
           {to: '/docs/publish/submit', label: 'Publish', position: 'left'},
+          {to: '/docs/private-apps/', label: 'Private Apps', position: 'left'},
           {href: 'https://github.com/glance-led-dev/glance-dev-network', label: 'GitHub', position: 'right'},
         ],
       },

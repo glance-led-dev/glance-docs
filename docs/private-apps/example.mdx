@@ -23,18 +23,6 @@ That panel is a single PNG generated on every request by a small piece of JavaSc
 running on Cloudflare's edge. Your Glance fetches it directly - that is all a private
 image app does - and redraws it on your refresh interval.
 
-## See it working right now
-
-Before building anything, point Glance at the already-deployed demo:
-
-```
-http://glance-demo-gdnp-home-monitor.pages.dev/
-```
-
-That is this exact Worker, live with mock data. Add it as a private app (see the
-[Overview](/docs/private-apps/)) and the panel above will scroll on your device within a
-minute.
-
 ## How it works
 
 Every one of these Workers has three layers:

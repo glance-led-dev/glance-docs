@@ -42,11 +42,16 @@ For how Glance handles your data, see our
 [Privacy Policy](https://www.glance-led.com/policies/privacy-policy).
 :::
 
-## Point a Glance Scroll at your own image
+## Just use the GLANCE Setup App to point to your own images
 
 Give Glance an image URL and it displays that picture, refreshing on the schedule you
 choose. No code, no pull request, no review. It is made for things you already generate as
 a PNG on your own server - a personal logo, a sign, a room label, a fun graphic.
+
+It all happens in the GLANCE Setup App: open **Apps**, switch to the **Private Apps**
+tab, and tap **+** to add your own.
+
+<img className="shot" src="/img/private-apps/setup-app-private-apps.png" alt="The Apps screen of the GLANCE Setup App on the Private Apps tab, listing your private apps with a plus button to add another" style={{maxWidth: '340px'}} />
 
 **Use any language or tool you like.** There is no SDK, no Starlark, and no Python
 required. Glance only cares that your URL returns a **PNG** image - generate it however you
@@ -89,6 +94,8 @@ You provide:
 - a public image **URL** (`http://...` - no file extension required),
 - a **refresh interval** - how often your Glance re-fetches the image,
 - the image **width** (up to 192). The **height is always 32** to match the Glance Scroll.
+
+<img className="shot" src="/img/private-apps/setup-app-add-private-app.png" alt="The Add Private App dialog in the GLANCE Setup App with fields for a public image URL, refresh interval, and image width" style={{maxWidth: '340px'}} />
 
 Your Glance fetches that image **directly over your own network** and caches it
 **on the device itself**. Glance's servers store your URL so the Glance Scroll knows
