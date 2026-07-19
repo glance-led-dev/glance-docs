@@ -55,7 +55,7 @@ Each input becomes one control on the user's setup form.
 |---|---|
 | `key` | The name your code reads, `ctx.inputs["zip"]`. No spaces. |
 | `label` | What the user sees next to the control. |
-| `app_input_type` | Which control to show, see [Input types](/docs/reference/input-types). |
+| `app_input_type` | Which control to show, see [Input types](/docs/reference/input-types). API keys must use `api-key`, the type that stores the value encrypted. |
 | `type` | The data type: `string`, `number`, or `choice`. |
 | `default` | Pre-filled value when the user leaves it blank. |
 | `choices` | The option list, only for `dropdown` / `selection`. |
@@ -64,5 +64,7 @@ Each input becomes one control on the user's setup form.
 :::tip
 `app_input_type` is optional, leave it off and the form infers the control from
 `type`. But setting it explicitly gives users the right widget (a date picker, a
-color wheel, a toggle) instead of a plain text box.
+color wheel, a toggle) instead of a plain text box. The one input that must always
+set it is an API key: only `app_input_type: api-key` stores the key encrypted, so
+never leave a key to the free-text fallback.
 :::

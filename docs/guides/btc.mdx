@@ -61,7 +61,7 @@ assets:
   - btc.png             # the logo we draw
 inputs:
   - key: api_key
-    app_input_type: free-text
+    app_input_type: api-key  # keys get their own type — this is what encrypts the value
     type: string
     label: API key
     help: Your CoinGecko API key. Optional for this endpoint; raises rate limits.

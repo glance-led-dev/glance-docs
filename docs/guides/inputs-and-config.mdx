@@ -70,8 +70,9 @@ Two habits worth building:
 
 ## Pick the right control
 
-`app_input_type` decides the widget. There are seven: a text box, a dropdown, a
-multi-select, a checkbox, two date pickers, and a color wheel.
+`app_input_type` decides the widget. There are eight: a text box, a dropdown, a
+multi-select, a checkbox, two date pickers, a color wheel, and a dedicated
+API-key field.
 
 <div className="cardGrid">
   <a className="card" href="/docs/reference/input-types"><h3>See all input types</h3><p>The full gallery, with examples of each control.</p></a>
@@ -91,15 +92,24 @@ A dropdown needs a `choices` list:
 ## API keys
 
 Some apps pull from a data provider that needs a key (a traffic or weather service,
-for example). Declare it as a `free-text` input the user pastes in:
+for example). An API key is **not** a free-text input: it has its own setting,
+`app_input_type: api-key`. That setting is what tells Glance to encrypt the key —
+a key collected through a `free-text` input is not encrypted and may not work at
+all:
 
 ```yaml
   - key: api_key
-    app_input_type: free-text
+    app_input_type: api-key   # required for keys — this is what encrypts the value
     type: string
     label: API key
     help: Paste the key from your provider account.
 ```
+
+Calling the input `api_key` is fine (any `key` name works), but the name is not
+what protects it — only `app_input_type: api-key` does. GDN has checks in place to
+work out whether a value handed to `http` came from an `api-key` input or a
+free-text one, but it is your responsibility to select `api-key` when you add the
+input.
 
 Your code reads it like any other input and passes it to
 [`http.get`](/docs/reference/http) as a header or query parameter, whichever your
@@ -113,10 +123,11 @@ def main(c, ctx):
 ```
 
 :::info[Where API keys live]
-A key a user enters is stored encrypted on Glance's servers. It is never written
-into your app code and never sent to the panel. At render time it arrives in
-`ctx.inputs`, your app hands it to `http.get`, and the GDN host (not the panel, and
-not the Starlark sandbox) makes the actual network request.
+A key a user enters into an `api-key` input is encrypted on entry and stays
+encrypted in transit and at rest: the encrypted key is sent to the GLANCE, and it
+is decrypted only on Glance's servers, at render time, when the GDN host makes the
+network request on your app's behalf. It is never written into your app code. None
+of this protection applies to a key entered through a `free-text` input.
 :::
 
 See the [Bitcoin price example](/docs/guides/btc) for a full app that uses an API key

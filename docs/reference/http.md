@@ -59,9 +59,10 @@ fallback and return.
 
 ## API keys
 
-Declare the key as an input (see
-[Inputs & configuration](/docs/guides/inputs-and-config#api-keys)), read it from
-`ctx.inputs`, and pass it wherever your provider expects it, a header or a query
+Declare the key as an `api-key` input — never free text; only
+`app_input_type: api-key` values are stored encrypted (see
+[Inputs & configuration](/docs/guides/inputs-and-config#api-keys)). Read it from
+`ctx.inputs` and pass it wherever your provider expects it, a header or a query
 parameter:
 
 ```python
@@ -73,8 +74,9 @@ resp = http.get("https://api.example.com/v1/data",
 
 :::danger[Treat API keys as compromised]
 
-Glance stores the keys people enter into your app's inputs on our servers, encrypted,
-and only the Glance team can decrypt them to run your app. Even so, treat any API key as
+Glance stores the keys people enter into `api-key` inputs encrypted, and they are
+decrypted only on Glance's servers to run your app. A key entered through a
+`free-text` input gets none of this protection. Even so, treat any API key as
 if it could leak:
 
 - **Rotate keys regularly** and assume a key could be exposed. Decryption by a bad actor

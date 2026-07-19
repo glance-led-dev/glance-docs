@@ -35,10 +35,11 @@ Each result includes the fields we'll draw: `title`, `vote_average` (the rating)
 
 :::info[Your key stays a secret]
 
-Never paste your real key into `app.star`. Declare it as an input instead; in the
-Glance app the user enters their own key, GDN stores it encrypted on the server, and
-your code reads it as `ctx.inputs["tmdb_key"]`. In this doc it's always shown as
-`YOUR_TMDB_API_KEY`.
+Never paste your real key into `app.star`. Declare it as an input with
+`app_input_type: api-key` instead — that setting is what makes GDN store the key
+encrypted (a key declared as free text is not encrypted and may not work). In the
+Glance app the user enters their own key and your code reads it as
+`ctx.inputs["tmdb_key"]`. In this doc it's always shown as `YOUR_TMDB_API_KEY`.
 
 :::
 

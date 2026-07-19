@@ -15,8 +15,9 @@ A few standards keep the catalog high-quality and every app safe to run.
 ## Must
 
 - **Renders cleanly.** `gdn validate` passes for every page.
-- **No secrets.** Never commit API keys. Declare an `api_key` input and read it from
-  `ctx.inputs`, see [HTTP requests](/docs/reference/http).
+- **No secrets.** Never commit API keys. Declare an input with
+  `app_input_type: api-key` (the type that stores the key encrypted) and read it
+  from `ctx.inputs`, see [HTTP requests](/docs/reference/http).
 - **Assets live in `assets/`.** Every image the app uses sits in the app's `assets/`
   folder and is listed under `assets:` in the manifest. Keep them small PNGs. Nothing
   is loaded from outside `assets/`.

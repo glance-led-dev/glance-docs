@@ -97,7 +97,9 @@ HARD RULES:
 - To fetch live data, call http.get(url, headers={}, params={}, ttl_seconds=300);
   it returns {status_code, body, json}. ALWAYS check status_code before using json.
 - Read inputs with ctx.inputs.get("key", fallback). Declare each input in the
-  manifest with app_input_type: free-text|dropdown|checkbox|date|date-past|color|selection.
+  manifest with app_input_type: free-text|api-key|dropdown|checkbox|date|date-past|color|selection.
+- API keys MUST use app_input_type: api-key, never free-text. Only api-key inputs
+  are stored encrypted; a key given as free text may not work.
 
 Give me BOTH files, complete. Keep text short and high-contrast.
 ```

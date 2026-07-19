@@ -11,15 +11,21 @@ These input types are the controls a person sees in the **Glance setup app on iO
 :::
 
 Set `app_input_type` on an input to choose the control the user gets. There are
-seven. Each renders a real widget in the app and passes the user's value into your
+eight. Each renders a real widget in the app and passes the user's value into your
 app via `ctx.inputs["<key>"]`.
 
 <div className="typeGrid">
   <div className="typeCard">
     <h4>Free text</h4>
     <div className="val">app_input_type: free-text</div>
-    <p>A plain text box, zip codes, names, symbols.</p>
+    <p>A plain text box, zip codes, names, symbols. Not for API keys.</p>
     <div className="ctrl">90210</div>
+  </div>
+  <div className="typeCard">
+    <h4>API key</h4>
+    <div className="val">app_input_type: api-key</div>
+    <p>A provider key, stored <b>encrypted</b>. Required for any API key.</p>
+    <div className="ctrl">••••••••••</div>
   </div>
   <div className="typeCard">
     <h4>Dropdown</h4>
@@ -97,4 +103,11 @@ def main(c, ctx):
 `app_input_type` is optional. If you omit it, the form falls back to your `type`
 (`choice` becomes a dropdown, everything else becomes free text). Set it when you want a nicer
 control than a text box.
+:::
+
+:::warning[API keys are the exception]
+The fallback never selects `api-key`. If an input takes an API key you must set
+`app_input_type: api-key` yourself — that setting is what stores the key
+encrypted. A key collected as free text is not encrypted and may not work. See
+[Inputs & configuration](/docs/guides/inputs-and-config#api-keys).
 :::
