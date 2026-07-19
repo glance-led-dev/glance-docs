@@ -37,9 +37,11 @@ Each result includes the fields we'll draw: `title`, `vote_average` (the rating)
 
 Never paste your real key into `app.star`. Declare it as an input with
 `app_input_type: api-key` instead — that setting is what makes GDN store the key
-encrypted (a key declared as free text is not encrypted and may not work). In the
-Glance app the user enters their own key and your code reads it as
-`ctx.inputs["tmdb_key"]`. In this doc it's always shown as `YOUR_TMDB_API_KEY`.
+encrypted (a key declared as free text is not encrypted and may not work). Name
+the input without underscores or hyphens — `tmdbkey`, not `tmdb_key`; validation
+rejects api-key keys containing `_` or `-`. In the Glance app the user enters
+their own key and your code reads it as `ctx.inputs["tmdbkey"]`. In this doc it's
+always shown as `YOUR_TMDB_API_KEY`.
 
 :::
 
@@ -157,7 +159,7 @@ ranking badge. Here's the live-data part the AI wrote, the reason we needed a ke
 
 ```python
 def _movies(ctx):
-    key = ctx.inputs.get("tmdb_key", "")
+    key = ctx.inputs.get("tmdbkey", "")
     if key == "":
         return SAMPLE                      # offline fallback
     resp = http.get(

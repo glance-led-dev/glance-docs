@@ -53,7 +53,7 @@ Each input becomes one control on the user's setup form.
 
 | Field | What it is |
 |---|---|
-| `key` | The name your code reads, `ctx.inputs["zip"]`. No spaces. |
+| `key` | The name your code reads, `ctx.inputs["zip"]`. No spaces. For `api-key` inputs, no underscores or hyphens either (`apikey`, not `api_key`) — validation rejects them. |
 | `label` | What the user sees next to the control. |
 | `app_input_type` | Which control to show, see [Input types](/docs/reference/input-types). API keys must use `api-key`, the type that stores the value encrypted. |
 | `type` | The data type: `string`, `number`, or `choice`. |

@@ -108,6 +108,9 @@ control than a text box.
 :::warning[API keys are the exception]
 The fallback never selects `api-key`. If an input takes an API key you must set
 `app_input_type: api-key` yourself — that setting is what stores the key
-encrypted. A key collected as free text is not encrypted and may not work. See
+encrypted. A key collected as free text is not encrypted and may not work. And
+name the key without underscores or hyphens (`apikey`, not `api_key`): `_` and
+`-` are the descriptor's delimiters, and validation rejects api-key keys that
+contain them. See
 [Inputs & configuration](/docs/guides/inputs-and-config#api-keys).
 :::

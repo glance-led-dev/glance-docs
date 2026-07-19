@@ -61,12 +61,14 @@ fallback and return.
 
 Declare the key as an `api-key` input — never free text; only
 `app_input_type: api-key` values are stored encrypted (see
-[Inputs & configuration](/docs/guides/inputs-and-config#api-keys)). Read it from
-`ctx.inputs` and pass it wherever your provider expects it, a header or a query
-parameter:
+[Inputs & configuration](/docs/guides/inputs-and-config#api-keys)). Name the input
+without underscores or hyphens (`apikey`, not `api_key`) — `_` and `-` are the
+descriptor's delimiters and validation rejects api-key keys that contain them.
+Read it from `ctx.inputs` and pass it wherever your provider expects it, a header
+or a query parameter:
 
 ```python
-key = ctx.inputs.get("api_key", "")
+key = ctx.inputs.get("apikey", "")
 resp = http.get("https://api.example.com/v1/data",
                 headers = {"x-api-key": key},        # header style
                 params = {"appid": key})             # or query-param style

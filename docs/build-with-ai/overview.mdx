@@ -99,7 +99,9 @@ HARD RULES:
 - Read inputs with ctx.inputs.get("key", fallback). Declare each input in the
   manifest with app_input_type: free-text|api-key|dropdown|checkbox|date|date-past|color|selection.
 - API keys MUST use app_input_type: api-key, never free-text. Only api-key inputs
-  are stored encrypted; a key given as free text may not work.
+  are stored encrypted; a key given as free text may not work. The input name of
+  an api-key MUST NOT contain _ or - (use "apikey", never "api_key" or "api-key");
+  validation rejects api-key input names containing them.
 
 Give me BOTH files, complete. Keep text short and high-contrast.
 ```

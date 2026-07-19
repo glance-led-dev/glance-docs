@@ -25,7 +25,7 @@ behalf, with a hard 5-second timeout and built-in caching, then hands the respon
 back as plain data. From your code's point of view it's one function call:
 
 1. You declare an API key input. The user pastes their CoinGecko key once, in
-   the Glance app, and it reaches your code as `ctx.inputs["api_key"]`.
+   the Glance app, and it reaches your code as `ctx.inputs["apikey"]`.
 2. Your app calls `http.get(...)`, passing the key in a header.
 3. Your app parses the JSON in the response and draws it.
 
@@ -60,14 +60,14 @@ pages: [main]
 assets:
   - btc.png             # the logo we draw
 inputs:
-  - key: api_key
+  - key: apikey            # api-key key names can't contain _ or -
     app_input_type: api-key  # keys get their own type — this is what encrypts the value
     type: string
     label: API key
     help: Your CoinGecko API key. Optional for this endpoint; raises rate limits.
 ```
 
-That `api_key` input becomes a field in the app's **settings** card in Studio (and on the
+That `apikey` input becomes a field in the app's **settings** card in Studio (and on the
 user's phone when they add the app), with your `help:` text shown as the hint underneath:
 
 <figure className="figure">
@@ -95,7 +95,7 @@ def main(c, ctx):
     c.image("btc.png", 1, 4)
 
     # An API key is optional here; if the user pasted one, send it along.
-    key = ctx.inputs.get("api_key", "")
+    key = ctx.inputs.get("apikey", "")
     headers = {"x-cg-demo-api-key": key} if key else {}
 
     resp = http.get(URL, params = {

@@ -98,18 +98,23 @@ a key collected through a `free-text` input is not encrypted and may not work at
 all:
 
 ```yaml
-  - key: api_key
-    app_input_type: api-key   # required for keys — this is what encrypts the value
+  - key: apikey             # no underscores or hyphens in an api-key key name
+    app_input_type: api-key # required for keys — this is what encrypts the value
     type: string
     label: API key
     help: Paste the key from your provider account.
 ```
 
-Calling the input `api_key` is fine (any `key` name works), but the name is not
-what protects it — only `app_input_type: api-key` does. GDN has checks in place to
-work out whether a value handed to `http` came from an `api-key` input or a
-free-text one, but it is your responsibility to select `api-key` when you add the
-input.
+**Name the key without underscores or hyphens** — `apikey`, not `api_key` or
+`api-key`. Those two characters are the delimiters of the descriptor GDN wraps
+around an `api-key` value on its way into `http`, so they can't appear in the key
+name itself. A guard enforces this: validation rejects an `api-key` input whose
+`key` contains `_` or `-` before the app can ever ship.
+
+The name is not what protects the key, though — only `app_input_type: api-key`
+does. GDN has checks in place to work out whether a value handed to `http` came
+from an `api-key` input or a free-text one, but it is your responsibility to
+select `api-key` when you add the input.
 
 Your code reads it like any other input and passes it to
 [`http.get`](/docs/reference/http) as a header or query parameter, whichever your
@@ -117,7 +122,7 @@ provider expects:
 
 ```python
 def main(c, ctx):
-    key = ctx.inputs.get("api_key", "")
+    key = ctx.inputs.get("apikey", "")
     resp = http.get("https://api.example.com/v1/data",
                     headers = {"x-api-key": key})
 ```
