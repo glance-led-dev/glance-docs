@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Drawing API
+read_time: 4
 ---
 
 # Drawing API (`c.*`)

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: Helper functions
+read_time: 12
 ---
 
 # Helper functions

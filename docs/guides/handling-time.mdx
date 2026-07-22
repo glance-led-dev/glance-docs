@@ -1,0 +1,265 @@
+---
+sidebar_position: 6.5
+title: Handling time
+read_time: 9
+---
+
+# Handling time
+
+Clocks, countdowns, "good morning" — anything that changes as the day goes on reads
+from one place: **`ctx.now`**.
+
+There is no `import datetime` (Starlark has no imports at all) and no `time` module.
+What you get instead is nine plain numbers and ordinary arithmetic — less than you're
+used to, but enough for every clock in the app catalog.
+
+## `ctx.now`: nine numbers
+
+Every page function is handed `ctx`, and `ctx.now` is a snapshot of the moment the
+panel is drawing:
+
+| Field | Range | What it is |
+|---|---|---|
+| `ctx.now.unix` | | Seconds since 1 Jan 1970. **The one to do maths with.** |
+| `ctx.now.year` | | Four digits, e.g. `2027` |
+| `ctx.now.month` | 1–12 | January is `1` |
+| `ctx.now.day` | 1–31 | Day of the month |
+| `ctx.now.hour` | 0–23 | Always 24-hour |
+| `ctx.now.minute` | 0–59 | |
+| `ctx.now.second` | 0–59 | |
+| `ctx.now.weekday` | 0–6 | **Monday is `0`**, Sunday is `6` |
+| `ctx.now.yday` | 1–366 | Day of the year; 1 Jan is `1` |
+
+They are integers, not a date object. There's no `.strftime()`, no `+ timedelta`, and
+you can't compare two dates directly. You add and subtract numbers, and the recipes
+below show the handful of patterns that covers.
+
+```python
+def main(c, ctx):
+    c.clear()
+    c.text_center(fmt.pad(ctx.now.month) + "/" + fmt.pad(ctx.now.day), 10,
+                  font="8x12", color="green")
+```
+
+## Two rules that catch everyone out
+
+### 1. `ctx.now` is UTC
+
+Not the viewer's local time. The panel doesn't know where in the world it's hanging,
+and nothing in the manifest tells it. If you draw `ctx.now.hour` straight onto the
+panel, a user in Los Angeles sees a clock that's eight hours fast.
+
+Converting to local time is your app's job — [see below](#showing-local-time).
+
+### 2. It's frozen for the whole render
+
+GDN takes one time snapshot and draws from it. Nothing ticks while your code runs, so
+two calculations in the same render can never disagree — the date and the clock stay
+consistent even at the stroke of midnight. Read `ctx.now` as often as you like.
+
+The flip side: a frame is a still picture. A clock's colon can't blink, and a seconds
+display is a snapshot that's already a second or two old by the time it reaches the
+panel. Draw the colon on and leave it.
+
+## Formatting: there is no `strftime`
+
+`fmt.pad(n, width=2)` zero-pads an integer, which is the whole of clock formatting:
+
+```python
+def main(c, ctx):
+    c.clear()
+    hhmm = fmt.pad(ctx.now.hour) + ":" + fmt.pad(ctx.now.minute)
+    c.text_center(hhmm, 6, font="16x20", color="amber")   # 09:05, not 9:5
+```
+
+`fmt.commas(n)` groups thousands the same way. For month and day names, use a list and
+index into it — there's an example [below](#the-day-of-the-week).
+
+:::warning[That clock is showing UTC]
+The snippet above is correct code and the wrong time for most people. Keep reading.
+:::
+
+## Showing local time
+
+### The simple way: ask for a UTC offset
+
+Add a number input and shift the timestamp by it:
+
+```yaml
+inputs:
+  - key: tz_offset
+    type: number
+    app_input_type: free-text
+    label: UTC offset (hours)
+    default: -5
+    help: -8 Los Angeles, -5 New York, 0 London, 1 Berlin, 9 Tokyo. Does not follow daylight saving.
+```
+
+```python
+def main(c, ctx):
+    c.clear()
+    off = int(ctx.inputs.get("tz_offset", -5))
+
+    local = ctx.now.unix + off * 3600     # shift the timestamp...
+    secs = local % 86400                  # ...then pull the fields back out of it
+    hour = secs // 3600
+    minute = (secs % 3600) // 60
+
+    c.text_center(fmt.pad(hour) + ":" + fmt.pad(minute), 6, font="16x20", color="amber")
+```
+
+**Shift `ctx.now.unix`, never `ctx.now.hour`.** Adding an offset to the hour looks like
+it works until the offset pushes you past midnight: the hour wraps but the date doesn't,
+and your app shows tomorrow's time with today's date.
+
+:::caution[A fixed offset doesn't know about daylight saving]
+`-5` is right for New York in January and an hour wrong in July. Say so in the input's
+`help` text so users know to change it twice a year — or use the next approach.
+:::
+
+### The accurate way: ask a time API
+
+For daylight saving to just work, take an IANA zone name and fetch the time:
+
+```yaml
+inputs:
+  - key: tz
+    type: choice
+    app_input_type: dropdown
+    label: Time zone
+    default: America/New_York
+    choices: [America/New_York, America/Chicago, America/Denver, America/Los_Angeles,
+              Europe/London, Europe/Berlin, Asia/Tokyo, Australia/Sydney]
+```
+
+```python
+def main(c, ctx):
+    c.clear()
+    tz = ctx.inputs.get("tz", "America/New_York")
+
+    resp = http.get("https://timeapi.io/api/Time/current/zone",
+                    params = {"timeZone": tz},
+                    ttl_seconds = 55)
+
+    if resp["status_code"] != 200:
+        c.text_center("NO TIME", 12, font="6x8", color="red")
+        return
+
+    t = resp["json"]
+    c.text_center(fmt.pad(t["hour"]) + ":" + fmt.pad(t["minute"]), 6,
+                  font="16x20", color="amber")
+```
+
+`ttl_seconds = 55` keeps the cached response just under a 60-second refresh, so you
+never draw a stale minute. Always check `status_code` before reading the body — see
+[HTTP requests](/docs/reference/http).
+
+### Which one?
+
+| | UTC offset input | Time API |
+|---|---|---|
+| Daylight saving | User re-enters it twice a year | Handled for you |
+| Network call | None | One per refresh |
+| If the network is down | Still right | Needs a fallback message |
+| What the user picks | A number they have to know | A city they recognise |
+
+Start with the offset; move to the API when users tell you the clock is an hour out.
+
+## Recipes
+
+### The day of the week
+
+`ctx.now.weekday` is Monday-based **and in UTC**. If you've shifted to local time,
+derive the day from your local timestamp instead, or you'll flip days at the wrong
+moment:
+
+```python
+DOW = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+
+def main(c, ctx):
+    c.clear()
+    off = int(ctx.inputs.get("tz_offset", -5))
+    local = ctx.now.unix + off * 3600
+    days = local // 86400                  # whole days since 1 Jan 1970
+
+    c.text_center(DOW[(days + 4) % 7], 10, font="8x12", color="cyan")
+```
+
+The `+ 4` is because 1 Jan 1970 was a Thursday.
+
+### Days until a date
+
+Turn both dates into a day number and subtract. Don't multiply year differences by
+365 — that drifts by a day for every leap year in between:
+
+```python
+def days_from_civil(y, m, d):
+    # Days since 1970-01-01, leap years and all. Subtract two of these
+    # for an exact day count between any two dates.
+    yy = y - 1 if m <= 2 else y
+    era = (yy if yy >= 0 else yy - 399) // 400
+    yoe = yy - era * 400
+    mm = m + (-3 if m > 2 else 9)
+    doy = (153 * mm + 2) // 5 + d - 1
+    doe = yoe * 365 + yoe // 4 - yoe // 100 + doy
+    return era * 146097 + doe - 719468
+
+def main(c, ctx):
+    c.clear()
+    target = ctx.inputs.get("target", "")
+    if not target:
+        c.text_center("SET A DATE", 12, font="6x8", color="gray")
+        return
+
+    p = target.split("-")                  # a `date` input gives "YYYY-MM-DD"
+    left = (days_from_civil(int(p[0]), int(p[1]), int(p[2]))
+            - days_from_civil(ctx.now.year, ctx.now.month, ctx.now.day))
+
+    if left < 0:
+        c.text_center("DONE", 12, font="8x12", color="green")
+    else:
+        c.stat(str(left), "DAYS TO GO", 64, 2, align="center")
+```
+
+Pair it with a date picker — `app_input_type: date` gives you a `"YYYY-MM-DD"` string.
+See [Input types](/docs/reference/input-types).
+
+**Always handle the empty and the past cases.** A countdown with no date set and a
+countdown that has finished are the two states users hit first.
+
+## How often your app redraws
+
+`ctx.now` only moves when your app is redrawn, and that's set by `refresh:` in
+`manifest.yaml` (in seconds):
+
+| App | Sensible `refresh` |
+|---|---|
+| Clock showing minutes | `60` |
+| Anything hourly | `3600` |
+| A countdown in whole days | `3600` or more |
+
+`60` is the floor — [validation](/docs/guides/validate-and-build) warns below it. A
+clock set to `300` will sit on a five-minute-old time, which reads as a broken clock.
+
+## Test it without waiting
+
+In [Glance Dev Studio](/docs/studio/see-it-live#time-travel), the **Time travel** field
+above the panel sets any date and time, and **Now** snaps back.
+
+From the terminal, `--now` takes an ISO date and works on `build`, `render` and
+`validate`:
+
+```bash
+gdn render apps/my-clock --now 2027-12-31T23:59
+gdn validate apps/my-countdown --now 2028-01-02
+```
+
+Time-travel your app to the day *after* the event as well as the day before — that's
+where the "it's over" branch either works or crashes.
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/guides/validate-and-build"><h3>Validate &amp; build</h3><p>Check everything renders, then ship it.</p></a>
+  <a className="card" href="/docs/reference/ctx"><h3><code>ctx</code> reference</h3><p>Every field on <code>ctx</code>, in one table.</p></a>
+</div>

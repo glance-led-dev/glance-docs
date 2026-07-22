@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: Guidelines
+read_time: 2
 ---
 
 # App guidelines

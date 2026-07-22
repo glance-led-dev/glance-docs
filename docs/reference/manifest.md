@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: manifest.yaml
+read_time: 3
 ---
 
 # `manifest.yaml` reference

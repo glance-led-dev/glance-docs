@@ -133,6 +133,20 @@ h1, h2, h3 { letter-spacing: -0.4px; }
   background: rgba(0, 255, 0, 0.06); margin: 0 4px 4px 0;
 }
 
+/* "N min read" chip above the page title (see src/theme/DocItem/Content) */
+.readTime {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.75rem;
+}
+.readTime__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ifm-color-primary);
+}
+[data-theme='dark'] .readTime__dot { box-shadow: 0 0 8px rgba(0, 255, 0, 0.5); }
+
 /* Step callouts */
 .step { display: flex; gap: 0.9rem; align-items: flex-start; margin: 1rem 0; }
 .step .num {

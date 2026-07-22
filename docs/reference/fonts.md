@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: Fonts
+read_time: 4
 ---
 
 # Fonts

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: Write your code
+read_time: 4
 ---
 
 # Write your code
@@ -70,9 +71,10 @@ keeps every app fast and secure to run, but it means a few Python things don't w
   `random`, `requests`, or any other Python library.
 - **No file, network, or system access** from your code directly. To pull data from the web,
   use the built-in HTTP helper, see [HTTP requests](/docs/reference/http). For the current
-  date and time, use `ctx.now` instead of `datetime`.
+  date and time, use `ctx.now` instead of `datetime`, see
+  [Handling time](/docs/guides/handling-time).
 - You don't need imports anyway: everything is handed to your page function, `c` (the canvas
-  and all its `c.*` drawing calls) and `ctx` (`ctx.inputs`, `ctx.now`).
+  and all its `c.*` drawing calls) and `ctx` ([`ctx.inputs`, `ctx.now`](/docs/reference/ctx)).
 
 So write plain functions that draw with `c` and read from `ctx`, and leave `import` out
 entirely.

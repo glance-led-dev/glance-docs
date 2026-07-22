@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: Validate & build
+read_time: 3
 ---
 
 # Validate & build

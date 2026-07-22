@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: HTTP requests
+read_time: 4
 ---
 
 # HTTP requests (`http.*`)

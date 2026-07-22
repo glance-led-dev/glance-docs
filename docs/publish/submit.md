@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Submit your app
+read_time: 6
 ---
 
 # Submit your app

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: Working with images
+read_time: 8
 ---
 
 # Working with images

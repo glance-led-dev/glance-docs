@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: Copy-paste snippets
+read_time: 3
 ---
 
 # Copy-paste snippets

@@ -3,6 +3,7 @@ sidebar_position: 1
 title: Install
 sidebar_label: Install
 slug: /getting-started/install
+read_time: 7
 ---
 
 # Install the SDK

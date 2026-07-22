@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: Inputs & configuration
+read_time: 7
 ---
 
 # Inputs & configuration
@@ -138,11 +139,63 @@ of this protection applies to a key entered through a `free-text` input.
 See the [Bitcoin price example](/docs/guides/btc) for a full app that uses an API key
 and parses a live JSON response.
 
-## Editing the manifest
+## Adding a setting to an app you already made
 
-You can edit `manifest.yaml` by hand, or open your app in
-[Glance Dev Studio](/docs/studio) to edit the manifest and app code side by side with a
-live preview.
+You picked your starting settings when you created the app, but you're not stuck with
+them. In [Glance Dev Studio](/docs/studio), the **Your app's settings** card has a
+**+ Add setting** button: give the setting a name, a label, and a type, and Studio
+writes the YAML into `manifest.yaml`, saves, and the new control appears in the panel
+below — no hand-editing.
+
+Two things the button enforces:
+
+- **Names are letters and digits, starting with a letter.** `tzoffset`, not
+  `tz_offset`. Underscores and hyphens are the delimiters GDN uses internally, so the
+  button won't accept them.
+- **Names must be new.** If a setting with that name is already in your manifest, the
+  button refuses it rather than quietly overwriting what's there. That's usually a
+  sign you want the next section.
+
+You can always edit `manifest.yaml` directly instead — it's one of the two tabs in
+Studio, right next to your code, with the live preview beside it. Changing an existing
+setting's label, default, or choices is a manifest edit; there's no dialog for it.
+
+## Re-using a setting you took out of your code
+
+A common tangle: the setting is still declared in `manifest.yaml`, you deleted the line
+that read it from `app.star`, and now you want it back. **+ Add setting** won't help —
+it'll tell you the setting already exists, because it does.
+
+Nothing is broken, and nothing needs re-declaring. A setting is connected to your app by
+one thing only: your code reading its key. Put that line back and the setting is live
+again:
+
+```python
+def main(c, ctx):
+    team = ctx.inputs.get("team", "LAL")    # this line is the whole connection
+    c.text(team.upper(), 4, 12, font="5x7", color="amber")
+```
+
+Two things make it easier than typing from memory:
+
+- **Autocomplete.** Type `ctx.inputs.get("` in the editor and Studio offers every
+  setting your manifest declares. (Tick **Autocomplete** in the toolbar if it's off.)
+- **The settings panel.** Every setting in your manifest shows up there whether your
+  code reads it or not, so the panel is the list of what's available to you.
+
+:::warning[A setting your code never reads fails validation]
+If you meant to drop the setting rather than re-use it, delete it from `manifest.yaml`
+too. Leaving it declared but unread is an error, not a warning:
+
+```
+setting `team` is declared but never used in app.star
+(read it with ctx.inputs.get("team"), or remove it from the manifest)
+```
+
+[Validate](/docs/guides/validate-and-build) fails on it and so does the publish check,
+because a setting a user fills in that changes nothing on the panel looks like a broken
+app.
+:::
 
 ## Next
 

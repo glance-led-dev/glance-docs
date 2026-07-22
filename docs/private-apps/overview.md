@@ -3,6 +3,7 @@ sidebar_position: 1
 title: Private apps
 sidebar_label: Overview
 slug: /private-apps/
+read_time: 5
 ---
 
 # Private apps
