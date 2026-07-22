@@ -176,12 +176,14 @@ def main(c, ctx):
     c.text(team.upper(), 4, 12, font="5x7", color="amber")
 ```
 
-Two things make it easier than typing from memory:
+You don't have to type it from memory:
 
+- **Studio writes it for you.** A setting your code doesn't read is marked
+  **not used in code** in the settings panel, with a **Use it in my code** button that
+  inserts the `ctx.inputs.get(...)` line at the top of your first page function. See
+  [See it live](/docs/studio/see-it-live#not-used-in-code).
 - **Autocomplete.** Type `ctx.inputs.get("` in the editor and Studio offers every
   setting your manifest declares. (Tick **Autocomplete** in the toolbar if it's off.)
-- **The settings panel.** Every setting in your manifest shows up there whether your
-  code reads it or not, so the panel is the list of what's available to you.
 
 :::warning[A setting your code never reads fails validation]
 If you meant to drop the setting rather than re-use it, delete it from `manifest.yaml`

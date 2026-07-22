@@ -3,7 +3,7 @@ sidebar_position: 0
 sidebar_label: Overview
 title: Glance Dev Studio
 slug: /studio
-read_time: 4
+read_time: 5
 ---
 
 # Glance Dev Studio
@@ -51,8 +51,8 @@ From the project folder, run:
 gdn studio
 ```
 
-Your browser opens to the editor and a live preview, with a menu at the top to pick any
-of your apps. You don't need to name an app. To jump straight to one, add its folder:
+Your browser opens on the welcome screen (below). You don't need to name an app. To skip
+the welcome screen and jump straight into one, add its folder:
 
 ```bash
 gdn studio apps/world-clock
@@ -65,8 +65,26 @@ just means an old `python studio.py` was typed by hand. Use `gdn studio` or the
 double-click launcher instead and it will work.
 :::
 
-Don't have an app yet? Either way still opens Studio, just click **Create New App**
-(next page) to start a fresh one.
+## The welcome screen
+
+When you start Studio without naming an app, it opens here rather than dropping you into
+one of your apps:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/welcome-screen.png" alt="The Glance Dev Studio welcome screen: a Create a new app button, a quickstart link, a grid of every app in the apps folder, and links into the docs" />
+</figure>
+
+- **Create a new app** starts a fresh one from a working template (see
+  [Create a new app](/docs/studio/create-app)).
+- **Open an app** lists every app in your `apps/` folder. The one you had open last is
+  tagged, so picking up where you left off is one click. The search box in the toolbar
+  filters the same list.
+- **New here?** links into these docs: the quickstart, your first app, and the drawing
+  API.
+
+Once you pick an app you get the editor, and the app you're in is named in the browser
+tab. Launching with a folder (`gdn studio apps/world-clock`) or a link
+(`localhost:8766/?app=world-clock`) goes straight there and skips this screen.
 
 ## The whole screen, labeled
 

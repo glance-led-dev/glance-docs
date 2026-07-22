@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 title: See it live
-read_time: 2
+read_time: 3
 ---
 
 # See it live
@@ -33,6 +33,26 @@ editing any code:
 
 This is the same form people will fill in when they add your app, so it's a good way to
 check that every setting looks right.
+
+### "Not used in code"
+
+A setting shows up here because it's declared in `manifest.yaml` — whether or not your
+code reads it. One that your code never reads does nothing when a user fills it in, and
+[Validate](/docs/studio/check-and-publish) fails the app for it, so Studio marks it:
+
+<figure className="figure">
+  <img className="shot" src="/img/studio/unused-setting.png" alt="A setting labelled 'not used in code', with a note that Validate will fail and a 'Use it in my code' button" />
+</figure>
+
+Click **Use it in my code** and Studio writes the missing line into `app.star` for you:
+
+```python
+teamcolour = ctx.inputs.get("teamcolour", "#00FF00")
+```
+
+It goes at the top of your first page function; draw with it from there. If you meant to
+drop the setting instead, delete it from `manifest.yaml`. See
+[Inputs & configuration](/docs/guides/inputs-and-config#re-using-a-setting-you-took-out-of-your-code).
 
 ## Time travel
 
