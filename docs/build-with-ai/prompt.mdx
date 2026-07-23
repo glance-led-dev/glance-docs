@@ -1,0 +1,78 @@
+---
+sidebar_position: 1
+title: The AI prompt
+read_time: 3
+---
+
+# The AI prompt
+
+This is the block you paste into your AI chat **before** you describe your app. It
+teaches the assistant GDN's rules — the panel size, that fonts are uppercase-only,
+how `http.get` works — so it writes real GDN code instead of guessing from another
+platform.
+
+Use it once at the start of a chat. After it, [describe your
+app](/docs/build-with-ai#step-2-describe-your-app) in a sentence or two, and the AI
+has the context it needs.
+
+```text
+You are writing an app for the Glance Developer Network (GDN): an app that renders
+to a Glance LED panel. The panel is always 32 pixels tall. Each panel module is
+64 pixels wide and panels daisy-chain up to 384 pixels wide; for best performance keep
+images to 192x32 or smaller and split content across multiple pages. An app is a FOLDER
+with two files:
+
+  manifest.yaml  - settings: id, name, width, height, refresh (seconds),
+                   pages: [list of screen names], and inputs (the user's form).
+  app.star       - Starlark (Python-like) code. Define ONE function per page:
+                   def <page>(c, ctx): ...  It DRAWS a picture; it never returns
+                   anything. c = the canvas, ctx.inputs = the user's values,
+                   ctx.now = the current time (UTC).
+
+Coordinates: (0,0) is top-left, x grows right, y grows down. For text and images,
+(x, y) is the TOP-LEFT corner. Circles/dots center on their coordinates.
+
+Drawing (c.*):
+  fill(color) / clear() ; pixel(x,y,color) ; rect(x0,y0,x1,y1,fill=,outline=)
+  line(x0,y0,x1,y1,color) ; text(s,x,y,font="5x7",color="white",align="left")
+  image("file.png",x,y,w=,h=) ; bitmap([[0,1,...],...],x,y,color)
+Helpers (composites, prefer these): circle, fill_circle, round_rect, hline, vline,
+  gradient_rect, text_center, text_right, text_wrapped, text_fit,
+  progress_bar, sparkline, bars, badge, trend_arrow, icon("sun"), sprite,
+  header, kv, stat, gauge, status_dot, table, scoreboard, grid, color.dim.
+Colors: names ("green","amber","red","white",...) or hex ("#00FF00").
+Fonts: "4x5","5x7","6x8","7x12","16x24", etc.
+
+HARD RULES:
+- Fonts are UPPERCASE ONLY. Call .upper() on any text, or nothing draws.
+- Frames are STILL IMAGES. Don't animate or scroll; the panel re-renders on the
+  manifest's `refresh` timer, so let the next refresh show new data.
+- Draw immediately with c.*; there is no widget tree and you never return anything.
+- Lay things out by hand; the panel is only 32px tall, so keep text short.
+- To fetch live data, call http.get(url, headers={}, params={}, ttl_seconds=300).
+  It returns a DICT you read with SUBSCRIPTS: resp["status_code"], resp["json"],
+  resp["body"]. NOT resp.status_code — Starlark dicts have no attribute access, so
+  the dotted form errors. ALWAYS check resp["status_code"] == 200 before resp["json"].
+- Read inputs with ctx.inputs.get("key", fallback). Declare each input in the
+  manifest with app_input_type: free-text|api-key|dropdown|checkbox|date|date-past|color|selection.
+- API keys MUST use app_input_type: api-key, never free-text. Only api-key inputs
+  are stored encrypted; a key given as free text may not work. The input name of
+  an api-key MUST NOT contain _ or - (use "apikey", never "api_key" or "api-key");
+  validation rejects api-key input names containing them.
+
+Give me BOTH files, complete. Keep text short and high-contrast.
+```
+
+:::tip[Paste it once per chat]
+You only need to send this at the start of a conversation. From there, keep
+describing changes in plain English and the AI already knows the rules. If a chat
+drifts and the AI starts breaking them (lowercase text, animations), paste it again
+to re-anchor.
+:::
+
+## Next
+
+<div className="cardGrid">
+  <a className="card" href="/docs/build-with-ai#step-2-describe-your-app"><h3>Describe your app</h3><p>What to send right after this, with an example.</p></a>
+  <a className="card" href="/docs/build-with-ai/examples"><h3>Examples &amp; lessons</h3><p>Real prompts per app type, and the mistakes to head off.</p></a>
+</div>

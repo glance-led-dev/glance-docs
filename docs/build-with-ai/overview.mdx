@@ -3,7 +3,7 @@ sidebar_position: 0
 sidebar_label: Overview
 title: Build with AI
 slug: /build-with-ai
-read_time: 6
+read_time: 4
 ---
 
 # Build an app with AI
@@ -24,7 +24,7 @@ shows that loop end to end.
     <img className="led led--glow" src="/img/ai/ai-weather.png" alt="A weather panel built from a prompt" width="260" />
     <img className="led led--glow" src="/img/examples/ai-score.png" alt="A scoreboard built from a prompt" width="260" />
   </div>
-  <figcaption>Each of these was written by an AI from a one-line request, using the cheat-sheet below.</figcaption>
+  <figcaption>Each of these was written by an AI from a one-line request, using the AI prompt.</figcaption>
 </figure>
 
 ## What you'll need
@@ -39,7 +39,7 @@ helps you pick:
 
 Either way the steps are the same:
 
-1. **Give the AI the rules** (the cheat-sheet below).
+1. **Give the AI the rules** (the [AI prompt](/docs/build-with-ai/prompt)).
 2. **Describe your app** in a sentence or two.
 3. **Drop the two files it writes into `apps/<your-app>/`** and open it in
    [Glance Dev Studio](/docs/studio).
@@ -56,62 +56,19 @@ Every GDN app is a folder with two files:
 See [App fundamentals](/docs/overview/fundamentals) for the whole model. The AI writes
 both files; you review and preview them.
 
-## Step 1: give the AI this cheat-sheet
+## Step 1: give the AI the prompt
 
-Copy everything in the box and paste it into your chat before you describe your app.
-It teaches the assistant the platform's rules:
+Open **[The AI prompt](/docs/build-with-ai/prompt)**, copy the box, and paste it into
+your chat before you describe your app. It teaches the assistant the platform's rules
+in one go, so it writes real GDN code instead of guessing.
 
-```text
-You are writing an app for the Glance Developer Network (GDN): an app that renders
-to a Glance LED panel. The panel is always 32 pixels tall. Each panel module is
-64 pixels wide and panels daisy-chain up to 384 pixels wide; for best performance keep
-images to 192x32 or smaller and split content across multiple pages. An app is a FOLDER
-with two files:
-
-  manifest.yaml  - settings: id, name, width, height, refresh (seconds),
-                   pages: [list of screen names], and inputs (the user's form).
-  app.star       - Starlark (Python-like) code. Define ONE function per page:
-                   def <page>(c, ctx): ...  It DRAWS a picture; it never returns
-                   anything. c = the canvas, ctx.inputs = the user's values,
-                   ctx.now = the current time (UTC).
-
-Coordinates: (0,0) is top-left, x grows right, y grows down. For text and images,
-(x, y) is the TOP-LEFT corner. Circles/dots center on their coordinates.
-
-Drawing (c.*):
-  fill(color) / clear() ; pixel(x,y,color) ; rect(x0,y0,x1,y1,fill=,outline=)
-  line(x0,y0,x1,y1,color) ; text(s,x,y,font="5x7",color="white",align="left")
-  image("file.png",x,y,w=,h=) ; bitmap([[0,1,...],...],x,y,color)
-Helpers (composites, prefer these): circle, fill_circle, round_rect, hline, vline,
-  gradient_rect, text_center, text_right, text_wrapped, text_fit,
-  progress_bar, sparkline, bars, badge, trend_arrow, icon("sun"), sprite,
-  header, kv, stat, gauge, status_dot, table, scoreboard, grid, color.dim.
-Colors: names ("green","amber","red","white",...) or hex ("#00FF00").
-Fonts: "4x5","5x7","6x8","7x12","16x24", etc.
-
-HARD RULES:
-- Fonts are UPPERCASE ONLY. Call .upper() on any text, or nothing draws.
-- Frames are STILL IMAGES. Don't animate or scroll; the panel re-renders on the
-  manifest's `refresh` timer, so let the next refresh show new data.
-- Draw immediately with c.*; there is no widget tree and you never return anything.
-- Lay things out by hand; the panel is only 32px tall, so keep text short.
-- To fetch live data, call http.get(url, headers={}, params={}, ttl_seconds=300).
-  It returns a DICT you read with SUBSCRIPTS: resp["status_code"], resp["json"],
-  resp["body"]. NOT resp.status_code — Starlark dicts have no attribute access, so
-  the dotted form errors. ALWAYS check resp["status_code"] == 200 before resp["json"].
-- Read inputs with ctx.inputs.get("key", fallback). Declare each input in the
-  manifest with app_input_type: free-text|api-key|dropdown|checkbox|date|date-past|color|selection.
-- API keys MUST use app_input_type: api-key, never free-text. Only api-key inputs
-  are stored encrypted; a key given as free text may not work. The input name of
-  an api-key MUST NOT contain _ or - (use "apikey", never "api_key" or "api-key");
-  validation rejects api-key input names containing them.
-
-Give me BOTH files, complete. Keep text short and high-contrast.
-```
+<div className="cardGrid">
+  <a className="card" href="/docs/build-with-ai/prompt"><h3>The AI prompt →</h3><p>The copy-paste block that primes your assistant. Paste it once at the start.</p></a>
+</div>
 
 ## Step 2: describe your app
 
-Right after the cheat-sheet, say what you want. A sentence works, but naming your
+Right after the prompt, say what you want. A sentence works, but naming your
 inputs and the panel width gets you a better result:
 
 ```text
