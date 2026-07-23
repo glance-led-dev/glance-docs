@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: HTTP requests
-read_time: 4
+read_time: 5
 ---
 
 # HTTP requests (`http.*`)
@@ -42,6 +42,14 @@ def main(c, ctx):
 | `body` | string | The raw response text. Empty when `status_code` is `0`. |
 | `json` | any | The body decoded as JSON, or `None` if the body isn't valid JSON. |
 | `error` | string | `None` normally; a short message when `status_code` is `0`. |
+
+:::warning[It's a dict — read it with `["..."]`, not `.`]
+Read the response with subscripts: `resp["status_code"]`, `resp["json"]`,
+`resp["body"]`. The dotted form from Python's `requests` library —
+`resp.status_code` — does **not** work; Starlark dicts have no attribute access, so
+it fails with *"Object of type `dict` has no attribute `status_code`"*. If an AI
+assistant wrote your app, this is the single most common thing to fix.
+:::
 
 Check the response before you draw.
 

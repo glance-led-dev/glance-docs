@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: Examples & lessons
-read_time: 4
+read_time: 5
 ---
 
 # Examples & lessons
@@ -144,6 +144,7 @@ see the panel and it's used to bigger screens. Head them off in your prompt:
 | Returns a layout / widget tree | You draw with `c.*` | "Draw immediately with `c.*`; return nothing." |
 | Assumes a big screen | 32px tall, keep it short | "Target a 128×32 panel; keep text short." |
 | Uses local time | `ctx.now` is UTC | "Time is UTC; add a UTC-offset input." |
+| Writes `resp.status_code` | `http.get` returns a dict | "Read `http.get` results as `resp["status_code"]`, not `resp.status_code`." |
 | Ignores failed requests | Guard every fetch | "Check `status_code` before reading `http.get`." |
 | Overflowing long text | Wrap and clip by hand | "Wrap text with `c.text_wrapped`; stop at the edge." |
 | Pastes a full-size image | Panel-sized assets | "Draw images at 16px; declare them in `assets:`." |

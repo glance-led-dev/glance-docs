@@ -3,7 +3,7 @@ sidebar_position: 0
 sidebar_label: Overview
 title: Build with AI
 slug: /build-with-ai
-read_time: 5
+read_time: 6
 ---
 
 # Build an app with AI
@@ -95,8 +95,10 @@ HARD RULES:
   manifest's `refresh` timer, so let the next refresh show new data.
 - Draw immediately with c.*; there is no widget tree and you never return anything.
 - Lay things out by hand; the panel is only 32px tall, so keep text short.
-- To fetch live data, call http.get(url, headers={}, params={}, ttl_seconds=300);
-  it returns {status_code, body, json}. ALWAYS check status_code before using json.
+- To fetch live data, call http.get(url, headers={}, params={}, ttl_seconds=300).
+  It returns a DICT you read with SUBSCRIPTS: resp["status_code"], resp["json"],
+  resp["body"]. NOT resp.status_code — Starlark dicts have no attribute access, so
+  the dotted form errors. ALWAYS check resp["status_code"] == 200 before resp["json"].
 - Read inputs with ctx.inputs.get("key", fallback). Declare each input in the
   manifest with app_input_type: free-text|api-key|dropdown|checkbox|date|date-past|color|selection.
 - API keys MUST use app_input_type: api-key, never free-text. Only api-key inputs
@@ -138,10 +140,10 @@ then open it in [Studio](/docs/studio) to see it live.
 
 :::tip[AI code is a first draft, not the final word]
 
-Always preview it. The two mistakes assistants make most are lowercase text
-(fonts are uppercase-only, so lowercase draws nothing) and forgetting to check
-`status_code` before reading `http.get` data. `gdn check apps/<id>` and the live
-preview catch both in seconds.
+Always preview it. The mistakes assistants make most are lowercase text (fonts are
+uppercase-only, so lowercase draws nothing) and reading an `http.get` response as
+`resp.status_code` instead of `resp["status_code"]` — the response is a dict, so the
+dotted form errors. `gdn check apps/<id>` and the live preview catch both in seconds.
 
 :::
 
