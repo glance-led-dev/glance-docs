@@ -33,6 +33,15 @@
 }
 .btnGhost:hover { border-color: var(--gdn-green); text-decoration: none; }
 
+/* The hero ticker: a slim LED strip in the same panel chrome as the app
+   panels below it. */
+.marquee {
+  background: #000; padding: 10px; border-radius: 10px; border: 1px solid #1e2621;
+  box-shadow: 0 0 30px rgba(0,255,0,0.14), 0 12px 30px rgba(0,0,0,0.5);
+  margin: 0 auto 1.2rem; max-width: 860px;
+}
+.marquee canvas { display: block; margin: 0 auto; max-width: 100%; }
+
 .panelRow { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center; }
 .panel {
   background: #000; padding: 10px; border-radius: 10px; border: 1px solid #1e2621; flex: 1 1 auto;
