@@ -44,6 +44,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/social-card.png',
+      // One-click collapse for the doc sidebar (pairs with the drag-to-resize
+      // handles in src/theme) — full-width reading on laptop screens.
+      docs: {sidebar: {hideable: true}},
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,

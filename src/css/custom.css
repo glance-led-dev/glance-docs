@@ -66,6 +66,29 @@ h1, h2, h3 { letter-spacing: -0.4px; }
 }
 .navbar__title { font-weight: 800; letter-spacing: -0.3px; }
 
+/* Nav labels must never break into two lines ("Get started" used to fold
+   onto itself on laptop widths, leaving items at mismatched heights). */
+.navbar__item { white-space: nowrap; }
+
+/* Laptop widths: the full-size navbar doesn't fit (truncated title, wrapped
+   labels), so tighten items and slim the search box before things collide.
+   Below 997px Docusaurus switches to the hamburger menu and none of this
+   applies. */
+@media (min-width: 997px) and (max-width: 1340px) {
+  .navbar__item { --ifm-navbar-item-padding-horizontal: 0.55rem; font-size: 0.9rem; }
+  .navbar__title { font-size: 0.95rem; }
+  .navbar__search-input { width: 9rem; }
+  .navbar__search-input:focus { width: 12rem; }
+  /* The slim search box hasn't room for the "ctrl K" badge over the
+     placeholder — the shortcut still works, just unadvertised here. */
+  .navbar__search [class*='searchHintContainer'] { display: none; }
+}
+/* Narrow laptops: the logo carries the brand; the wordmark steps aside
+   instead of showing up ellipsized. */
+@media (min-width: 997px) and (max-width: 1150px) {
+  .navbar__title { display: none; }
+}
+
 /* Links get a touch of glow on hover in dark */
 [data-theme='dark'] .markdown a { text-decoration-color: rgba(43, 255, 110, 0.4); }
 
@@ -185,3 +208,73 @@ h1, h2, h3 { letter-spacing: -0.4px; }
 .prompt-block pre code,
 .prompt-block pre code .token-line { white-space: pre-wrap !important; overflow-wrap: anywhere; }
 .prompt-block button[class*='wordWrapButton'] { display: none !important; }
+
+/* ---------- Resizable side panels (laptop ergonomics) ----------
+   Drag handles (see src/theme/DocRoot/Layout/Sidebar and src/theme/TOC) let
+   readers set their own sidebar/TOC widths. Widths live in CSS variables:
+   the theme's --doc-sidebar-width for the left nav, our --gdn-toc-width for
+   the right rail. Desktop only — under 997px both panels leave the flow. */
+
+/* Start the left nav a bit narrower on laptop-sized screens. Inline widths
+   set by dragging override this; double-click a handle to come back here. */
+@media (min-width: 997px) and (max-width: 1440px) {
+  :root { --doc-sidebar-width: 260px; }
+}
+
+.gdn-panelResizer { display: none; }
+
+@media (min-width: 997px) {
+  .gdn-panelResizer {
+    display: block;
+    cursor: col-resize;
+    touch-action: none;
+    z-index: 2;
+  }
+  /* The affordance: a slim brand-green line on hover/focus/drag. */
+  .gdn-panelResizer::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: transparent;
+    transition: background 0.15s ease;
+  }
+  .gdn-panelResizer:hover::after,
+  .gdn-panelResizer:focus-visible::after,
+  html.gdn-resizing .gdn-panelResizer::after { background: var(--ifm-color-primary); }
+  .gdn-panelResizer:focus-visible { outline: none; }
+
+  /* Left-nav handle: a flex child of the docs row, straddling the sidebar's
+     right border (slight negative margin so layout barely moves). */
+  .gdn-panelResizer--sidebar {
+    position: relative;
+    flex: 0 0 7px;
+    margin-left: -4px;
+  }
+  .gdn-panelResizer--off { pointer-events: none; opacity: 0; }
+
+  /* TOC handle: pinned to the left edge of the rail's column, inside its
+     gutter padding so it never sits on top of text. */
+  .gdn-panelResizer--toc {
+    position: absolute;
+    top: 0; bottom: 0; left: 2px;
+    width: 7px;
+  }
+
+  /* The rail is a fixed 25% grid column; route its width (and the article
+     column's ceiling) through --gdn-toc-width so the handle can drive both.
+     Without :has() support this simply stays at the theme's 25% default. */
+  .row > .col.col--3:has(> .theme-doc-toc-desktop) {
+    --ifm-col-width: var(--gdn-toc-width, 25%);
+    position: relative;
+  }
+  .row:has(> .col.col--3 > .theme-doc-toc-desktop) > .col:first-child {
+    max-width: calc(100% - var(--gdn-toc-width, 25%)) !important;
+  }
+
+  /* While dragging: freeze the sidebar's width transition so it tracks the
+     cursor 1:1, and suppress accidental text selection. */
+  html.gdn-resizing { cursor: col-resize; user-select: none; }
+  html.gdn-resizing .theme-doc-sidebar-container { transition: none !important; }
+}
