@@ -63,7 +63,7 @@ light.
 
 Because a slow API surfaces as `status_code` `0`, **always draw a fallback** when
 `resp["status_code"] != 200`. Pick APIs that answer quickly — see
-[where to find them](/docs/appendix/faq#where-do-i-find-apis-to-use).
+[where to find them](/docs/appendix/faq#live-data-and-apis).
 
 ## Refresh
 

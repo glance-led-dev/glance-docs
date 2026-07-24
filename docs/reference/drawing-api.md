@@ -43,6 +43,11 @@ green is `#00FF00`. The global `color` struct has all the named constants plus
 `color.dim(c, pct)` for darkened variants, see
 [Helper functions](/docs/reference/helper-functions#colors-the-color-struct).
 
+Every named color, as it looks on the panel — **click a chip to copy its name**
+(`gray`/`darkgray`/`midgray` also answer to the `grey` spellings):
+
+<ColorSwatches />
+
 ## Text is UPPERCASE
 
 The bitmap fonts contain capital letters, digits, and punctuation, but no lowercase

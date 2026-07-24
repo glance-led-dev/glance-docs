@@ -20,6 +20,9 @@ Every Glance app follows the same path:
 Glance apps live in one repository, your apps are folders inside it, and publishing is a
 pull request. You need **Python 3.9+** and **Git** (or download the ZIP from GitHub).
 
+<Tabs groupId="os">
+<TabItem value="win" label="Windows" default>
+
 ```bash
 git clone https://github.com/glance-led-dev/glance-dev-network.git
 cd glance-dev-network
@@ -27,7 +30,9 @@ pip install -e .
 gdn version        # prints gdn 0.1.0
 ```
 
-:::tip[On a Mac? Use a virtualenv]
+</TabItem>
+<TabItem value="mac" label="macOS">
+
 macOS's Python is usually Homebrew's, and it **won't let you install into it** —
 `pip3 install -e .` stops with `error: externally-managed-environment`. Make a virtual
 environment instead (the tidy way to do it anyway):
@@ -45,7 +50,19 @@ The `.venv` only applies to the terminal you activate it in. **Each time you ope
 terminal** to run `gdn` (for example `gdn studio`), `cd` back into the folder and run
 `source .venv/bin/activate` first. Full macOS setup is in the
 [Install guide](/docs/getting-started/install).
-:::
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```bash
+git clone https://github.com/glance-led-dev/glance-dev-network.git
+cd glance-dev-network
+pip install -e .   # or pip3; use a venv if your distro blocks system installs
+gdn version        # prints gdn 0.1.0
+```
+
+</TabItem>
+</Tabs>
 
 :::tip[No fork to set up]
 

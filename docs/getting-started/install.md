@@ -33,14 +33,17 @@ Download it from the **official site**, python.org. It's a normal installer:
 
 [python.org/downloads](https://www.python.org/downloads/)
 
-:::caution[Windows: use python.org, not the Microsoft Store]
+<Tabs groupId="os">
+<TabItem value="win" label="Windows" default>
+
+:::caution[Use python.org, not the Microsoft Store]
 Install Python from **python.org**, not the Microsoft Store. The Store version puts the
 `gdn` command in a hidden folder that isn't on your PATH, so `gdn` reads as "not recognized"
 even after a perfectly successful install. If you already used the Store version, don't
 worry, `python -m gdn` still works (see step 3), but python.org is the smoother path.
 :::
 
-:::danger[Windows: tick "Add python.exe to PATH"]
+:::danger[Tick "Add python.exe to PATH"]
 On the first screen of the Python installer, tick
 **"Add python.exe to PATH"** before you click Install:
 
@@ -50,8 +53,19 @@ If you miss it, Windows won't find `python` or `gdn`, and nothing below will wor
 (If you already installed without it, just re-run the installer and check the box.)
 :::
 
-- **macOS:** run the `.pkg` installer, or `brew install python`.
-- **Linux:** usually already installed, otherwise `sudo apt install python3 python3-pip`.
+</TabItem>
+<TabItem value="mac" label="macOS">
+
+Run the `.pkg` installer from python.org, or `brew install python`.
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+Python is usually already installed. If not: `sudo apt install python3 python3-pip`
+(Debian/Ubuntu), or your distro's package manager.
+
+</TabItem>
+</Tabs>
 
 Open a **new** terminal window (so it picks up the new PATH) and check it worked:
 
@@ -74,13 +88,27 @@ git --version
 If you see a version number, you're set, skip to the next step. If it says "command not
 found" or "not recognized", install it:
 
-- **Windows:** download and run the installer from
-  [git-scm.com/download/win](https://git-scm.com/download/win) and accept the defaults.
-  It also installs **Git Credential Manager**, which handles your GitHub sign-in for you
-  the first time you publish, so there's no token to set up.
-- **macOS:** just run `git --version` once, macOS offers to install the developer tools,
-  click **Install**. Or `brew install git`.
-- **Linux:** `sudo apt install git` (Debian/Ubuntu), or your distro's package manager.
+<Tabs groupId="os">
+<TabItem value="win" label="Windows" default>
+
+Download and run the installer from
+[git-scm.com/download/win](https://git-scm.com/download/win) and accept the defaults.
+It also installs **Git Credential Manager**, which handles your GitHub sign-in for you
+the first time you publish, so there's no token to set up.
+
+</TabItem>
+<TabItem value="mac" label="macOS">
+
+Just run `git --version` once — macOS offers to install the developer tools,
+click **Install**. Or `brew install git`.
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+`sudo apt install git` (Debian/Ubuntu), or your distro's package manager.
+
+</TabItem>
+</Tabs>
 
 Open a **new** terminal afterward and run `git --version` again to confirm.
 
@@ -209,12 +237,35 @@ To make plain `gdn` work everywhere, install Python from **python.org** with
   permission errors on install use a virtual environment (and remember to re-activate it in
   each new terminal, including before `gdn studio`):
 
+<Tabs groupId="os">
+<TabItem value="win" label="Windows" default>
+
 ```bash
 python -m venv .venv
-# Windows:  .venv\Scripts\activate
-# macOS/Linux:  source .venv/bin/activate
+.venv\Scripts\activate
 pip install -e .
 ```
+
+</TabItem>
+<TabItem value="mac" label="macOS">
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+</TabItem>
+</Tabs>
 
 ## Next
 
