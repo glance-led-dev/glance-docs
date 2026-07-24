@@ -104,6 +104,12 @@ h1, h2, h3 { letter-spacing: -0.4px; }
 .led--glow { box-shadow: 0 0 34px rgba(0, 255, 0, 0.18), 0 10px 30px rgba(0, 0, 0, 0.5); }
 .led img, img.led { image-rendering: pixelated; display: block; width: 100%; height: auto; }
 
+/* LED-matrix rendering (src/components/LedImage): the component inherits the
+   .led panel chrome above; these make its container/canvas behave like the
+   <img> it replaces (block layout, responsive downscale). */
+.ledPanel { display: block; max-width: 100%; }
+.ledPanel .ledPanel__canvas, .ledPanel img { max-width: 100%; height: auto; }
+
 /* ---------- Reusable doc bits ---------- */
 .figure { margin: 1.4rem 0; }
 .figure figcaption, .caption {

@@ -33,7 +33,7 @@ Build a GDN app that shows a large HH:MM clock for a 64×32 panel. Inputs: a UTC
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/apps/ported-bigclock/main.png" alt="A large digital clock" width="300" />
+  <LedImage className="led led--glow" src="/img/apps/ported-bigclock/main.png" alt="A large digital clock" width="300" />
 </figure>
 
 **The lesson: time is UTC.** `ctx.now` is always UTC, so ask for a UTC-offset input
@@ -51,7 +51,7 @@ Build a GDN app that shows a city name and its current temperature, centered, wi
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/apps/ported-weather/main.png" alt="A weather panel showing a city and temperature" width="300" />
+  <LedImage className="led led--glow" src="/img/apps/ported-weather/main.png" alt="A weather panel showing a city and temperature" width="300" />
 </figure>
 
 **The lesson: uppercase, centered, and check the fetch.** The AI will often write
@@ -70,7 +70,7 @@ Build a GDN app that shows the Bitcoin price from the CoinGecko API, with a smal
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/examples/btc.png" alt="A Bitcoin price ticker" width="300" />
+  <LedImage className="led led--glow" src="/img/examples/btc.png" alt="A Bitcoin price ticker" width="300" />
 </figure>
 
 **The lesson: live data is `http.get`, and always guard it.** Fetch with
@@ -89,7 +89,7 @@ Build a GDN app that shows a short fact with a small icon and the label "FACT", 
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/apps/ported-catfact/main.png" alt="A fact panel with a small icon and wrapped text" width="300" />
+  <LedImage className="led led--glow" src="/img/apps/ported-catfact/main.png" alt="A fact panel with a small icon and wrapped text" width="300" />
 </figure>
 
 **The lesson: long text must be wrapped by hand.** There's no scrolling marquee, so tell
@@ -107,7 +107,7 @@ Build a GDN app that counts down the days to a date the user picks. Input: a tar
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/apps/countdown/days.png" alt="A days-remaining countdown" width="300" />
+  <LedImage className="led led--glow" src="/img/apps/countdown/days.png" alt="A days-remaining countdown" width="300" />
 </figure>
 
 **The lesson: handle the empty and past states.** Ask for a `date` input, compute the
@@ -125,7 +125,7 @@ Build a GDN app that shows two team abbreviations and their scores with a period
 </div>
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/examples/ai-score.png" alt="A two-team scoreboard" width="300" />
+  <LedImage className="led led--glow" src="/img/examples/ai-score.png" alt="A two-team scoreboard" width="300" />
 </figure>
 
 **The lesson: lean on the helpers.** One `c.scoreboard("LAL", "BOS", 108, 102, status="Q4")`

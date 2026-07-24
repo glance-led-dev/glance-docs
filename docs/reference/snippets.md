@@ -14,7 +14,7 @@ and match; they're all [drawing API](/docs/reference/drawing-api) and
 
 A colored title bar with a headline below it.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/header-title.png" alt="Header bar + title" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/header-title.png" alt="Header bar + title" width="300" /></figure>
 
 ```python
 def main(c, ctx):
@@ -28,7 +28,7 @@ def main(c, ctx):
 
 Left-aligned labels with right-aligned values, the classic dashboard layout.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/label-value.png" alt="Label / value rows" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/label-value.png" alt="Label / value rows" width="300" /></figure>
 
 ```python
 def main(c, ctx):
@@ -45,7 +45,7 @@ def main(c, ctx):
 
 One big value with a small caption, useful for a single stat.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/big-number.png" alt="Big centered number" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/big-number.png" alt="Big centered number" width="300" /></figure>
 
 ```python
 def main(c, ctx):
@@ -58,7 +58,7 @@ def main(c, ctx):
 
 Colored dots paired with a status line.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/status-dots.png" alt="Status dots + text" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/status-dots.png" alt="Status dots + text" width="300" /></figure>
 
 ```python
 def main(c, ctx):
@@ -73,7 +73,7 @@ def main(c, ctx):
 
 A trend line with the latest number and a direction arrow.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/sparkline-value.png" alt="Sparkline + last value" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/sparkline-value.png" alt="Sparkline + last value" width="300" /></figure>
 
 ```python
 def main(c, ctx):
@@ -88,7 +88,7 @@ def main(c, ctx):
 
 Use c.grid() to split the panel and place a value in each half.
 
-<figure className="figure"><img className="led led--glow" src="/img/cookbook/two-column.png" alt="Two-column split (grid)" width="300" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/cookbook/two-column.png" alt="Two-column split (grid)" width="300" /></figure>
 
 ```python
 def main(c, ctx):

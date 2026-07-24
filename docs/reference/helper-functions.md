@@ -27,7 +27,7 @@ preview and drop its code straight into `app.star` with a click.
 This entire ops dashboard is one short page function:
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/helpers/hero-new.png" alt="Helper showcase: header, status dots, gauge, kv row, table" width="480" />
+  <LedImage className="led led--glow" src="/img/helpers/hero-new.png" alt="Helper showcase: header, status dots, gauge, kv row, table" width="480" />
 </figure>
 
 ```python
@@ -68,7 +68,7 @@ A filled title bar across the top of the canvas with the title centered in it.
 Pass an `icon` name to pin one of the [bundled icons](#pixel-art) at the left edge.
 **Returns** the y just below the bar, where your content starts.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/header.png" alt="Header bar with icon and content below" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/header.png" alt="Header bar with icon and content below" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -83,7 +83,7 @@ One label/value row: `key` left-aligned at `(x, y)`, `value` right-aligned at
 `x + w - 1` (`w=0` means the rest of the canvas). Pass a color as `dots` for a
 dotted leader between them. **Returns** the y of the next row, so rows stack.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/kv.png" alt="Three stacked label/value rows, one with a dotted leader" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/kv.png" alt="Three stacked label/value rows, one with a dotted leader" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -101,7 +101,7 @@ biggest font from `fonts` (default `16x20`, `10x16`, `8x12`, `6x8`) that fits in
 shrinks automatically. With `align="center"` or `"right"`, `x` is the center or
 right edge of both lines. **Returns** the font used for the value.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/stat.png" alt="Two big-number stats, left and right aligned" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/stat.png" alt="Two big-number stats, left and right aligned" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -116,7 +116,7 @@ A semicircular dial gauge. The arc spans 180 degrees, sits on the line `y = cy`,
 and fills left-to-right: `pct` is 0-100. `r` is the outer radius, `thickness` the
 band depth. The optional `label` is drawn centered inside the dial.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/gauge.png" alt="Two dial gauges, CPU at 72 and MEM at 35" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/gauge.png" alt="Two dial gauges, CPU at 72 and MEM at 35" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -135,7 +135,7 @@ A colored status dot centered on `(x, y)`. `status` maps to a color: `True`,
 color directly. The optional `label` sits to the right, vertically centered on the
 dot, and defaults to the dot's color.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/status-dot.png" alt="Four status dots with labels in different states" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/status-dot.png" alt="Four status dots with labels in different states" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -155,7 +155,7 @@ with `aligns`, e.g. `["left", "center", "right"]`). `colors` styles whole rows
 (`None` entries fall back to `color`); `header_color` restyles row 0.
 **Returns** the y just below the last row.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/table.png" alt="A transit departures table with a gray header row" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/table.png" alt="A transit departures table with a gray header row" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -175,7 +175,7 @@ The classic two-team score layout: names in the top corners, big scores under
 them, an optional `status` (`"Q4"`, `"FINAL"`, `"7TH"`) centered at the top.
 Fills the whole canvas width by default; pass `x`/`y`/`w` to inset it.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/scoreboard.png" alt="LAL 102, BOS 99, Q4" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/scoreboard.png" alt="LAL 102, BOS 99, Q4" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -189,7 +189,7 @@ def main(c, ctx):
 
 A horizontal bar; `pct` is 0-100. Optional 1px `border`.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/progress-bar.png" alt="A 64 percent progress bar with a border" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/progress-bar.png" alt="A 64 percent progress bar with a border" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -205,7 +205,7 @@ A mini line chart of a list of numbers, scaled to fill the box. `fill` shades th
 area under the line. By default it scales to the min/max of your data (a flat
 list draws mid-height); pass `min_val`/`max_val` for a fixed scale.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/sparkline.png" alt="A cyan sparkline with shaded fill" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/sparkline.png" alt="A cyan sparkline with shaded fill" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -219,7 +219,7 @@ def main(c, ctx):
 A mini bar chart, bars rising from the bottom of the box. Scaling works exactly
 like `sparkline`.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/bars.png" alt="Seven amber bars for commits this week" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/bars.png" alt="Seven amber bars for commits this week" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -233,7 +233,7 @@ def main(c, ctx):
 A filled pill with text inside. **Returns** its total width, so you can place the
 next thing right after it.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/badge.png" alt="A red LIVE badge, then OK and WARN badges" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/badge.png" alt="A red LIVE badge, then OK and WARN badges" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -249,7 +249,7 @@ def main(c, ctx):
 A 5x5 up/down/flat arrow. `direction` is a number (`>0` up, `<0` down, `0` flat)
 or `"up"`/`"down"`/`"flat"`. Colors default to green/red/gray.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/trend-arrow.png" alt="Up, down and flat trend arrows with percentages" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/trend-arrow.png" alt="Up, down and flat trend arrows with percentages" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -273,7 +273,7 @@ art; a legend value of `None` turns that character off. Leading and trailing bla
 lines are ignored, so triple-quoted strings work as-is. `scale` enlarges each art
 pixel by a whole factor. Also accepts a list of row strings.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/sprite.png" alt="Two green space invaders and a multi-color mushroom sprite" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/sprite.png" alt="Two green space invaders and a multi-color mushroom sprite" width="240" /></figure>
 
 ```python
 INVADER = """
@@ -310,7 +310,7 @@ def main(c, ctx):
 Draw a bundled 8x8 pixel-art icon by name, in any color. `scale` enlarges it by a
 whole number. An unknown name simply draws nothing.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/icon.png" alt="Sun, cloud, bolt, heart icons plus a 2x wifi icon" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/icon.png" alt="Sun, cloud, bolt, heart icons plus a 2x wifi icon" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -339,7 +339,7 @@ For custom art, `c.sprite()` above draws from a single string, or see
 Straight horizontal/vertical lines from `(x, y)`, `w` pixels wide or `h` pixels
 tall.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/hline-vline.png" alt="Two horizontal lines crossed by a vertical line" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/hline-vline.png" alt="Two horizontal lines crossed by a vertical line" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -355,7 +355,7 @@ Circle outline / filled circle. Circles are the one shape that centers on its
 coordinates: `(cx, cy)` is the center pixel and the circle spans `r` pixels in
 every direction from it.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/circle.png" alt="A dim red disc with a bright ring, and a cyan dot" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/circle.png" alt="A dim red disc with a bright ring, and a cyan dot" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -369,7 +369,7 @@ def main(c, ctx):
 
 Triangle outline / filled triangle through three points.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/triangle.png" alt="A filled amber triangle and a green triangle outline" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/triangle.png" alt="A filled amber triangle and a green triangle outline" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -383,7 +383,7 @@ def main(c, ctx):
 Rectangle with rounded corners, radius `r`. Like `rect`, corners are inclusive;
 pass `fill`, `outline`, or both.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/round-rect.png" alt="A filled rounded rectangle and a pill-shaped outline" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/round-rect.png" alt="A filled rounded rectangle and a pill-shaped outline" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -398,7 +398,7 @@ Rectangle filled with a smooth blend from `color_a` to `color_b`, left-to-right 
 default, top-to-bottom when `horizontal=False`. Depth on a 32px panel without any
 image.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/gradient-rect.png" alt="A purple-to-skyblue gradient and a black-to-green vertical gradient" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/gradient-rect.png" alt="A purple-to-skyblue gradient and a black-to-green vertical gradient" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -413,7 +413,7 @@ def main(c, ctx):
 
 Text centered across the whole canvas width.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/text-center.png" alt="GAME NIGHT centered in amber over FRIDAY 8 PM" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/text-center.png" alt="GAME NIGHT centered in amber over FRIDAY 8 PM" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -427,7 +427,7 @@ def main(c, ctx):
 Text right-aligned to the canvas edge, inset by `margin`. (For a full label/value
 row in one call, see [`c.kv`](#ckvx-y-key-value-w0-font4x7-key_colorgray-value_colorwhite-dotsnone-gap2).)
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/text-right.png" alt="Sunrise and sunset times, right aligned" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/text-right.png" alt="Sunrise and sunset times, right aligned" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -443,7 +443,7 @@ def main(c, ctx):
 Word-wraps into lines that fit width `w`, drawn downward from `(x, y)`.
 **Returns** the number of lines drawn.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/text-wrapped.png" alt="A quote wrapped onto two lines" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/text-wrapped.png" alt="A quote wrapped onto two lines" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -457,7 +457,7 @@ def main(c, ctx):
 Draws in the biggest font from the list that fits `maxw` (default: canvas
 width). **Returns** the font it used.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/text-fit.png" alt="A long number auto-sized to fit 96 pixels" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/text-fit.png" alt="A long number auto-sized to fit 96 pixels" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -474,7 +474,7 @@ math. It draws nothing on its own. Each cell is a dict with `x0, y0, x1, y1`
 (corners), `w, h` (size), and `cx, cy` (center). Pass `rows` for a 2-D grid
 (e.g. `c.grid(4, rows=2)` gives 8 cells).
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/grid.png" alt="Three outlined columns with a day label and temperature each" width="320" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/grid.png" alt="Three outlined columns with a day label and temperature each" width="320" /></figure>
 
 ```python
 def main(c, ctx):
@@ -499,7 +499,7 @@ tuple. The global `color` struct adds named constants and one function:
 | Constants | `color.black  white  red  green  puregreen  blue  yellow  orange  cyan  magenta  amber  pink  purple  skyblue  gray  darkgray  midgray` |
 | `color.dim(c, pct)` | That color at `pct`% brightness. `color.dim("green", 50)` is half-bright green. Useful for backgrounds, tracks, and fills under sparklines. |
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/color-dim.png" alt="A dim red disc with a bright rim, dim and full white text" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/color-dim.png" alt="A dim red disc with a bright rim, dim and full white text" width="240" /></figure>
 
 ```python
 def main(c, ctx):
@@ -514,7 +514,7 @@ def main(c, ctx):
 
 Fills the whole canvas with black, the usual first line of a page.
 
-<figure className="figure"><img className="led led--glow" src="/img/helpers/clear.png" alt="A cleared black panel with FRESH FRAME text" width="240" /></figure>
+<figure className="figure"><LedImage className="led led--glow" src="/img/helpers/clear.png" alt="A cleared black panel with FRESH FRAME text" width="240" /></figure>
 
 ```python
 def main(c, ctx):

@@ -15,8 +15,8 @@ colors.
 
 <figure className="figure">
   <div className="panelRowStatic">
-    <img className="led led--glow" src="/img/ai/movies-v4.png" alt="Final movie card: Toy Story 5 with poster, stars, and score" width="330" />
-    <img className="led led--glow" src="/img/ai/movies-v4-low.png" alt="Final movie card: Scary Movie with a red score" width="330" />
+    <LedImage className="led led--glow" src="/img/ai/movies-v4.png" alt="Final movie card: Toy Story 5 with poster, stars, and score" width="330" />
+    <LedImage className="led led--glow" src="/img/ai/movies-v4-low.png" alt="Final movie card: Scary Movie with a red score" width="330" />
   </div>
   <figcaption>Where we're headed: a card per movie, posters and accent colors pulled from the data, the score colored by its rating.</figcaption>
 </figure>
@@ -60,7 +60,7 @@ TMDB now_playing API. One line each: rank number, then the title.
 :::
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/ai/movies-v1.png" alt="A plain text list of five movie titles" width="360" />
+  <LedImage className="led led--glow" src="/img/ai/movies-v1.png" alt="A plain text list of five movie titles" width="360" />
 </figure>
 
 It works, and it's dull, which is fine for a first pass. The AI fetches the data
@@ -79,7 +79,7 @@ The posters live in the app folder as poster1.png ... poster5.png, already 21x32
 :::
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/ai/movies-v2.png" alt="A card with the movie poster on the left and the title on the right" width="360" />
+  <LedImage className="led led--glow" src="/img/ai/movies-v2.png" alt="A card with the movie poster on the left and the title on the right" width="360" />
 </figure>
 
 Now it has a face. This is the [images](/docs/guides/working-with-images) lesson in action: the
@@ -130,8 +130,8 @@ show the number too, colored green if it's 7 or higher, amber if 6 or higher, re
 
 <figure className="figure">
   <div className="panelRowStatic">
-    <img className="led led--glow" src="/img/ai/movies-v3.png" alt="The card now has gold stars and a green score" width="330" />
-    <img className="led led--glow" src="/img/ai/movies-v4-low.png" alt="A lower-rated film shows fewer stars and a red score" width="330" />
+    <LedImage className="led led--glow" src="/img/ai/movies-v3.png" alt="The card now has gold stars and a green score" width="330" />
+    <LedImage className="led led--glow" src="/img/ai/movies-v4-low.png" alt="A lower-rated film shows fewer stars and a red score" width="330" />
   </div>
   <figcaption>The rating drives the picture: four gold stars and a green 7.4, versus three stars and a red 5.4.</figcaption>
 </figure>
@@ -152,7 +152,7 @@ wire it to the live API with my key input so it updates on its own.
 :::
 
 <figure className="figure">
-  <img className="led led--glow" src="/img/ai/movies-v4.png" alt="The finished card with an accent stripe and a rank badge" width="360" />
+  <LedImage className="led led--glow" src="/img/ai/movies-v4.png" alt="The finished card with an accent stripe and a rank badge" width="360" />
 </figure>
 
 Every movie now carries its own color, pulled straight from its artwork, plus a
