@@ -2,6 +2,8 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import LedImage from '@site/src/components/LedImage';
+import LedMarquee from '@site/src/components/LedMarquee';
 import styles from './index.module.css';
 
 const HERO = [
@@ -49,10 +51,13 @@ function Hero() {
           <Link className={styles.btnPrimary} to="/docs/getting-started/quickstart">Get started</Link>
           <Link className={styles.btnGhost} to="/docs/overview/introduction">What is GDN?</Link>
         </div>
+        <div className={styles.marquee}>
+          <LedMarquee ariaLabel="LED ticker scrolling: make apps for your Glance" />
+        </div>
         <div className={styles.panelRow}>
           {HERO.map((p) => (
             <div key={p.img} className={styles.panel} style={{maxWidth: p.w * 1.6}}>
-              <img src={p.img} alt="" />
+              <LedImage src={p.img} alt="" />
             </div>
           ))}
         </div>
@@ -84,7 +89,7 @@ export default function Home() {
         <div className="appGrid">
           {SHOWCASE.map((a) => (
             <div key={a.id} className="appTile">
-              <img src={a.img} alt={a.name} />
+              <LedImage src={a.img} alt={a.name} />
               <div className="name">{a.name}</div>
             </div>
           ))}

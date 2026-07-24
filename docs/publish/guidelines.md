@@ -33,7 +33,7 @@ A few standards keep the catalog high-quality and every app safe to run.
 Studio builds the `preview.png` for you, every page of your app stacked into one image:
 
 <figure className="figure">
-  <img className="led" src="/img/publish/example-preview.png" alt="A preview.png showing both pages of an app stacked vertically" width="300" />
+  <LedImage className="led" src="/img/publish/example-preview.png" alt="A preview.png showing both pages of an app stacked vertically" width="300" />
   <figcaption>A two-page app's <code>preview.png</code>: each page at 5x, stacked. Validate or Submit generates it, so you never draw it by hand.</figcaption>
 </figure>
 
