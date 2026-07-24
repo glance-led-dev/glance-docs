@@ -1,71 +1,119 @@
 import React, {useEffect, useRef} from 'react';
 
-// A slim simulated LED ticker that scrolls text across the homepage hero.
-// The whole message is pre-rendered once to an offscreen dot-matrix strip
-// (including the glow pass), then each animation frame just blits a window
-// of it — no per-frame dot drawing, so scrolling costs almost nothing.
-// Honors prefers-reduced-motion by showing a static frame.
+// The homepage hero ticker: one continuous simulated LED strip, 32 LEDs tall
+// (real panel height), that scrolls the tagline followed by actual app
+// renders from the docs, pixel for pixel. Everything is composited once into
+// an offscreen strip (dots + glow), then each frame blits a sliding window,
+// so the animation is effectively free. Honors prefers-reduced-motion by
+// showing a static frame.
 
-// Standard 5x7 column font, LSB = top row. Only the glyphs the messages use.
+// Standard 5x7 column font, LSB = top row; drawn doubled (10x14) on the
+// 32-row strip. Only the glyphs the tagline uses.
 const FONT = {
   A: [0x7c, 0x12, 0x11, 0x12, 0x7c],
-  B: [0x7f, 0x49, 0x49, 0x49, 0x36],
   C: [0x3e, 0x41, 0x41, 0x41, 0x22],
-  D: [0x7f, 0x41, 0x41, 0x22, 0x1c],
   E: [0x7f, 0x49, 0x49, 0x49, 0x41],
   F: [0x7f, 0x09, 0x09, 0x09, 0x01],
   G: [0x3e, 0x41, 0x49, 0x49, 0x7a],
-  H: [0x7f, 0x08, 0x08, 0x08, 0x7f],
-  I: [0x00, 0x41, 0x7f, 0x41, 0x00],
   K: [0x7f, 0x08, 0x14, 0x22, 0x41],
   L: [0x7f, 0x40, 0x40, 0x40, 0x40],
+  M: [0x7f, 0x02, 0x0c, 0x02, 0x7f],
   N: [0x7f, 0x04, 0x08, 0x10, 0x7f],
   O: [0x3e, 0x41, 0x41, 0x41, 0x3e],
   P: [0x7f, 0x09, 0x09, 0x09, 0x06],
   R: [0x7f, 0x09, 0x19, 0x29, 0x46],
   S: [0x46, 0x49, 0x49, 0x49, 0x31],
-  T: [0x01, 0x01, 0x7f, 0x01, 0x01],
   U: [0x3f, 0x40, 0x40, 0x40, 0x3f],
-  W: [0x3f, 0x40, 0x38, 0x40, 0x3f],
   Y: [0x07, 0x08, 0x70, 0x08, 0x07],
-  '.': [0x00, 0x60, 0x60, 0x00, 0x00],
   ' ': [0x00, 0x00, 0x00, 0x00, 0x00],
 };
 
-const ROWS = 13; // 7-row font + margins; a slim ticker strip
-const TEXT_Y = 3;
-const SPEED = 26; // LED columns per second
+const ROWS = 32; // native panel height — app renders scroll through 1:1
+const TEXT_TOP = 9; // vertically centers the doubled 10x14 tagline
+const SPEED = 30; // LED columns per second
+const GAP = 6; // blank columns between segments — keep the apps close together
+const OFF_LUMA = 10;
 
-// [text, color] pairs, joined with breathing room between them.
-const MESSAGES = [
-  ['BUILD APPS FOR YOUR GLANCE.', '#2bff6e'],
-  ['CLOCKS. TICKERS. ALERTS. FUN.', '#e6e9e7'],
-  ['WRITE IT. SEE IT. SHARE IT.', '#2bff6e'],
+// The tagline, then real apps we've made — renders scroll through pixel
+// for pixel, edges trimmed so there's no dead black space between them.
+const SEGMENTS = [
+  {text: 'MAKE APPS FOR YOUR GLANCE', color: '#2bff6e'},
+  {src: '/img/apps/go-gators/sign.png'},
+  {src: '/img/examples/marlins.png'},
+  {src: '/img/examples/game-night.png'},
+  {src: '/img/examples/btc.png'},
+  {src: '/img/apps/local-fires/status.png'},
+  {src: '/img/apps/asteroids-near-us/neo.png'},
+  {src: '/img/apps/now-playing/movie_1.png'},
+  {src: '/img/apps/moon-phase/moon.png'},
 ];
 
-function textColumns() {
-  // Flatten the messages into [columnBits, color] with 1-col letter spacing
-  // and a gap between messages.
+const emptyCol = () => new Array(ROWS).fill(null);
+
+// Each strip column is an array of 32 colors (null = unlit).
+function textColumns(text, color) {
   const cols = [];
-  for (const [text, color] of MESSAGES) {
-    for (const ch of text) {
-      const glyph = FONT[ch] ?? FONT[' '];
-      for (const bits of glyph) {
-        cols.push([bits, color]);
+  for (const ch of text) {
+    const glyph = FONT[ch] ?? FONT[' '];
+    for (const bits of glyph) {
+      const col = emptyCol();
+      for (let y = 0; y < 7; y++) {
+        if (bits & (1 << y)) {
+          col[TEXT_TOP + y * 2] = color;
+          col[TEXT_TOP + y * 2 + 1] = color;
+        }
       }
-      cols.push([0, color]);
+      cols.push(col, [...col]); // doubled horizontally
     }
-    for (let i = 0; i < 10; i++) {
-      cols.push([0, color]);
-    }
+    cols.push(emptyCol(), emptyCol());
   }
   return cols;
 }
 
-function buildStrip(cell) {
-  const cols = textColumns();
+function imageColumns(img) {
+  const w = img.naturalWidth;
+  const h = img.naturalHeight;
+  if (!w || !h || h > ROWS) {
+    return []; // not a native panel render — leave it out
+  }
+  const probe = document.createElement('canvas');
+  probe.width = w;
+  probe.height = h;
+  const ctx = probe.getContext('2d', {willReadFrequently: true});
+  ctx.drawImage(img, 0, 0);
+  let data;
+  try {
+    data = ctx.getImageData(0, 0, w, h).data;
+  } catch {
+    return [];
+  }
+  const top = Math.floor((ROWS - h) / 2);
+  const cols = [];
+  for (let x = 0; x < w; x++) {
+    const col = emptyCol();
+    for (let y = 0; y < h; y++) {
+      const i = (y * w + x) * 4;
+      const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+      if (r + g + b > OFF_LUMA * 3) {
+        col[top + y] = `rgb(${r},${g},${b})`;
+      }
+    }
+    cols.push(col);
+  }
+  // Trim fully-dark edge columns so renders butt up close in the scroll.
+  const isBlank = (col) => col.every((c) => !c);
+  while (cols.length && isBlank(cols[0])) {
+    cols.shift();
+  }
+  while (cols.length && isBlank(cols[cols.length - 1])) {
+    cols.pop();
+  }
+  return cols;
+}
+
+function buildStrip(columns, cell) {
   const strip = document.createElement('canvas');
-  strip.width = cols.length * cell;
+  strip.width = columns.length * cell;
   strip.height = ROWS * cell;
   const ctx = strip.getContext('2d');
   const radius = cell * 0.42;
@@ -85,14 +133,13 @@ function buildStrip(cell) {
       ctx.filter = `blur(${pass.blur}px)`;
       ctx.globalCompositeOperation = 'lighter';
     }
-    for (let x = 0; x < cols.length; x++) {
-      const [bits, color] = cols[x];
+    for (let x = 0; x < columns.length; x++) {
       for (let y = 0; y < ROWS; y++) {
-        const lit = y >= TEXT_Y && y < TEXT_Y + 7 && bits & (1 << (y - TEXT_Y));
-        if (pass.litOnly && !lit) {
+        const color = columns[x][y];
+        if (pass.litOnly && !color) {
           continue;
         }
-        ctx.fillStyle = lit ? color : 'rgba(255,255,255,0.05)';
+        ctx.fillStyle = color || 'rgba(255,255,255,0.05)';
         ctx.beginPath();
         ctx.arc(x * cell + cell / 2, y * cell + cell / 2, pass.r, 0, Math.PI * 2);
         ctx.fill();
@@ -103,6 +150,14 @@ function buildStrip(cell) {
   return strip;
 }
 
+const loadImage = (src) =>
+  new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+
 export default function LedMarquee({ariaLabel = 'LED ticker'}) {
   const canvasRef = useRef(null);
 
@@ -111,48 +166,72 @@ export default function LedMarquee({ariaLabel = 'LED ticker'}) {
     if (!canvas) {
       return undefined;
     }
-    const dpr = window.devicePixelRatio || 1;
-    const cssWidth = canvas.parentElement.clientWidth - 20;
-    const cell = Math.max(4, Math.round((6 * dpr)));
-    const viewCols = Math.max(24, Math.floor((cssWidth * dpr) / cell));
-    canvas.width = viewCols * cell;
-    canvas.height = ROWS * cell;
-    canvas.style.width = `${canvas.width / dpr}px`;
-
-    const strip = buildStrip(cell);
-    const ctx = canvas.getContext('2d');
-    const stripCols = strip.width / cell;
-
-    const paint = (ledOffset) => {
-      const px = (ledOffset % stripCols) * cell;
-      ctx.fillStyle = '#000';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      // Two blits cover the wrap-around seam.
-      ctx.drawImage(strip, -px, 0);
-      ctx.drawImage(strip, strip.width - px, 0);
-    };
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      paint(0);
-      return undefined;
-    }
-
+    let cancelled = false;
     let raf;
-    let last = -1;
-    const start = performance.now();
-    const tick = (now) => {
-      const offset = Math.floor(((now - start) / 1000) * SPEED);
-      if (offset !== last) {
-        last = offset;
-        paint(offset);
+
+    (async () => {
+      const columns = [];
+      for (const seg of SEGMENTS) {
+        if (seg.text) {
+          columns.push(...textColumns(seg.text, seg.color));
+        } else {
+          const img = await loadImage(seg.src);
+          if (img) {
+            columns.push(...imageColumns(img));
+          }
+        }
+        for (let i = 0; i < GAP; i++) {
+          columns.push(emptyCol());
+        }
       }
+      if (cancelled || columns.length === 0) {
+        return;
+      }
+
+      const dpr = window.devicePixelRatio || 1;
+      const cssWidth = canvas.parentElement.clientWidth - 20;
+      const cell = Math.max(3, Math.round(5 * dpr));
+      const viewCols = Math.max(32, Math.floor((cssWidth * dpr) / cell));
+      canvas.width = viewCols * cell;
+      canvas.height = ROWS * cell;
+      canvas.style.width = `${canvas.width / dpr}px`;
+
+      const strip = buildStrip(columns, cell);
+      const ctx = canvas.getContext('2d');
+      const stripCols = strip.width / cell;
+
+      const paint = (ledOffset) => {
+        const px = (ledOffset % stripCols) * cell;
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Two blits cover the wrap-around seam.
+        ctx.drawImage(strip, -px, 0);
+        ctx.drawImage(strip, strip.width - px, 0);
+      };
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        paint(0);
+        return;
+      }
+
+      let last = -1;
+      const start = performance.now();
+      const tick = (now) => {
+        const offset = Math.floor(((now - start) / 1000) * SPEED);
+        if (offset !== last) {
+          last = offset;
+          paint(offset);
+        }
+        raf = requestAnimationFrame(tick);
+      };
       raf = requestAnimationFrame(tick);
+    })();
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
   }, []);
 
-  return (
-    <canvas ref={canvasRef} role="img" aria-label={ariaLabel} />
-  );
+  return <canvas ref={canvasRef} role="img" aria-label={ariaLabel} />;
 }

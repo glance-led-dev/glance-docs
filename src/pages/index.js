@@ -52,7 +52,7 @@ function Hero() {
           <Link className={styles.btnGhost} to="/docs/overview/introduction">What is GDN?</Link>
         </div>
         <div className={styles.marquee}>
-          <LedMarquee ariaLabel="Scrolling LED ticker: build apps for your Glance" />
+          <LedMarquee ariaLabel="LED ticker scrolling: make apps for your Glance" />
         </div>
         <div className={styles.panelRow}>
           {HERO.map((p) => (
