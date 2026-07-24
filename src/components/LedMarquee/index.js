@@ -39,7 +39,6 @@ const OFF_LUMA = 10;
 const SEGMENTS = [
   {text: 'MAKE APPS FOR YOUR GLANCE', color: '#2bff6e'},
   {src: '/img/apps/go-gators/sign.png'},
-  {src: '/img/examples/marlins.png'},
   {src: '/img/examples/game-night.png'},
   {src: '/img/examples/btc.png'},
   {src: '/img/apps/local-fires/status.png'},
@@ -118,35 +117,34 @@ function buildStrip(columns, cell) {
   const ctx = strip.getContext('2d');
   const radius = cell * 0.42;
 
-  const passes = [
-    {blur: cell * 0.9, alpha: 0.5, r: radius * 1.25, litOnly: true},
-    {blur: 0, alpha: 1, r: radius, litOnly: false},
-  ];
-  for (const pass of passes) {
+  // Draw every lit dot sharp, once, on its own layer. The glow is then a
+  // single blurred stamp of that whole layer — blurring per dot instead
+  // takes seconds for a strip this size and delays the first frame.
+  const lit = document.createElement('canvas');
+  lit.width = strip.width;
+  lit.height = strip.height;
+  const litCtx = lit.getContext('2d');
+
+  for (let x = 0; x < columns.length; x++) {
+    for (let y = 0; y < ROWS; y++) {
+      const color = columns[x][y];
+      const target = color ? litCtx : ctx;
+      target.fillStyle = color || 'rgba(255,255,255,0.05)';
+      target.beginPath();
+      target.arc(x * cell + cell / 2, y * cell + cell / 2, radius, 0, Math.PI * 2);
+      target.fill();
+    }
+  }
+
+  if (typeof ctx.filter === 'string') {
     ctx.save();
-    ctx.globalAlpha = pass.alpha;
-    if (pass.blur > 0) {
-      if (typeof ctx.filter !== 'string') {
-        ctx.restore();
-        continue;
-      }
-      ctx.filter = `blur(${pass.blur}px)`;
-      ctx.globalCompositeOperation = 'lighter';
-    }
-    for (let x = 0; x < columns.length; x++) {
-      for (let y = 0; y < ROWS; y++) {
-        const color = columns[x][y];
-        if (pass.litOnly && !color) {
-          continue;
-        }
-        ctx.fillStyle = color || 'rgba(255,255,255,0.05)';
-        ctx.beginPath();
-        ctx.arc(x * cell + cell / 2, y * cell + cell / 2, pass.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
+    ctx.filter = `blur(${cell * 0.9}px)`;
+    ctx.globalAlpha = 0.6;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.drawImage(lit, 0, 0);
     ctx.restore();
   }
+  ctx.drawImage(lit, 0, 0);
   return strip;
 }
 
@@ -170,20 +168,20 @@ export default function LedMarquee({ariaLabel = 'LED ticker'}) {
     let raf;
 
     (async () => {
+      const images = await Promise.all(
+        SEGMENTS.map((seg) => (seg.src ? loadImage(seg.src) : null)),
+      );
       const columns = [];
-      for (const seg of SEGMENTS) {
+      SEGMENTS.forEach((seg, i) => {
         if (seg.text) {
           columns.push(...textColumns(seg.text, seg.color));
-        } else {
-          const img = await loadImage(seg.src);
-          if (img) {
-            columns.push(...imageColumns(img));
-          }
+        } else if (images[i]) {
+          columns.push(...imageColumns(images[i]));
         }
-        for (let i = 0; i < GAP; i++) {
+        for (let g = 0; g < GAP; g++) {
           columns.push(emptyCol());
         }
-      }
+      });
       if (cancelled || columns.length === 0) {
         return;
       }

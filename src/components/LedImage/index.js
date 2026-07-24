@@ -43,42 +43,39 @@ function drawPanel(canvas, img, cssWidth) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const radius = cell * 0.42;
-  const dot = (x, y, r) => {
-    ctx.beginPath();
-    ctx.arc(x * cell + cell / 2, y * cell + cell / 2, r, 0, Math.PI * 2);
-    ctx.fill();
-  };
 
-  // Glow pass first (blurred, additive), then the sharp dots on top.
-  const passes = [
-    {blur: cell * 0.9, alpha: 0.5, r: radius * 1.25, litOnly: true},
-    {blur: 0, alpha: 1, r: radius, litOnly: false},
-  ];
-  for (const pass of passes) {
+  // Lit dots go sharp onto their own layer; the glow is one blurred stamp
+  // of that layer (per-dot blur is what made first paint slow). Unlit dots
+  // draw straight onto the panel.
+  const lit = document.createElement('canvas');
+  lit.width = canvas.width;
+  lit.height = canvas.height;
+  const litCtx = lit.getContext('2d');
+
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const i = (y * cols + x) * 4;
+      const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+      const isLit = r + g + b > OFF_LUMA * 3;
+      const target = isLit ? litCtx : ctx;
+      target.fillStyle = isLit
+        ? `rgb(${r},${g},${b})`
+        : 'rgba(255,255,255,0.055)';
+      target.beginPath();
+      target.arc(x * cell + cell / 2, y * cell + cell / 2, radius, 0, Math.PI * 2);
+      target.fill();
+    }
+  }
+
+  if (typeof ctx.filter === 'string') {
     ctx.save();
-    ctx.globalAlpha = pass.alpha;
-    if (pass.blur > 0) {
-      if (typeof ctx.filter !== 'string') {
-        ctx.restore();
-        continue; // no canvas filter support — skip the glow, keep the dots
-      }
-      ctx.filter = `blur(${pass.blur}px)`;
-      ctx.globalCompositeOperation = 'lighter';
-    }
-    for (let y = 0; y < rows; y++) {
-      for (let x = 0; x < cols; x++) {
-        const i = (y * cols + x) * 4;
-        const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
-        const lit = r + g + b > OFF_LUMA * 3;
-        if (pass.litOnly && !lit) {
-          continue;
-        }
-        ctx.fillStyle = lit ? `rgb(${r},${g},${b})` : 'rgba(255,255,255,0.055)';
-        dot(x, y, pass.r);
-      }
-    }
+    ctx.filter = `blur(${cell * 0.9}px)`;
+    ctx.globalAlpha = 0.6;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.drawImage(lit, 0, 0);
     ctx.restore();
   }
+  ctx.drawImage(lit, 0, 0);
   return true;
 }
 
